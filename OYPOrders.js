@@ -58,7 +58,7 @@ function createOrderLineItems(orderId, resultProductGroups)  {
  	return new Promise ((resolve, reject) => {
 
 
-    //already in raw format so raw not needed - check refresh
+    //already in raw format so raw not needed 
     var productsFieldKey = getFieldKey(dbProductGroups, "Products") ;
     var products = resultProductGroups[productsFieldKey] ;
     var plist = [];
