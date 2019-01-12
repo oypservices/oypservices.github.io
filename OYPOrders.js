@@ -55,10 +55,10 @@ Copy the Goal records
 
 function createOrderLineItems(orderId, resultProductGroups)  {
 
-	return new Promise ((resolve, reject) => {
+ 	return new Promise ((resolve, reject) => {
 
 
-    //already in raw format so raw not needed
+    //already in raw format so raw not needed - check refresh
     var productsFieldKey = getFieldKey(dbProductGroups, "Products") ;
     var products = resultProductGroups[productsFieldKey] ;
     var plist = [];
@@ -84,7 +84,7 @@ function createOrderLineItems(orderId, resultProductGroups)  {
 
          var p = 	OYPKnackAPICall (headers,  apidata)	;     //write the line item
          plist.push (p);
- 
+
      }
 
      Promise.all(plist)
