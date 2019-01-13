@@ -248,6 +248,10 @@ $(document).on('knack-record-create.any' , function (event, view, record) {
    case dbObjects.ContactNotes:
       evaluateContactNotes (event, view, record) ;
 
+   case dbObjects.Account :
+    //  evaluateNewAccount (event, view, record);
+      break ;
+
     default:
       break ;
   }

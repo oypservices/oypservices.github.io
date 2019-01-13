@@ -5,7 +5,6 @@ try {
     var clientId = Knack.models[viewName].toJSON().id ;
 
 
-    var resource = 'knackobject';
     var getapidata =  {
       "method": "get",
       "knackobj": dbObjects.ClientTeam,
@@ -20,7 +19,7 @@ try {
 
     console.dir (getapidata);
 
-    OYPServicesAPIPost( resource, headers, getapidata )
+    OYPKnackAPICall(  headers, getapidata )
       .then (resultCientTeam=> {InspectClientTeamRoles(resultCientTeam, viewName) } ) ;
 
     }

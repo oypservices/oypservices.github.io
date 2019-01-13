@@ -79,7 +79,8 @@ var dbObjects = {
   "ContactNotes" : "object_4",
   "ClientGoals" : "object_2",
   "ClientGoalInterventions" :  "object_25",
-  "ClientIRPs" : "object_26"
+  "ClientIRPs" : "object_26" ,
+  "Account" : "object_6"
 }
 
 
