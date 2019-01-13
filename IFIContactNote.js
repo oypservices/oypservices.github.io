@@ -13,7 +13,7 @@ function AddPersonsPresent() {
 
      $(document).ready(function () {
        if ($('#' +  dbContactNotes.PersonsPresent).text() == "")
-          $('#' +  dbContactNotes.PersonsPresent).text("Default" ) ;
+          $('#' +  dbContactNotes.PersonsPresent).text(Knack.getUserAttributes().name ) ;
       });
 
   }
