@@ -12,7 +12,7 @@ function AddPersonsPresent() {
      console.log ($('#kn-input-' +  dbContactNotes.PersonsPresent).text()) ;
 
      $(document).ready(function () {
-       if ($('#kn-input-' +  dbContactNotes.PersonsPresent).tet() == "")
+       if ($('#kn-input-' +  dbContactNotes.PersonsPresent).text() == "")
           $('#kn-input-' +  dbContactNotes.PersonsPresent).text("Default" ) ;
       });
 
