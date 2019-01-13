@@ -9,11 +9,11 @@
 function AddPersonsPresent() {
   try {
      var proc = "AddPersonsPresent" ;
-     console.log ($('#kn-input-' +  dbContactNotes.PersonsPresent).text()) ;
+     console.log ($('.' +  dbContactNotes.PersonsPresent).text()) ;
 
      $(document).ready(function () {
-       if ($('#kn-input-' +  dbContactNotes.PersonsPresent).text() == "")
-          $('#kn-input-' +  dbContactNotes.PersonsPresent).text("Default" ) ;
+       if ($('.' +  dbContactNotes.PersonsPresent).text() == "")
+          $('.' +  dbContactNotes.PersonsPresent).text("Default" ) ;
       });
 
   }
