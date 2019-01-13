@@ -10,7 +10,7 @@ function AddPersonsPresent() {
   try {
      var proc = "AddPersonsPresent" ;
      if ($('#kn-input-' +  dbContactNotes.PersonsPresent).val() == "")
-        $('#kn-input-' +  dbContactNotes.PersonsPresent).val("Default" ) = ;
+        $('#kn-input-' +  dbContactNotes.PersonsPresent).val("Default" ) ;
 
   }
 
