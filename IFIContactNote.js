@@ -9,8 +9,8 @@
 function AddPersonsPresent() {
   try {
      var proc = "AddPersonsPresent" ;
-     if ($('#kn-input-' +  dbContactNotes.PersonsPresent).text() == "")
-        $('#kn-input-' +  dbContactNotes.PersonsPresent).text() = "Default" ;
+     if ($('#kn-input-' +  dbContactNotes.PersonsPresent).val() == "")
+        $('#kn-input-' +  dbContactNotes.PersonsPresent).val("Default" ) = ;
 
   }
 
