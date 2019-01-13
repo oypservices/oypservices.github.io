@@ -9,6 +9,8 @@
 function AddPersonsPresent() {
   try {
      var proc = "AddPersonsPresent" ;
+     console.log ($('#kn-input-' +  dbContactNotes.PersonsPresent).val()) ;
+     
      if ($('#kn-input-' +  dbContactNotes.PersonsPresent).val() == "")
         $('#kn-input-' +  dbContactNotes.PersonsPresent).val("Default" ) ;
 
