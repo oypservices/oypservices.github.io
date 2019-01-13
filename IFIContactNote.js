@@ -1,3 +1,28 @@
+
+
+
+/*******************************************************************************************************
+ Add Persons Present Default to the Contact Notes
+*******************************************************************************************************/
+
+
+function AddPersonsPresent() {
+  try {
+     var proc = "AddPersonsPresent" ;
+     if ($('#kn-input-' +  dbContactNotes.PersonsPresent).text() == "")
+        $('#kn-input-' +  dbContactNotes.PersonsPresent).text() = "Default" ;
+
+  }
+
+  catch (e)
+    {
+      logerror (proc, e);
+    }
+
+}
+
+
+
 /*******************************************************************************************************
  logStatusChanges every time the client record is updated, if needed
 *******************************************************************************************************/
@@ -66,6 +91,7 @@ function hideShowContactNoteFields(view, val) {
 
    else {
       console.log (val);
+      AddPersonsPresent() ;
     	$('#kn-input-' +  dbContactNotes.ContactNotedate).show();
     	$('#kn-input-' +  dbContactNotes.CaseManager).show();
     	$('#kn-input-' +  dbContactNotes.Client).show();
