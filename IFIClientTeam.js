@@ -397,36 +397,41 @@ try {
 
         contactid = resultAccount.records[0][dbAccounts.Contact_raw][0].id ;
 
-        if (teamMember.IsCaseManagerAssignmentTemporary == 'Yes' ) {
-          for (var n = 0 ; n < teamMember.prevAssign.length ; n++)  {
-              var prevAssign = teamMember.prevAssign[n] ;
-              console.dir (prevAssign) ;
-              if (  contactid ==  prevAssign.ContactId ) {
-                    prevAssign.InactiveDate = "" ;
-                    updateTeamAssignmennt (prevAssign) ;
-                    bContactFound = true ;
-                    return ;
-                  }
+        if () teamMember.prevAssign != undefined )
+        {
+
+          if (teamMember.IsCaseManagerAssignmentTemporary == 'Yes' )
+            for (var n = 0 ; n < teamMember.prevAssign.length ; n++)  {
+                var prevAssign = teamMember.prevAssign[n] ;
+                console.dir (prevAssign) ;
+                if (  contactid ==  prevAssign.ContactId ) {
+                      prevAssign.InactiveDate = "" ;
+                      updateTeamAssignmennt (prevAssign) ;
+                      bContactFound = true ;
+                      return ;
+                    }
 
 
-              }
-        }
-        else {
-          for (var n = 0 ; n < teamMember.prevAssign.length; n++)  {
-              var prevAssign = teamMember.prevAssign[n] ;
-              console.dir (prevAssign) ;
-              if (  contactid ==  prevAssign.ContactId ) {
-                   bContactFound = true ;
-                   prevAssign.InactiveDate = "" ;
-                   updateTeamAssignmennt (prevAssign) ;
-              }
-              else
-                if (prevAssign.InactiveDate == "")
-                {
-                  prevAssign.InactiveDate =  {"date" : getToday()} ;
-                  updateTeamAssignmennt (prevAssign) ;
                 }
-           }
+          }
+          else {
+
+            for (var n = 0 ; n < teamMember.prevAssign.length; n++)  {
+                var prevAssign = teamMember.prevAssign[n] ;
+                console.dir (prevAssign) ;
+                if (  contactid ==  prevAssign.ContactId ) {
+                     bContactFound = true ;
+                     prevAssign.InactiveDate = "" ;
+                     updateTeamAssignmennt (prevAssign) ;
+                }
+                else
+                  if (prevAssign.InactiveDate == "")
+                  {
+                    prevAssign.InactiveDate =  {"date" : getToday()} ;
+                    updateTeamAssignmennt (prevAssign) ;
+                  }
+             }
+          }
         }
 
         if (!bContactFound ) {
