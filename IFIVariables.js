@@ -199,7 +199,9 @@ var dbClientTeamMembers = {
   "Role":"field_106",
   "Client":"field_196",
   "AssignmentInactiveDate" :"field_354",
-  "ClientTeamRole" : "field_367"
+  "ClientTeamRole" : "field_367",
+  "ClientTeamRole_raw" : "field_367__raw"
+
 };
 
 

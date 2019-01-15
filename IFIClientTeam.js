@@ -57,6 +57,9 @@ function InspectClientTeamRoles(resultCientTeam, viewName) {
 
       var clientId = Knack.models[viewName].toJSON().id ;
 
+      var clientTeamRoled = "" ;
+      var clientTeamRoleName = "" ;
+
 
       console.log (clientId) ;
       console.log (viewName) ;
@@ -66,6 +69,10 @@ function InspectClientTeamRoles(resultCientTeam, viewName) {
       for (var i = 0; i < resultCientTeam.records.length; i++) {
 
         role = resultCientTeam.records[i][dbClientTeamMembers.Role] ;
+  //      clientTeamRoled = resultCientTeam.records[i][dbClientTeamMembers.ClientTeamRole_raw] [0].id;
+  //      clientTeamRoleName = resultCientTeam.records[i][dbClientTeamMembers.ClientTeamRole_raw] [0].identifier;
+
+
         console.log (role) ;
 
         if (role == "Therapist")
@@ -307,6 +314,7 @@ function addClientTeamMember (contactid, role, clientId) {
         "record":  {
             field_105: contactid,
             field_106: role ,
+            field_367: [role] ,
             field_196: clientId }
       };
 
