@@ -320,7 +320,7 @@ function addClientTeamMember (contactid, role, clientId) {
               "record":  {
                   field_105: contactid,
                   field_106: role ,
-                  field_367: [roleResults[0].id] ,
+                  field_367: [roleResults.records[0].id] ,
                   field_196: clientId }
                 } ;
 
@@ -487,13 +487,13 @@ function getRoleId(role)  {
     var apidata = {
     								 "method": "get",
     								 "knackobj": dbObjects.ClientTeamMemberRoles,
+                     "format" : "raw" ,
     								 "appid": app_id,
     								 "filters": [ {
-                             "field":dbClientTeamMemberRoles.Role ,
+                             "field": dbClientTeamMemberRoles.role ,
                              "operator":"is",
                              "value": role
-                           }
-                         ]
+                           } ]
     				};
 
          OYPKnackAPICall (headers,  apidata)
