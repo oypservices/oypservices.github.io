@@ -413,7 +413,6 @@ try {
 
 
                 }
-          }
           else {
 
             for (var n = 0 ; n < teamMember.prevAssign.length; n++)  {
