@@ -304,26 +304,36 @@ function addClientTeamMember (contactid, role, clientId) {
     return ;
   }
 
-  var resource = 'knackobject';
-  console.log ("contact not found " + JSON.stringify( teamMember.Name)) ;
+  //var resource = 'knackobject';
+  //console.log ("contact not found " + JSON.stringify( teamMember.Name)) ;
+  //    };
 
-  var postapidata = {
-        "method": "post",
-        "knackobj": dbObjects.ClientTeam ,
-        "appid": app_id,
-        "record":  {
-            field_105: contactid,
-            field_106: role ,
-            field_367: [role] ,
-            field_196: clientId }
-      };
+    getRoleId (role)
+      .then { roleResults => {
 
-    OYPServicesAPIPost( resource, headers, postapidata )
-      .then (resultNewTeamMember=> {
+           console.dir ( roleResults) ;
 
-        console.dir (resultNewTeamMember) ;
-        console.log('Client Team Member Added!!!');
-      }) ;
+            var postapidata = {
+              "method": "post",
+              "knackobj": dbObjects.ClientTeam ,
+              "appid": app_id,
+              "record":  {
+                  field_105: contactid,
+                  field_106: role ,
+                  field_367: [roleResults[0].id] ,
+                  field_196: clientId }
+                } ;
+
+              OYPKnackAPICall(  headers, postapidata )
+                    .then (resultNewTeamMember=> {
+
+                      console.dir (resultNewTeamMember) ;
+                      console.log('Client Team Member Added!!!');
+                    }) ;
+
+    }) ;
+
+
 
   return true;
 
@@ -463,5 +473,34 @@ function updateTeamAssignmennt (prevAssign) {
 
   }
 
+
+}
+
+********************************************************************************************************************
+Copy the Goal records
+*********************************************************************************************************************/
+
+function getRoleId(role)  {
+
+ 	return new Promise ((resolve, reject) => {
+
+    console.log (role) ;
+    var apidata = {
+    								 "method": "get",
+    								 "knackobj": dbObjects.ClientTeamMemberRoles,
+    								 "appid": app_id,
+    								 "filters": [ {
+                             "field":dbClientTeamMemberRoles.Role ,
+                             "operator":"is",
+                             "value": role
+                           }
+                         ]
+    				};
+
+         OYPKnackAPICall (headers,  apidata)
+          .then (result => {resolve (result) ; }) ;
+
+
+     })
 
 }

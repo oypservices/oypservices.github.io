@@ -80,9 +80,15 @@ var dbObjects = {
   "ClientGoals" : "object_2",
   "ClientGoalInterventions" :  "object_25",
   "ClientIRPs" : "object_26" ,
-  "Account" : "object_6"
+  "Account" : "object_6" ,
+  "ClientTeamMemberRoles" ; "object_39"
 }
 
+ 
+
+var dbClientTeamMemberRoles = {
+  "role" : "field_365"
+}
 
 // Database Model
 
