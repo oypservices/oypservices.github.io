@@ -309,7 +309,7 @@ function addClientTeamMember (contactid, role, clientId) {
   //    };
 
     getRoleId (role)
-      .then { roleResults => {
+      .then ( roleResults => {
 
            console.dir ( roleResults) ;
 
