@@ -397,7 +397,7 @@ try {
 
         contactid = resultAccount.records[0][dbAccounts.Contact_raw][0].id ;
 
-        if () teamMember.prevAssign != undefined )
+        if ( teamMember.prevAssign != undefined )
         {
 
           if (teamMember.IsCaseManagerAssignmentTemporary == 'Yes' )
