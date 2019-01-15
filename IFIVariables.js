@@ -81,10 +81,10 @@ var dbObjects = {
   "ClientGoalInterventions" :  "object_25",
   "ClientIRPs" : "object_26" ,
   "Account" : "object_6" ,
-  "ClientTeamMemberRoles" ; "object_39"
+  "ClientTeamMemberRoles" : "object_39"
 }
 
- 
+
 
 var dbClientTeamMemberRoles = {
   "role" : "field_365"
