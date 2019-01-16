@@ -10,7 +10,7 @@ function AddPersonsPresent(view) {
   try {
      var proc = "AddPersonsPresent" ;
 
-     var viewName = "view_653";
+     var viewName = "view_653";    //client details view
      var objView = Knack.models[viewName].toJSON();
 
      console.dir (objView) ;
