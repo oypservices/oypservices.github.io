@@ -9,7 +9,10 @@
 function AddPersonsPresent(view) {
   try {
      var proc = "AddPersonsPresent" ;
-     var objView = Knack.models[view.Key].toJSON();
+
+     var viewName = view["key"] ;
+     var objView = Knack.models[viewName].toJSON();
+
      console.dir (objView) ;
 
      var clientName = objView[dbContactNotes.Client_raw][0].identifer
