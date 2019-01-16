@@ -16,7 +16,7 @@ function AddPersonsPresent(view) {
 
      console.dir (objView) ;
 
-     var clientName = objView[dbClients.Client];
+     var clientName = objView[dbClients.ClientName];
      var caseManager = objView[casemanager_raw][0].identifier ;
 
      console.log ($('#' +  dbContactNotes.AddlPersonsPresent).text()) ;
