@@ -12,11 +12,12 @@ function AddPersonsPresent(view) {
 
      var viewName = "view_653";    //client details view
      var objView = Knack.models[viewName].toJSON();
+     var casemanager_raw = dbClients.CaseManager + "raw"
 
      console.dir (objView) ;
 
-     var clientName = objView[dbContactNotes.Client_raw][0].identifer
-     var caseManager = objView[dbContactNotes.CaseManager_raw][0].identifer
+     var clientName = objView[dbClients.Client];
+     var caseManager = objView[casemanager_raw][0].identifier ;
 
      console.log ($('#' +  dbContactNotes.AddlPersonsPresent).text()) ;
 
