@@ -12,7 +12,7 @@ function AddPersonsPresent(view) {
 
      var viewName = "view_653";    //client details view
      var objView = Knack.models[viewName].toJSON();
-     var casemanager_raw = dbClients.CaseManager + "raw"
+     var casemanager_raw = dbClients.CaseManager + "_raw";
 
      console.dir (objView) ;
 
