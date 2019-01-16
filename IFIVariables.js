@@ -194,7 +194,8 @@ var dbContactNotes = {
   "ShowOnDashboard_raw" : "field_158_raw",
   "RelatedContactNote" : "field_345" ,
   "RelatedContactNote_raw" : "field_345_raw",
-  "ClientPresent" : "field_355"
+  "ClientPresent" : "field_355",
+  "AddlPersonsPresent":"field_364"
 } ;
 
 

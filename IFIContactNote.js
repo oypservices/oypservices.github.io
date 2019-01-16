@@ -6,14 +6,22 @@
 *******************************************************************************************************/
 
 
-function AddPersonsPresent() {
+function AddPersonsPresent(view) {
   try {
      var proc = "AddPersonsPresent" ;
-     console.log ($('#' +  dbContactNotes.PersonsPresent).text()) ;
+     var objView = Knack.models[view.Key].toJSON();
+     console.dir (objView) ;
+
+     var clientName = objView[dbContactNotes.Client_raw][0].identifer
+     var caseManager = objView[dbContactNotes.CaseManager_raw][0].identifer
+
+     console.log ($('#' +  dbContactNotes.AddlPersonsPresent).text()) ;
 
      $(document).ready(function () {
-       if ($('#' +  dbContactNotes.PersonsPresent).text() == "")
-          $('#' +  dbContactNotes.PersonsPresent).text(Knack.getUserAttributes().name ) ;
+       if ($('#' +  dbContactNotes.AddlPersonsPresent).text() == "")
+          $('#' +  dbContactNotes.AddlPersonsPresent).text(
+                clientName + ", " + caseManager
+              ) ;
       });
 
   }
@@ -47,9 +55,12 @@ function hideShowContactNoteFields(view, val) {
       $('#kn-input-' +  dbContactNotes.IRPGoals).show();
 
 
+
       $('#kn-input-' +  dbContactNotes.ClientResponses).show();
     	$('#kn-input-' +  dbContactNotes.PlanforNextVisit).show();
       $('#kn-input-' +  dbContactNotes.CaseManagerSignature).show();
+
+      $('#kn-input-' +  dbContactNotes.AddlPersonsPresent).hide();
     	$('#kn-input-' +  dbContactNotes.OtherComment).hide();
 
       $('#kn-input-' +  dbContactNotes.ContactDateStart).hide();
@@ -73,12 +84,14 @@ function hideShowContactNoteFields(view, val) {
     	$('#kn-input-' +  dbContactNotes.CaseManager).show();
     	$('#kn-input-' +  dbContactNotes.Client).show();
     	$('#kn-input-' +  dbContactNotes.NoteType).show();
+
       $('#kn-input-' +  dbContactNotes.ContactNoteStatus).hide();
     	$('#kn-input-' +  dbContactNotes.MeetingStatus).hide();
     	$('#kn-input-' +  dbContactNotes.ContactDateStart).show();
     	$('#kn-input-' +  dbContactNotes.ContactDateEnd).show();
     	$('#kn-input-' +  dbContactNotes.VisitLocation).show();
-    	$('#kn-input-' +  dbContactNotes.ReasonforContact).hide();
+    	$('#kn-input-' +  dbContactNotes.ReasonforContact).show();
+      $('#kn-input-' +  dbContactNotes.AddlPersonsPresent).hide();
     	$('#kn-input-' +  dbContactNotes.ClientIRP).hide();
     	$('#kn-input-' +  dbContactNotes.IRPGoals).hide();
     	$('#kn-input-' +  dbContactNotes.ClientGoalInterventions).hide();
@@ -95,7 +108,7 @@ function hideShowContactNoteFields(view, val) {
 
    else {
       console.log (val);
-      AddPersonsPresent() ;
+      AddPersonsPresent(view) ;
     	$('#kn-input-' +  dbContactNotes.ContactNotedate).show();
     	$('#kn-input-' +  dbContactNotes.CaseManager).show();
     	$('#kn-input-' +  dbContactNotes.Client).show();
@@ -110,6 +123,7 @@ function hideShowContactNoteFields(view, val) {
     	$('#kn-input-' +  dbContactNotes.IRPGoals).show();
     	$('#kn-input-' +  dbContactNotes.ClientGoalInterventions).show();
     	$('#kn-input-' +  dbContactNotes.PersonsPresent).show();
+            $('#kn-input-' +  dbContactNotes.AddlPersonsPresent).show();
     	$('#kn-input-' +  dbContactNotes.ClientResponses).show();
       $('#kn-input-' +  dbContactNotes.NextVisitDate).show();
     	$('#kn-input-' +  dbContactNotes.PlanforNextVisit).show();
