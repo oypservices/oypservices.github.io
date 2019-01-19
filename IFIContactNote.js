@@ -73,17 +73,35 @@ function hideShowContactNoteFields(view, val, data) {
       case "Monthly Report" :
           if (bDetails)
           {
+            $(fldPrefix + dbContactNotes.IRPGoals).children('.kn-detail-label').children('span').text("Rehabilitatve Goal:")  ;
             $(fldPrefix + dbContactNotes.PlanforNextVisit).children('.kn-detail-label').children('span').text("Plan for Next Month:")  ;
-            $(fldPrefix + dbContactNotes.ClientResponses).children('.kn-detail-label').children('span').text("Summary") ;
+            $(fldPrefix + dbContactNotes.ClientResponses).children('.kn-detail-label').children('span').text("Summary:") ;
 
           }
           else {
 
+            $("label[ for= " + dbContactNotes.IRPGoals + "]").text("Rehabilitatve Goal:")
             $("label[ for= " + dbContactNotes.PlanforNextVisit + "]").text("Plan for Next Month:")  ;
             $("label[ for= " + dbContactNotes.ClientResponses + "]").text("Summary:")  ;
           }
 
           break ;
+      case "Contact Note" :
+              if (bDetails)
+              {
+                $(fldPrefix + dbContactNotes.IRPGoals).children('.kn-detail-label').children('span').text("List IRP goal(s) worked on during this contact:")  ;
+                $(fldPrefix + dbContactNotes.PlanforNextVisit).children('.kn-detail-label').children('span').text("Plan for Next Contact:")  ;
+                $(fldPrefix + dbContactNotes.ClientResponses).children('.kn-detail-label').children('span').text("Client Response(s):") ;
+
+              }
+              else {
+
+                $("label[ for= " + dbContactNotes.IRPGoals + "]").text("List IRP goal(s) worked on during this contact:")
+                $("label[ for= " + dbContactNotes.PlanforNextVisit + "]").text("Plan for Next Contact:")  ;
+                $("label[ for= " + dbContactNotes.ClientResponses + "]").text("Client Response(s):")  ;
+              }
+
+              break ;
       default :
         break ;
     }
