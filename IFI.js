@@ -258,10 +258,9 @@ $(document).on('knack-record-create.any' , function (event, view, record) {
       break;
 
    case dbObjects.ContactNotes:
-     $( document ).ready(function() {
-         console.dir( $( document ) ) ;
-         evaluateContactNotes (event, view, record) ;
-     });
+      evaluateContactNotes (event, view, record) ;
+      break ;
+
 
 
    case dbObjects.Account :
@@ -474,7 +473,11 @@ $(document).on('knack-view-render.any' , function(event, view, data) {
 
 
        if (view.source.object == "object_1" ){
-         setClientStatusText( data) ;
+         $( document ).ready(function() {
+             console.dir( $( document ) ) ;
+             setClientStatusText( data) ;             
+         });
+
 
 
          $('#field_243').keyup(function() {
