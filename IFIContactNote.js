@@ -54,7 +54,7 @@ function hideShowContactNoteFields(view, val, data) {
 
     if (view.type == "details") {
        val = data[dbContactNotes.NoteType] ;
-       fldPrefix = "#" ;
+       fldPrefix = "." ;
     }
     else
        fldPrefix = "#kn-input-" ;
