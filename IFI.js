@@ -70,7 +70,7 @@ $(document).on('knack-view-render.' + vw_contact_note_edit, function(event, view
 
 
 
-function setClientStatusText() {
+function setClientStatusText(data) {
   //Client Edit Page - The Client Status Menu link text will change depending on both the role of the logged in user
   //and the current status of the client.
 
@@ -110,8 +110,8 @@ try {
     if ( Knack.getUserRoles(roles.IFIAdmin) || Knack.getUserRoles(roles.Admin)  ) {
       $(mnuOverride).show();
       $(mnuDischarge).show();
-      switch ($(fld_client_status).text()){
-
+  //    switch ($(fld_client_status).text()){
+    switch (data[ClientStatus_raw]){
         case "Referral":
         case "Referral - Need More Information":
         case "Authorization - Need More Information":
@@ -470,7 +470,7 @@ $(document).on('knack-view-render.any' , function(event, view, data) {
 
 
        if (view.source.object == "object_1" ){
-         setClientStatusText() ;
+         setClientStatusText( data) ;
 
 
          $('#field_243').keyup(function() {
