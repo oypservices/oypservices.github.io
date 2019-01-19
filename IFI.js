@@ -86,18 +86,17 @@ try {
     var mnuDischarge = "#view_220 .kn-link-7" ;
     var mnuOverride = "#view_220 .kn-link-8" ;
 
-    console.dir(data) ;
 
-    var status = data[dbClients.ClientStatus_raw][0].identifier ;
-
-
-    console.log (status) ;
 
     //ensures I am on the right form
     if ( $(mnuRequestAuth).length == 0 ) {
       console.log ("Status Menu Item does not exist in this case");
       return ;
     }
+
+    console.dir(data) ;
+    var status = data[dbClients.ClientStatus_raw][0].identifier ;
+    console.log (status) ;
 
     //Initially hide the Status link Menu
     $(mnuRequestAuth).hide();
@@ -178,8 +177,7 @@ try {
 
 }
 catch (e)  {
-    console.error(e);
-    console.error(e.stack) ;
+    logerror(proc, e);
  }
 
 }
