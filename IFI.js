@@ -78,8 +78,8 @@ function setClientStatusText(data) {
 try {
 
     var proc = "setClientStatusText" ;
-    console.log (prod) ;
-    
+    console.log (proc) ;
+
     var mnuRequestAuth = "#view_220 .kn-link-1" ;
     var mnuProcessAuth = "#view_220 .kn-link-2" ;
     var mnuStartIntake = "#view_220 .kn-link-3" ;
