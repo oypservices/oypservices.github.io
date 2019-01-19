@@ -87,6 +87,7 @@ try {
     var mnuOverride = "#view_220 .kn-link-8" ;
 
     console.dir(data) ;
+
     var status = data[dbClients.ClientStatus_raw][0].identifier ;
 
 
