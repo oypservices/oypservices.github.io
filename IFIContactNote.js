@@ -48,13 +48,16 @@ function hideShowContactNoteFields(view, val, data) {
 
 	    // If this value in the form doesn't equal "SpecificValue" then prevent the form from submitting
     var fldPrefix = "" ;
+    var bDetails = false;
 
     console.dir(view) ;
     console.dir (data);
 
+
     if (view.type == "details") {
        val = data[dbContactNotes.NoteType] ;
        fldPrefix = "." ;
+       bDetails = true ;
     }
     else
        fldPrefix = "#kn-input-" ;
@@ -63,6 +66,23 @@ function hideShowContactNoteFields(view, val, data) {
     console.log (val);
     if (val == undefined)
        return ;
+
+    // Change the label depending on the tops
+    case val
+    {
+      switch "Monthly Report" :
+          if (bDetails)
+          {
+            $(dbContactNotes.PlanforNextVisit).children('.kn-detail-label').children('span').text("Plan for Next Month:");
+          }
+
+          break ;
+      default :
+        break ;
+    }
+
+
+
 
     if (val == "Monthly Report") {
 
