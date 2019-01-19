@@ -77,6 +77,9 @@ function setClientStatusText(data) {
 
 try {
 
+    var proc = "setClientStatusText" ;
+    console.log (prod) ;
+    
     var mnuRequestAuth = "#view_220 .kn-link-1" ;
     var mnuProcessAuth = "#view_220 .kn-link-2" ;
     var mnuStartIntake = "#view_220 .kn-link-3" ;
@@ -107,6 +110,8 @@ try {
     $(mnuReAuth).hide();
     $(mnuOverride).hide();
     $(mnuDischarge).hide();
+
+    console.log ("menu items should be hidden now'")
 
   //  var clientStatusMenuItemSpan = clientStatusMenuItem + " span";
     var fld_client_status =   '#kn-input-field_75 > span';
