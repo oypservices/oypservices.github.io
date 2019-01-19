@@ -102,6 +102,8 @@ try {
     console.log (status) ;
 
     //Initially hide the Status link Menu
+    console.log (mnuRequestAuth) ;
+    console.dir ($(mnuRequestAuth)) ;
     $(mnuRequestAuth).hide();
     $(mnuProcessAuth).hide();
     $(mnuStartIntake).hide();
@@ -114,7 +116,7 @@ try {
     console.log ("menu items should be hidden now'")
 
   //  var clientStatusMenuItemSpan = clientStatusMenuItem + " span";
-    var fld_client_status =   '#kn-input-field_75 > span';
+//    var fld_client_status =   '#kn-input-field_75 > span';
 
 
     if ( Knack.getUserRoles(roles.IFIAdmin) || Knack.getUserRoles(roles.Admin)  ) {
@@ -361,18 +363,6 @@ $(document).on('knack-view-render.' + vw_goal_intervention_add , function(event,
 });
 
 
-// Change "scene_1" to the scene you want to listen for
-$(document).on('knack-scene-render.scene_7', function(event, scene) {
-  // Do something after the scene renders
-
-	var fld_client_status =   '#kn-input-field_75 span';
-//	console.log ($(fld_client_status).text());
-//	alert (  $(fld_client_status).text() );
-
-//  console.dir (scene);
-//	console.dir(event);
-//	console.log(scene.views[1]) ;
-});
 
 
 
