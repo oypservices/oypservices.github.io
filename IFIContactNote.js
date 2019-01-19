@@ -144,10 +144,10 @@ function hideShowContactNoteFields(view, val, data) {
     $(fldPrefix +  dbContactNotes.PersonsPresent).hide();
 
     $(fldPrefix +  dbContactNotes.MedicationChanges).hide();
-
+    $(fldPrefix +  dbContactNotes.IRPNA).hide();
     $(fldPrefix +  dbGoals.Objective).hide();
 
-  
+
     if (val == "Monthly Report") {
 
     	$(fldPrefix +  dbContactNotes.ContactNotedate).show();
@@ -156,6 +156,7 @@ function hideShowContactNoteFields(view, val, data) {
     	$(fldPrefix +  dbContactNotes.NoteType).show();
       $(fldPrefix +  dbContactNotes.ContactNoteStatus).show();
       $(fldPrefix +  dbContactNotes.ClientIRP).show();
+      $(fldPrefix +  dbContactNotes.IRPNA).show();
       $(fldPrefix +  dbContactNotes.IRPGoals).show();
 
       $(fldPrefix +  dbContactNotes.ClientResponses).show();
@@ -191,6 +192,7 @@ function hideShowContactNoteFields(view, val, data) {
     	$(fldPrefix +  dbContactNotes.ContactDateEnd).show();
     	$(fldPrefix +  dbContactNotes.VisitLocation).show();
     	$(fldPrefix +  dbContactNotes.ReasonforContact).show();
+      $(fldPrefix +  dbContactNotes.IRPNA).show();
     	$(fldPrefix +  dbContactNotes.ClientIRP).show();
     	$(fldPrefix +  dbContactNotes.IRPGoals).show();
     	$(fldPrefix +  dbContactNotes.ClientGoalInterventions).show();

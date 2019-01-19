@@ -196,7 +196,8 @@ var dbContactNotes = {
   "RelatedContactNote" : "field_345" ,
   "RelatedContactNote_raw" : "field_345_raw",
   "ClientPresent" : "field_355",
-  "AddlPersonsPresent":"field_364"
+  "AddlPersonsPresent":"field_364",
+  "IRPNA":"field_372"
 } ;
 
 
