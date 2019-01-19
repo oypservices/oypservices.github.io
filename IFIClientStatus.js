@@ -11,6 +11,7 @@ try {
 
     var viewName = view["key"] ;
     var objClient = Knack.models[viewName].toJSON();
+
     console.dir (objClient);
 
     var clientId = objClient.id ;
