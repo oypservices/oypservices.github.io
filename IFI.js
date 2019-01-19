@@ -89,7 +89,7 @@ try {
 
 
     //ensures I am on the right form
-    if ( $(mnuRequestAuth).length == 0 ) {
+    if ( $("#view_220").length == 0 ) {
       console.log ("Status Menu Item does not exist in this case");
       return ;
     }
