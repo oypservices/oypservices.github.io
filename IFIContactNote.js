@@ -89,24 +89,59 @@ function hideShowContactNoteFields(view, val, data) {
       case "Contact Note" :
               if (bDetails)
               {
-                $(fldPrefix + dbContactNotes.IRPGoals).children('.kn-detail-label').children('span').text("List IRP goal(s) worked on during this contact:")  ;
+                $(fldPrefix + dbContactNotes.IRPGoals).children('.kn-detail-label').children('span').text("Goals Implementation:")  ;
                 $(fldPrefix + dbContactNotes.PlanforNextVisit).children('.kn-detail-label').children('span').text("Plan for Next Contact:")  ;
                 $(fldPrefix + dbContactNotes.ClientResponses).children('.kn-detail-label').children('span').text("Client Response(s):") ;
-                $(fldPrefix + dbContactNotes.ClientGoalInterventions).children('.kn-detail-label').children('span').text("Intervention(s) implemented in accordance with the IRP:") ;
+                $(fldPrefix + dbContactNotes.ClientGoalInterventions).children('.kn-detail-label').children('span').text("List IRP goal(s) worked on during this contact:") ;
+                $(fldPrefix + dbContactNotes.ClientGoalInterventionText).children('.kn-detail-label').children('span').text("Intervention(s) implemented in accordance with the IRP:") ;
 
               }
               else {
 
-                $("label[ for= " + dbContactNotes.IRPGoals + "]").text("List IRP goal(s) worked on during this contact:")
+                $("label[ for= " + dbContactNotes.IRPGoals + "]").text("Goals Implementation:")
                 $("label[ for= " + dbContactNotes.PlanforNextVisit + "]").text("Plan for Next Contact:")  ;
                 $("label[ for= " + dbContactNotes.ClientResponses + "]").text("Client Response(s):")  ;
-                $("label[ for= " + dbContactNotes.ClientGoalInterventions + "]").text("Intervention(s) implemented in accordance with the IRP:")
+                $("label[ for= " + dbContactNotes.ClientGoalInterventions + "]").text("List IRP goal(s) worked on during this contact:")
+                $("label[ for= " + dbContactNotes.ClientGoalInterventionText + "]").text("Intervention(s) implemented in accordance with the IRP:")
               }
 
               break ;
       default :
         break ;
     }
+
+
+    //hide all
+
+    $(fldPrefix +  dbContactNotes.ContactNotedate).hide();
+    $(fldPrefix +  dbContactNotes.CaseManager).hide();
+    $(fldPrefix +  dbContactNotes.Client).hide();
+    $(fldPrefix +  dbContactNotes.NoteType).hide();
+    $(fldPrefix +  dbContactNotes.ContactNoteStatus).hide();
+    $(fldPrefix +  dbContactNotes.ClientIRP).hide();
+    $(fldPrefix +  dbContactNotes.IRPGoals).hide();
+
+    $(fldPrefix +  dbContactNotes.ClientResponses).hide();
+    $(fldPrefix +  dbContactNotes.PlanforNextVisit).hide();
+    $(fldPrefix +  dbContactNotes.CaseManagerSignature).hide();
+
+    $(fldPrefix +  dbContactNotes.AddlPersonsPresent).hide();
+    $(fldPrefix +  dbContactNotes.OtherComment).hide();
+
+    $(fldPrefix +  dbContactNotes.ContactDateStart).hide();
+    $(fldPrefix +  dbContactNotes.ReasonforContact).hide();
+    $(fldPrefix +  dbContactNotes.MeetingStatus).hide();
+    $(fldPrefix +  dbContactNotes.ContactDateEnd).hide();
+    $(fldPrefix +  dbContactNotes.ClientPresent).hide();
+    $(fldPrefix +  dbContactNotes.NextVisitDate).hide();
+    $(fldPrefix +  dbContactNotes.VisitLocation).hide();
+
+    $(fldPrefix +  dbContactNotes.ClientGoalInterventions).hide();
+    $(fldPrefix +  dbContactNotes.ClientGoalInterventionText).hide();
+
+    $(fldPrefix +  dbContactNotes.PersonsPresent).hide();
+
+    $(fldPrefix +  dbContactNotes.MedicationChanges).hide();
 
 
 
@@ -124,22 +159,6 @@ function hideShowContactNoteFields(view, val, data) {
       $(fldPrefix +  dbContactNotes.ClientResponses).show();
     	$(fldPrefix +  dbContactNotes.PlanforNextVisit).show();
       $(fldPrefix +  dbContactNotes.CaseManagerSignature).show();
-
-      $(fldPrefix +  dbContactNotes.AddlPersonsPresent).hide();
-    	$(fldPrefix +  dbContactNotes.OtherComment).hide();
-
-      $(fldPrefix +  dbContactNotes.ContactDateStart).hide();
-      $(fldPrefix +  dbContactNotes.ReasonforContact).hide();
-    	$(fldPrefix +  dbContactNotes.MeetingStatus).hide();
-    	$(fldPrefix +  dbContactNotes.ContactDateEnd).hide();
-      $(fldPrefix +  dbContactNotes.ClientPresent).hide();
-      $(fldPrefix +  dbContactNotes.NextVisitDate).hide();
-    	$(fldPrefix +  dbContactNotes.VisitLocation).hide();
-
-    	$(fldPrefix +  dbContactNotes.ClientGoalInterventions).hide();
-    	$(fldPrefix +  dbContactNotes.PersonsPresent).hide();
-
-    	$(fldPrefix +  dbContactNotes.MedicationChanges).hide();
     	return true;
         }
 
@@ -149,25 +168,10 @@ function hideShowContactNoteFields(view, val, data) {
     	$(fldPrefix +  dbContactNotes.CaseManager).show();
     	$(fldPrefix +  dbContactNotes.Client).show();
     	$(fldPrefix +  dbContactNotes.NoteType).show();
-
-      $(fldPrefix +  dbContactNotes.ContactNoteStatus).hide();
-    	$(fldPrefix +  dbContactNotes.MeetingStatus).hide();
     	$(fldPrefix +  dbContactNotes.ContactDateStart).show();
     	$(fldPrefix +  dbContactNotes.ContactDateEnd).show();
     	$(fldPrefix +  dbContactNotes.VisitLocation).show();
     	$(fldPrefix +  dbContactNotes.ReasonforContact).show();
-      $(fldPrefix +  dbContactNotes.AddlPersonsPresent).hide();
-    	$(fldPrefix +  dbContactNotes.ClientIRP).hide();
-    	$(fldPrefix +  dbContactNotes.IRPGoals).hide();
-    	$(fldPrefix +  dbContactNotes.ClientGoalInterventions).hide();
-      $(fldPrefix +  dbContactNotes.ClientPresent).hide();
-    	$(fldPrefix +  dbContactNotes.PersonsPresent).hide();
-    	$(fldPrefix +  dbContactNotes.ClientResponses).hide();
-      $(fldPrefix +  dbContactNotes.NextVisitDate).hide();
-    	$(fldPrefix +  dbContactNotes.PlanforNextVisit).hide();
-    	$(fldPrefix +  dbContactNotes.OtherComment).hide();
-    	$(fldPrefix +  dbContactNotes.MedicationChanges).hide();
-    	$(fldPrefix +  dbContactNotes.CaseManagerSignature).hide();
     	return true;
         }
 
@@ -187,6 +191,7 @@ function hideShowContactNoteFields(view, val, data) {
     	$(fldPrefix +  dbContactNotes.ClientIRP).show();
     	$(fldPrefix +  dbContactNotes.IRPGoals).show();
     	$(fldPrefix +  dbContactNotes.ClientGoalInterventions).show();
+      $(fldPrefix +  dbContactNotes.ClientGoalInterventionText).show();
     	$(fldPrefix +  dbContactNotes.PersonsPresent).show();
       $(fldPrefix +  dbContactNotes.AddlPersonsPresent).show();
     	$(fldPrefix +  dbContactNotes.ClientResponses).show();

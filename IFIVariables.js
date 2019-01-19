@@ -178,6 +178,7 @@ var dbContactNotes = {
   "ClientIRP":"field_217",
   "IRPGoals":"field_15",
   "ClientGoalInterventions":"field_216",
+  "ClientGoalInterventionText" : "field_371".
   "PersonsPresent":"field_110",
   "ClientResponses":"field_22",
   "PlanforNextVisit":"field_23",
