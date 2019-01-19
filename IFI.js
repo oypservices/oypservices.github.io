@@ -86,9 +86,10 @@ try {
     var mnuDischarge = "#view_220 .kn-link-7" ;
     var mnuOverride = "#view_220 .kn-link-8" ;
 
+    console.dir(data) ;
     var status = data[dbClients.ClientStatus_raw][0].identifier ;
 
-    console.dir(data) ;
+
     console.log (status) ;
 
     //ensures I am on the right form
