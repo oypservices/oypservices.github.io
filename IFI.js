@@ -80,7 +80,7 @@ try {
     var proc = "setClientStatusText" ;
     console.log (proc) ;
 
-    var mnuRequestAuth = "#view_220 .kn-link-1" ;
+    var mnuRequestAuth = "#view_220 > .kn-link-1" ;
     var mnuProcessAuth = "#view_220 .kn-link-2" ;
     var mnuStartIntake = "#view_220 .kn-link-3" ;
     var mnuIntake = "#view_220 .kn-link-4"
