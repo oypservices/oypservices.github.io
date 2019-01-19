@@ -47,95 +47,104 @@ function AddPersonsPresent(view) {
 function hideShowContactNoteFields(view, val) {
 
 	    // If this value in the form doesn't equal "SpecificValue" then prevent the form from submitting
+    var fldPrefix = "" ;
+
     console.dir(view) ;
+    if (view.label == "Detail")
+       fldPrefix = "" ;
+    else
+       fldPrefix = "#kn-input-" ;
+
+
+
     if (val == "Monthly Report") {
     	console.log (val);
 
-    	$('#kn-input-' +  dbContactNotes.ContactNotedate).show();
-    	$('#kn-input-' +  dbContactNotes.CaseManager).show();
-    	$('#kn-input-' +  dbContactNotes.Client).show();
-    	$('#kn-input-' +  dbContactNotes.NoteType).show();
-      $('#kn-input-' +  dbContactNotes.ContactNoteStatus).show();
-      $('#kn-input-' +  dbContactNotes.ClientIRP).show();
-      $('#kn-input-' +  dbContactNotes.IRPGoals).show();
+    	$(fldPrefix +  dbContactNotes.ContactNotedate).show();
+    	$(fldPrefix +  dbContactNotes.CaseManager).show();
+    	$(fldPrefix +  dbContactNotes.Client).show();
+    	$(fldPrefix +  dbContactNotes.NoteType).show();
+      $(fldPrefix +  dbContactNotes.ContactNoteStatus).show();
+      $(fldPrefix +  dbContactNotes.ClientIRP).show();
+      $(fldPrefix +  dbContactNotes.IRPGoals).show();
 
 
 
-      $('#kn-input-' +  dbContactNotes.ClientResponses).show();
-    	$('#kn-input-' +  dbContactNotes.PlanforNextVisit).show();
-      $('#kn-input-' +  dbContactNotes.CaseManagerSignature).show();
+      $(fldPrefix +  dbContactNotes.ClientResponses).show();
+    	$(fldPrefix +  dbContactNotes.PlanforNextVisit).show();
+      $(fldPrefix +  dbContactNotes.CaseManagerSignature).show();
 
-      $('#kn-input-' +  dbContactNotes.AddlPersonsPresent).hide();
-    	$('#kn-input-' +  dbContactNotes.OtherComment).hide();
+      $(fldPrefix +  dbContactNotes.AddlPersonsPresent).hide();
+    	$(fldPrefix +  dbContactNotes.OtherComment).hide();
 
-      $('#kn-input-' +  dbContactNotes.ContactDateStart).hide();
-      $('#kn-input-' +  dbContactNotes.ReasonforContact).hide();
-    	$('#kn-input-' +  dbContactNotes.MeetingStatus).hide();
-    	$('#kn-input-' +  dbContactNotes.ContactDateEnd).hide();
-      $('#kn-input-' +  dbContactNotes.ClientPresent).hide();
-      $('#kn-input-' +  dbContactNotes.NextVisitDate).hide();
-    	$('#kn-input-' +  dbContactNotes.VisitLocation).hide();
+      $(fldPrefix +  dbContactNotes.ContactDateStart).hide();
+      $(fldPrefix +  dbContactNotes.ReasonforContact).hide();
+    	$(fldPrefix +  dbContactNotes.MeetingStatus).hide();
+    	$(fldPrefix +  dbContactNotes.ContactDateEnd).hide();
+      $(fldPrefix +  dbContactNotes.ClientPresent).hide();
+      $(fldPrefix +  dbContactNotes.NextVisitDate).hide();
+    	$(fldPrefix +  dbContactNotes.VisitLocation).hide();
 
-    	$('#kn-input-' +  dbContactNotes.ClientGoalInterventions).hide();
-    	$('#kn-input-' +  dbContactNotes.PersonsPresent).hide();
+    	$(fldPrefix +  dbContactNotes.ClientGoalInterventions).hide();
+    	$(fldPrefix +  dbContactNotes.PersonsPresent).hide();
 
-    	$('#kn-input-' +  dbContactNotes.MedicationChanges).hide();
+    	$(fldPrefix +  dbContactNotes.MedicationChanges).hide();
     	return true;
         }
 
     else if (val == "Appointment") {
     	console.log (val);
-    	$('#kn-input-' +  dbContactNotes.ContactNotedate).show();
-    	$('#kn-input-' +  dbContactNotes.CaseManager).show();
-    	$('#kn-input-' +  dbContactNotes.Client).show();
-    	$('#kn-input-' +  dbContactNotes.NoteType).show();
+    	$(fldPrefix +  dbContactNotes.ContactNotedate).show();
+    	$(fldPrefix +  dbContactNotes.CaseManager).show();
+    	$(fldPrefix +  dbContactNotes.Client).show();
+    	$(fldPrefix +  dbContactNotes.NoteType).show();
 
-      $('#kn-input-' +  dbContactNotes.ContactNoteStatus).hide();
-    	$('#kn-input-' +  dbContactNotes.MeetingStatus).hide();
-    	$('#kn-input-' +  dbContactNotes.ContactDateStart).show();
-    	$('#kn-input-' +  dbContactNotes.ContactDateEnd).show();
-    	$('#kn-input-' +  dbContactNotes.VisitLocation).show();
-    	$('#kn-input-' +  dbContactNotes.ReasonforContact).show();
-      $('#kn-input-' +  dbContactNotes.AddlPersonsPresent).hide();
-    	$('#kn-input-' +  dbContactNotes.ClientIRP).hide();
-    	$('#kn-input-' +  dbContactNotes.IRPGoals).hide();
-    	$('#kn-input-' +  dbContactNotes.ClientGoalInterventions).hide();
-      $('#kn-input-' +  dbContactNotes.ClientPresent).hide();
-    	$('#kn-input-' +  dbContactNotes.PersonsPresent).hide();
-    	$('#kn-input-' +  dbContactNotes.ClientResponses).hide();
-      $('#kn-input-' +  dbContactNotes.NextVisitDate).hide();
-    	$('#kn-input-' +  dbContactNotes.PlanforNextVisit).hide();
-    	$('#kn-input-' +  dbContactNotes.OtherComment).hide();
-    	$('#kn-input-' +  dbContactNotes.MedicationChanges).hide();
-    	$('#kn-input-' +  dbContactNotes.CaseManagerSignature).hide();
+      $(fldPrefix +  dbContactNotes.ContactNoteStatus).hide();
+    	$(fldPrefix +  dbContactNotes.MeetingStatus).hide();
+    	$(fldPrefix +  dbContactNotes.ContactDateStart).show();
+    	$(fldPrefix +  dbContactNotes.ContactDateEnd).show();
+    	$(fldPrefix +  dbContactNotes.VisitLocation).show();
+    	$(fldPrefix +  dbContactNotes.ReasonforContact).show();
+      $(fldPrefix +  dbContactNotes.AddlPersonsPresent).hide();
+    	$(fldPrefix +  dbContactNotes.ClientIRP).hide();
+    	$(fldPrefix +  dbContactNotes.IRPGoals).hide();
+    	$(fldPrefix +  dbContactNotes.ClientGoalInterventions).hide();
+      $(fldPrefix +  dbContactNotes.ClientPresent).hide();
+    	$(fldPrefix +  dbContactNotes.PersonsPresent).hide();
+    	$(fldPrefix +  dbContactNotes.ClientResponses).hide();
+      $(fldPrefix +  dbContactNotes.NextVisitDate).hide();
+    	$(fldPrefix +  dbContactNotes.PlanforNextVisit).hide();
+    	$(fldPrefix +  dbContactNotes.OtherComment).hide();
+    	$(fldPrefix +  dbContactNotes.MedicationChanges).hide();
+    	$(fldPrefix +  dbContactNotes.CaseManagerSignature).hide();
     	return true;
         }
 
    else {
       console.log (val);
       AddPersonsPresent(view) ;
-    	$('#kn-input-' +  dbContactNotes.ContactNotedate).show();
-    	$('#kn-input-' +  dbContactNotes.CaseManager).show();
-    	$('#kn-input-' +  dbContactNotes.Client).show();
-    	$('#kn-input-' +  dbContactNotes.NoteType).show();
-      $('#kn-input-' +  dbContactNotes.ContactNoteStatus).show();
-    	$('#kn-input-' +  dbContactNotes.MeetingStatus).show();
-    	$('#kn-input-' +  dbContactNotes.ContactDateStart).show();
-    	$('#kn-input-' +  dbContactNotes.ContactDateEnd).show();
-    	$('#kn-input-' +  dbContactNotes.VisitLocation).show();
-    	$('#kn-input-' +  dbContactNotes.ReasonforContact).show();
-    	$('#kn-input-' +  dbContactNotes.ClientIRP).show();
-    	$('#kn-input-' +  dbContactNotes.IRPGoals).show();
-    	$('#kn-input-' +  dbContactNotes.ClientGoalInterventions).show();
-    	$('#kn-input-' +  dbContactNotes.PersonsPresent).show();
-            $('#kn-input-' +  dbContactNotes.AddlPersonsPresent).show();
-    	$('#kn-input-' +  dbContactNotes.ClientResponses).show();
-      $('#kn-input-' +  dbContactNotes.NextVisitDate).show();
-    	$('#kn-input-' +  dbContactNotes.PlanforNextVisit).show();
-    	$('#kn-input-' +  dbContactNotes.OtherComment).show();
-    	$('#kn-input-' +  dbContactNotes.MedicationChanges).show();
-    	$('#kn-input-' +  dbContactNotes.CaseManagerSignature).show();
-            $('#kn-input-' +  dbContactNotes.ClientPresent).show();
+    	$(fldPrefix +  dbContactNotes.ContactNotedate).show();
+    	$(fldPrefix +  dbContactNotes.CaseManager).show();
+    	$(fldPrefix +  dbContactNotes.Client).show();
+    	$(fldPrefix +  dbContactNotes.NoteType).show();
+      $(fldPrefix +  dbContactNotes.ContactNoteStatus).show();
+    	$(fldPrefix +  dbContactNotes.MeetingStatus).show();
+    	$(fldPrefix +  dbContactNotes.ContactDateStart).show();
+    	$(fldPrefix +  dbContactNotes.ContactDateEnd).show();
+    	$(fldPrefix +  dbContactNotes.VisitLocation).show();
+    	$(fldPrefix +  dbContactNotes.ReasonforContact).show();
+    	$(fldPrefix +  dbContactNotes.ClientIRP).show();
+    	$(fldPrefix +  dbContactNotes.IRPGoals).show();
+    	$(fldPrefix +  dbContactNotes.ClientGoalInterventions).show();
+    	$(fldPrefix +  dbContactNotes.PersonsPresent).show();
+            $(fldPrefix +  dbContactNotes.AddlPersonsPresent).show();
+    	$(fldPrefix +  dbContactNotes.ClientResponses).show();
+      $(fldPrefix +  dbContactNotes.NextVisitDate).show();
+    	$(fldPrefix +  dbContactNotes.PlanforNextVisit).show();
+    	$(fldPrefix +  dbContactNotes.OtherComment).show();
+    	$(fldPrefix +  dbContactNotes.MedicationChanges).show();
+    	$(fldPrefix +  dbContactNotes.CaseManagerSignature).show();
+            $(fldPrefix +  dbContactNotes.ClientPresent).show();
     	return true;
     }
 
