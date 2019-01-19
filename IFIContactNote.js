@@ -52,9 +52,10 @@ function hideShowContactNoteFields(view, val, data) {
     console.dir(view) ;
     console.dir (data);
 
-    if (view.label == "Detail")
+    if (view.label == "Detail") {
        val = data[dbContactNotes.NoteType] ;
        fldPrefix = "" ;
+    }
     else
        fldPrefix = "#kn-input-" ;
 
