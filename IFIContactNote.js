@@ -47,6 +47,7 @@ function AddPersonsPresent(view) {
 function hideShowContactNoteFields(view, val) {
 
 	    // If this value in the form doesn't equal "SpecificValue" then prevent the form from submitting
+    console.dir(view) ;
     if (val == "Monthly Report") {
     	console.log (val);
 
