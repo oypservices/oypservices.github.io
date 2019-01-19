@@ -73,7 +73,7 @@ function hideShowContactNoteFields(view, val, data) {
       case "Monthly Report" :
           if (bDetails)
           {
-            $(dbContactNotes.PlanforNextVisit).children('.kn-detail-label').children('span').text() = "Plan for Next Month:" ;
+            $(fldPrefix + dbContactNotes.PlanforNextVisit).children('.kn-detail-label').children('span').text("Plan for Next Month:")  ;
           }
 
           break ;
