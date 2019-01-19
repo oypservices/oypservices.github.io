@@ -87,7 +87,7 @@ try {
     var mnuOverride = "#view_220 .kn-link-8" ;
 
     console.dir(data) ;
-    console.log (data[ClientStatus_raw]) ;
+    console.log (data[dbClients.ClientStatus_raw]) ;
 
     //ensures I am on the right form
     if ( $(mnuRequestAuth).length == 0 ) {
@@ -113,7 +113,7 @@ try {
       $(mnuOverride).show();
       $(mnuDischarge).show();
   //    switch ($(fld_client_status).text()){
-    switch (data[ClientStatus_raw]){
+    switch (data[dbClients.ClientStatus_raw]){
         case "Referral":
         case "Referral - Need More Information":
         case "Authorization - Need More Information":
