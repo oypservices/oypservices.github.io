@@ -68,9 +68,9 @@ function hideShowContactNoteFields(view, val, data) {
        return ;
 
     // Change the label depending on the tops
-    case val
+    switch val
     {
-      switch "Monthly Report" :
+      case "Monthly Report" :
           if (bDetails)
           {
             $(dbContactNotes.PlanforNextVisit).children('.kn-detail-label').children('span').text("Plan for Next Month:");
