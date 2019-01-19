@@ -145,6 +145,10 @@ function hideShowContactNoteFields(view, val, data) {
 
     $(fldPrefix +  dbContactNotes.MedicationChanges).hide();
 
+    $(fldPrefix +  dbGoals.Objective).hide();
+
+    Objective
+
 
 
 
@@ -161,6 +165,7 @@ function hideShowContactNoteFields(view, val, data) {
       $(fldPrefix +  dbContactNotes.ClientResponses).show();
     	$(fldPrefix +  dbContactNotes.PlanforNextVisit).show();
       $(fldPrefix +  dbContactNotes.CaseManagerSignature).show();
+      $(fldPrefix +  dbGoals.Objective).show();
     	return true;
         }
 

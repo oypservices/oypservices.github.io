@@ -229,7 +229,9 @@ var dbIRPs = {
 
 var dbGoals = {
   "Interventions" : "field_233",
-  "ClientIRP" : "field_214"
+  "ClientIRP" : "field_214",
+  "Objective" :"field_12"
+
 } ;
 
 var dbInterventions = {
