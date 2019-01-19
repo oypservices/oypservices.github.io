@@ -141,14 +141,14 @@ function hideShowContactNoteFields(view, val, data) {
     	$(fldPrefix +  dbContactNotes.IRPGoals).show();
     	$(fldPrefix +  dbContactNotes.ClientGoalInterventions).show();
     	$(fldPrefix +  dbContactNotes.PersonsPresent).show();
-            $(fldPrefix +  dbContactNotes.AddlPersonsPresent).show();
+      $(fldPrefix +  dbContactNotes.AddlPersonsPresent).show();
     	$(fldPrefix +  dbContactNotes.ClientResponses).show();
       $(fldPrefix +  dbContactNotes.NextVisitDate).show();
     	$(fldPrefix +  dbContactNotes.PlanforNextVisit).show();
     	$(fldPrefix +  dbContactNotes.OtherComment).show();
     	$(fldPrefix +  dbContactNotes.MedicationChanges).show();
     	$(fldPrefix +  dbContactNotes.CaseManagerSignature).show();
-            $(fldPrefix +  dbContactNotes.ClientPresent).show();
+      $(fldPrefix +  dbContactNotes.ClientPresent).show();
     	return true;
     }
 
