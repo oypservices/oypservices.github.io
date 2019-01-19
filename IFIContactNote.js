@@ -89,6 +89,7 @@ function hideShowContactNoteFields(view, val, data) {
       case "Contact Note" :
               if (bDetails)
               {
+                $(fldPrefix + dbContactNotes.ClientIRP).children('.kn-detail-label').children('span').text("IRP Name:")  ;
                 $(fldPrefix + dbContactNotes.IRPGoals).children('.kn-detail-label').children('span').text("Goals Implementation:")  ;
                 $(fldPrefix + dbContactNotes.PlanforNextVisit).children('.kn-detail-label').children('span').text("Plan for Next Contact:")  ;
                 $(fldPrefix + dbContactNotes.ClientResponses).children('.kn-detail-label').children('span').text("Client Response(s):") ;
@@ -98,7 +99,8 @@ function hideShowContactNoteFields(view, val, data) {
               }
               else {
 
-                $("label[ for= " + dbContactNotes.IRPGoals + "]").text("Goals Implementation:")
+                $("label[ for= " + dbContactNotes.ClientIRP + "]").text("IRP Name:");
+                $("label[ for= " + dbContactNotes.IRPGoals + "]").text("Goals Implementation:");
                 $("label[ for= " + dbContactNotes.PlanforNextVisit + "]").text("Plan for Next Contact:")  ;
                 $("label[ for= " + dbContactNotes.ClientResponses + "]").text("Client Response(s):")  ;
                 $("label[ for= " + dbContactNotes.ClientGoalInterventions + "]").text("List IRP goal(s) worked on during this contact:")
