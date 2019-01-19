@@ -60,9 +60,12 @@ function hideShowContactNoteFields(view, val, data) {
        fldPrefix = "#kn-input-" ;
 
 
-
+    console.log (val);
+    if (val == undefined)
+       return ;
+       
     if (val == "Monthly Report") {
-    	console.log (val);
+
 
     	$(fldPrefix +  dbContactNotes.ContactNotedate).show();
     	$(fldPrefix +  dbContactNotes.CaseManager).show();
