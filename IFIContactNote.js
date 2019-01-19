@@ -147,11 +147,7 @@ function hideShowContactNoteFields(view, val, data) {
 
     $(fldPrefix +  dbGoals.Objective).hide();
 
-    Objective
-
-
-
-
+  
     if (val == "Monthly Report") {
 
     	$(fldPrefix +  dbContactNotes.ContactNotedate).show();
