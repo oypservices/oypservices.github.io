@@ -63,9 +63,8 @@ function hideShowContactNoteFields(view, val, data) {
     console.log (val);
     if (val == undefined)
        return ;
-       
-    if (val == "Monthly Report") {
 
+    if (val == "Monthly Report") {
 
     	$(fldPrefix +  dbContactNotes.ContactNotedate).show();
     	$(fldPrefix +  dbContactNotes.CaseManager).show();
@@ -74,8 +73,6 @@ function hideShowContactNoteFields(view, val, data) {
       $(fldPrefix +  dbContactNotes.ContactNoteStatus).show();
       $(fldPrefix +  dbContactNotes.ClientIRP).show();
       $(fldPrefix +  dbContactNotes.IRPGoals).show();
-
-
 
       $(fldPrefix +  dbContactNotes.ClientResponses).show();
     	$(fldPrefix +  dbContactNotes.PlanforNextVisit).show();
