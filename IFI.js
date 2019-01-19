@@ -228,7 +228,10 @@ $(document).on('knack-record-update.any' , function (event, view, record) {
 
     case dbObjects.Clients:
       addDefaultClientTeam (event, view, record);
-      logStatusChange (event, view, record) ;
+      // A $( document ).ready() block.
+      $( document ).ready(function() {
+          logStatusChange (event, view, record) ;
+      });
       break;
 
    case dbObjects.ContactNotes:
