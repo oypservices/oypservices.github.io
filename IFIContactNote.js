@@ -68,7 +68,7 @@ function hideShowContactNoteFields(view, val, data) {
        return ;
 
     // Change the label depending on the tops
-    switch val
+    switch (val)
     {
       case "Monthly Report" :
           if (bDetails)
