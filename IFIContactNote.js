@@ -44,13 +44,16 @@ function AddPersonsPresent(view) {
 *******************************************************************************************************/
 
 
-function hideShowContactNoteFields(view, val) {
+function hideShowContactNoteFields(view, val, data) {
 
 	    // If this value in the form doesn't equal "SpecificValue" then prevent the form from submitting
     var fldPrefix = "" ;
 
     console.dir(view) ;
+    console.dir (data);
+
     if (view.label == "Detail")
+       val = data[dbContactNotes.NoteType] ;
        fldPrefix = "" ;
     else
        fldPrefix = "#kn-input-" ;

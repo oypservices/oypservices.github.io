@@ -27,12 +27,12 @@ $(document).on('knack-view-render.' + vw_contact_note_add, function(event, view,
     	$('#' + fld_note_type).on('change',function(e){
     	  console.log (e);
     	  console.log ($('#' + fld_note_type).val());
-    	  hideShowContactNoteFields (  view, $('#'+ fld_note_type).val() );
+    	  hideShowContactNoteFields (  view, $('#'+ fld_note_type).val() , data);
     	});
 
       var noteType = Knack.models[view_name].toJSON()["field_236_raw"];
       console.log (noteType) ;
-      hideShowContactNoteFields (  view, noteType);
+      hideShowContactNoteFields (  view, noteType, data);
   }
   catch (e)  {
       logerror(proc, e);
@@ -57,7 +57,7 @@ $(document).on('knack-view-render.' + vw_contact_note_edit, function(event, view
     	$('#' + fld_note_type).on('change',function(e){
     	  console.log (e);
     	  console.log ($('#' + fld_note_type).val());
-    	  hideShowContactNoteFields (  view, $('#'+ fld_note_type).val() );
+    	  hideShowContactNoteFields (  view, $('#'+ fld_note_type).val() , data);
     	});
 
 
@@ -509,12 +509,12 @@ $(document).on('knack-view-render.any' , function(event, view, data) {
          	$('#' + fld_note_type).on('change',function(e){
          	  console.log (e);
          	  console.log ($('#' + fld_note_type).val());
-         	  hideShowContactNoteFields (  view, $('#'+ fld_note_type).val() );
+         	  hideShowContactNoteFields (  view, $('#'+ fld_note_type).val() , data);
          	});
 
           var noteType =  $('#'+ fld_note_type).val() ;
           console.log (noteType) ;
-          hideShowContactNoteFields (  view, noteType);
+          hideShowContactNoteFields (  view, noteType, data);
 
           return ;
         }
