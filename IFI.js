@@ -90,7 +90,6 @@ try {
     var mnuOverride = "#view_220 .kn-link-8" ;
 
 
-
     //ensures I am on the right form
     if ( $("#view_220").length == 0 ) {
       console.log ("Status Menu Item does not exist in this case");
