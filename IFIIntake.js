@@ -99,7 +99,7 @@ function deleteEachClientIntakeDoc (resultDocuments, clientID )
                     "field_185" :  "" ,
                     "field_178" : resultDocuments.records[i][dbDocuments.DocumentName],
                     "field_295"  : resultDocuments.records[i][dbDocuments.File + "_raw"].id,
-                    "field_375" : clientID
+                    "field_375" : [ clientID ]  //Deleted Client field
                   //  "field_295_raw.field_key" : "field_295" ,
                   //  "field_296_raw.url"  : resultDocuments.records[i][dbDocuments.File + "_raw.url"]
                   }
