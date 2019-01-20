@@ -12,9 +12,9 @@ function evaluateDefaultIntakeDocuments (event, view, record) {
       // view_323 - Intake Doc Add
       // view_734 - Intake Docu Reset
 
-    //  if (view.key != "view_323" && view.Key != "view_734")
-      //   resolve ("Success")
-    //       return "success";
+      if (view.key != "view_323" && view.key != "view_734")
+     //   resolve ("Success") ;
+            return "success";
     //     ;
 
       var clientID = record.id;
@@ -30,7 +30,7 @@ function evaluateDefaultIntakeDocuments (event, view, record) {
 
        if (status == "Intake") {
          console.log ("Perform Document Intake Generation") ;
-         DeleteClientIntakeDocuments (clientD, docCount)
+         DeleteClientIntakeDocuments (clientID, docCount)
             .then (result => { return result ; } ) ;
 
         //  . then ( results => { return SetDefaultIntakeDocuments (clientID, ageGroup) ; } )
