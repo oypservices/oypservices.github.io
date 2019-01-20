@@ -30,7 +30,7 @@ function evaluateDefaultIntakeDocuments (event, view, record) {
          console.log ("Perform Document Intake Generation") ;
          DeleteClientIntakeDocuments (clientID, docCount)
            . then ( results => { return SetDefaultIntakeDocuments (clientID, ageGroup) ; } )
-           . then ( results2 => { resolve (results2) ; } )
+           . then ( results2 => { resolve (results2 ) ; } )
 
        } // if ClientStatus == intake
 
@@ -118,6 +118,11 @@ function deleteEachClientIntakeDoc (resultDocuments, clientID ){
 
              console.dir (postapidata) ;
 
+             // there is a limit of 10 api calls per second.  Pause 1 second if more than 10 iterations
+             if( i % 10 == 0)
+              wait (1000) ;
+
+
              var p = OYPKnackAPICall(  headers, postapidata ) ;
              plist.push (p) ;
 
@@ -177,7 +182,7 @@ function SetDefaultIntakeDocuments (clientID, documentCategory ){
       console.dir (getapidata);
 
       OYPKnackAPICall( headers, getapidata )
-        .then (resultDocumeents=> { addDocumentstoClient (resultDocumeents, clientID, docCount )  } ) ;
+        .then (resultDocumeents=> { addDocumentstoClient (resultDocumeents, clientID )  } ) ;
    })
 }
 
@@ -214,6 +219,9 @@ function addDocumentstoClient (resultDocuments, clientID ){
                 };
 
              console.dir (postapidata) ;
+             // there is a limit of 10 api calls per second.  Pause 1 second if more than 10 iterations
+             if( i % 10 == 0)
+              wait (1000) ;
 
              var p = OYPKnackAPICall(  headers, postapidata ) ;
              plist.push (p) ;
