@@ -4,7 +4,7 @@
  *********************************************************************************************/
 
 function evaluateDefaultIntakeDocuments (event, view, record) {
-	return new Promise ((resolve, reject) => {
+//	return new Promise ((resolve, reject) => {
 
       var proc = "evaluateDefaultIntakeDocuments" ;
       console.log(proc) ;
@@ -29,14 +29,16 @@ function evaluateDefaultIntakeDocuments (event, view, record) {
        if (status == "Intake") {
          console.log ("Perform Document Intake Generation") ;
          DeleteClientIntakeDocuments (clientD, docCount)
-            .then (result => { resolve (result) ; } )
+            .then (result => { return result ; } ) ;
+
         //  . then ( results => { return SetDefaultIntakeDocuments (clientID, ageGroup) ; } )
         //  . then ( results2 => { resolve (results2) ; } )
 
        } // if ClientStatus == intake
 
-       resolve ("No Action") ;
-
+       //resolve ("No Action") ;
+       return ;
+//
   })
 }
 
