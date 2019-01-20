@@ -62,9 +62,7 @@ function DeleteClientIntakeDocuments (clientID, docCount ) {
 
      if ( docCount == 0 )
         resolve (0) ;
-     else
-        resolve (docCount) ;
-/*
+
      // Default Docs
       var getapidata =  {
         "method": "get",
@@ -87,7 +85,6 @@ function DeleteClientIntakeDocuments (clientID, docCount ) {
            console.log('Promise.all error', err);
            reject ( err) ;
         });
-  */
    })
 
 }
