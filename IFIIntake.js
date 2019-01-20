@@ -34,11 +34,10 @@ function evaluateDefaultIntakeDocuments (event, view, record) {
 
          DeleteClientIntakeDocuments (clientID, docCount)
            . then ( results => { return SetDefaultIntakeDocuments (clientID, ageGroup) ; } )
-           . then ( results2 => { return results2  ; } )
-           . then ( result3 => {
-              Knack.hideSpinner();
-              console.log ($(".kn-back-link a").attr("href")) ;
-             	window.location.href =  $(".kn-back-link a").attr("href");   } )
+           . then ( result2 => {
+                    Knack.hideSpinner();
+                    console.log ($(".kn-back-link a").attr("href")) ;
+                   	window.location.href =  $(".kn-back-link a").attr("href");   } )
 
        }
          window.location.href =  $(".kn-back-link a").attr("href");
