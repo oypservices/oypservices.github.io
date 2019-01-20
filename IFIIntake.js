@@ -134,7 +134,7 @@ function SetDefaultIntakeDocuments (clientID, documentCategory ){
   return new Promise ((resolve, reject) => {
 
 
-      console.log ("SetDefaultIntakeDocuments"; )
+      console.log ("SetDefaultIntakeDocuments" ) ;
       var minor = "Intake - All Adults";
       if ( documentCategory != 'Adult' )
          minor = "Intake - All Minors" ;
