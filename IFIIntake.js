@@ -31,12 +31,13 @@ function evaluateDefaultIntakeDocuments (event, view, record) {
        if (status == "Intake") {
          Knack.showSpinner();
          console.log ("Perform Document Intake Generation") ;
-         
+
          DeleteClientIntakeDocuments (clientID, docCount)
            . then ( results => { return SetDefaultIntakeDocuments (clientID, ageGroup) ; } )
            . then ( results2 => { return results2  ; } )
            . then ( result3 => {
               Knack.hideSpinner();
+              console.log ($(".kn-back-link a").attr("href")) ;
              	window.location.href =  $(".kn-back-link a").attr("href");   } )
 
        }
