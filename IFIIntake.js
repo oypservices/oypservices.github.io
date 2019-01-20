@@ -30,7 +30,8 @@ function evaluateDefaultIntakeDocuments (event, view, record) {
          console.log ("Perform Document Intake Generation") ;
          DeleteClientIntakeDocuments (clientID, docCount)
            . then ( results => { return SetDefaultIntakeDocuments (clientID, ageGroup) ; } )
-           . then ( results2 => { resolve (results2 ) ; } )
+           . then ( results2 => { return results2  ; } )
+           . then ( result3 => { 	window.location.href =  $(".kn-back-link a").attr("href");   } )
 
        } // if ClientStatus == intake
 
