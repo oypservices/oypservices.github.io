@@ -13,7 +13,7 @@ function evaluateDefaultIntakeDocuments (event, view, record) {
       // view_734 - Intake Docu Reset
 
       if (view.key != "view_323" && view.Key != "view_734")
-         resolve () ;
+         resolve ("Success") ;
 
       var clientID = record.id;
       var ageGroup = record[dbClients.AgeGroup];
@@ -29,12 +29,13 @@ function evaluateDefaultIntakeDocuments (event, view, record) {
        if (status == "Intake") {
          console.log ("Perform Document Intake Generation") ;
          DeleteClientIntakeDocuments (clientD, docCount)
-          . then ( results => { return SetDefaultIntakeDocuments (clientID, ageGroup) ; } )
-          . then ( results2 => { resolve (results2) ; } )
+            .then (result => resolve (result) ;)
+        //  . then ( results => { return SetDefaultIntakeDocuments (clientID, ageGroup) ; } )
+        //  . then ( results2 => { resolve (results2) ; } )
 
        } // if ClientStatus == intake
 
-       resolve () ;
+       resolve ("No Action") ;
 
   })
 }
