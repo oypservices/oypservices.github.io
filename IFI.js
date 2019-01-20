@@ -200,7 +200,7 @@ $(document).on('knack-record-update.any' , function (event, view, record) {
     case dbObjects.Clients:
       addDefaultClientTeam (event, view, record);
       logStatusChange (event, view, record) ;
-      evalueDefaultIntakeDocuments (event, view, record) ;
+      evaluateDefaultIntakeDocuments (event, view, record) ;
 
       break;
 
