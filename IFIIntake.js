@@ -42,7 +42,7 @@ function evaluateDefaultIntakeDocuments (event, view, record) {
  Add the defualt set of intake documments to the client
 *************************************************************************************/
 
-function DeleteClientIntakeDocuments (clientID, docCount )
+function DeleteClientIntakeDocuments (clientID, docCount ) {
   return new Promise ((resolve, reject) => {
 
 /* This is a logical delete by moving the relationship to the client.  These records will be
@@ -76,7 +76,7 @@ function DeleteClientIntakeDocuments (clientID, docCount )
 Logically delete each of the default intake document record for the client
 ***************************************************************************************/
 
-function deleteEachClientIntakeDoc (resultDocuments, clientID )
+function deleteEachClientIntakeDoc (resultDocuments, clientID ){
   return new Promise ((resolve, reject) => {
 
         console.log ("deleteEachClientIntakeDoc") ;
@@ -128,7 +128,7 @@ function deleteEachClientIntakeDoc (resultDocuments, clientID )
  Add the defualt set of intake documments to the client
 *************************************************************************************/
 
-function SetDefaultIntakeDocuments (clientID, documentCategory )
+function SetDefaultIntakeDocuments (clientID, documentCategory ){}
   return new Promise ((resolve, reject) => {
 
       var minor = "Intake - All Adults";
@@ -173,7 +173,7 @@ function SetDefaultIntakeDocuments (clientID, documentCategory )
 Add each of the default intake document
 ***************************************************************************************/
 
-function addDocumentstoClient (resultDocuments, clientID )
+function addDocumentstoClient (resultDocuments, clientID ){
   return new Promise ((resolve, reject) => {
 
         console.log ("addDocumentstoclient") ;
