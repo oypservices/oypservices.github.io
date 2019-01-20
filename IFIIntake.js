@@ -188,7 +188,11 @@ function SetDefaultIntakeDocuments (clientID, documentCategory ){
       console.dir (getapidata);
 
       OYPKnackAPICall( headers, getapidata )
-        .then (resultDocumeents=> { addDocumentstoClient (resultDocumeents, clientID )  } ) ;
+        .then (resultDocumeents=> { resolve ( addDocumentstoClient (resultDocumeents, clientID ) ) ;  } )
+        .catch(err => {
+                   console.log('Promise.all error', err);
+                   reject ( err) ;
+              });
    })
 }
 
