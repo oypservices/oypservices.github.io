@@ -78,8 +78,9 @@ function DeleteClientIntakeDocuments (clientID, docCount ) {
            console.log('Promise.all error', err);
            reject ( err) ;
         });
-   })
   */
+   })
+
 }
 
 /**************************************************************************************
