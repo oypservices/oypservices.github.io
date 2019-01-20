@@ -40,7 +40,7 @@ function evaluateDefaultIntakeDocuments (event, view, record) {
                    	window.location.href =  $(".kn-back-link a").attr("href");   } )
 
        }
-         window.location.href =  $(".kn-back-link a").attr("href");
+
 
 
   })
