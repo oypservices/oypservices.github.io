@@ -15,6 +15,8 @@ function evaluateDefaultIntakeDocuments (event, view, record) {
       if (view.key != "view_323" && view.key != "view_734")
           resolve ("No Action Required on Intake Docs") ;
 
+
+
       var clientID = record.id;
       var ageGroup = record[dbClients.AgeGroup];
       var docCount = record[dbClients.IntakeDocumentCount];
@@ -27,17 +29,20 @@ function evaluateDefaultIntakeDocuments (event, view, record) {
        console.log (docCount) ;
 
        if (status == "Intake") {
+         Knack.showSpinner();
          console.log ("Perform Document Intake Generation") ;
+         
          DeleteClientIntakeDocuments (clientID, docCount)
            . then ( results => { return SetDefaultIntakeDocuments (clientID, ageGroup) ; } )
            . then ( results2 => { return results2  ; } )
-           . then ( result3 => { 	window.location.href =  $(".kn-back-link a").attr("href");   } )
+           . then ( result3 => {
+              Knack.hideSpinner();
+             	window.location.href =  $(".kn-back-link a").attr("href");   } )
 
-       } // if ClientStatus == intake
+       }
+         window.location.href =  $(".kn-back-link a").attr("href");
 
-       // resolve ("No Action") ;
-      //return ;
-//
+
   })
 }
 
