@@ -28,7 +28,7 @@ function evaluateDefaultIntakeDocuments (event, view, record) {
        console.log (docCount) ;
 
        if (status == "Intake") {
-
+       ] console.log ("Perform Document Intake Generation") ;
          DeleteClientIntakeDocuments (clientD, docCount)
           . then ( results => { return SetDefaultIntakeDocuments (clientID, ageGroup) ; } )
           . then ( results => { resolve (results) ; } )
@@ -48,6 +48,8 @@ function DeleteClientIntakeDocuments (clientID, docCount ) {
 /* This is a logical delete by moving the relationship to the client.  These records will be
    cleaned up later in the backend
 */
+
+    console.log ("DeleteClientIntakeDocuments") ;
 
 
      if ( docCount == 0 )
@@ -131,6 +133,8 @@ function deleteEachClientIntakeDoc (resultDocuments, clientID ){
 function SetDefaultIntakeDocuments (clientID, documentCategory ){
   return new Promise ((resolve, reject) => {
 
+
+      console.log ("SetDefaultIntakeDocuments"; )
       var minor = "Intake - All Adults";
       if ( documentCategory != 'Adult' )
          minor = "Intake - All Minors" ;
