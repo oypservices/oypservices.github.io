@@ -125,8 +125,8 @@ function deleteEachClientIntakeDoc (resultDocuments, clientID ){
              console.dir (postapidata) ;
 
              // there is a limit of 10 api calls per second.  Pause 1 second if more than 10 iterations
-             if( i % 10 == 0)
-              wait (1000) ;
+             if( i % 5 == 0)
+              wait (500) ;
 
 
              var p = OYPKnackAPICall(  headers, postapidata ) ;
@@ -226,8 +226,8 @@ function addDocumentstoClient (resultDocuments, clientID ){
 
              console.dir (postapidata) ;
              // there is a limit of 10 api calls per second.  Pause 1 second if more than 10 iterations
-             if( i % 10 == 0)
-              wait (1000) ;
+             if( i % 5 == 0)
+              wait (500) ;
 
              var p = OYPKnackAPICall(  headers, postapidata ) ;
              plist.push (p) ;
