@@ -3,10 +3,10 @@
  intake documents need to be added.
  *********************************************************************************************/
 
-function evalueDefaultIntakeDocuments (event, view, record) {
+function evaluateDefaultIntakeDocuments (event, view, record) {
 	return new Promise ((resolve, reject) => {
 
-      var proc = "evalueDefaultIntakeDocuments" ;
+      var proc = "evaluateDefaultIntakeDocuments" ;
       console.log(proc) ;
 
       // view_323 - Intake Doc Add
