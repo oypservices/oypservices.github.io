@@ -105,7 +105,9 @@ var dbClients = {
 "ClientStatus_raw":"field_75_raw",
 "ClientStatusNote":"field_328",
 "BeaconStartDate":"field_277",
-"BeaconEndDate":"field_278"
+"BeaconEndDate":"field_278",
+"AgeGroup" : "field_289",
+"IntakeDocumentCount" : "field_374"
 }
 
 var dbClientStatusHistory = {

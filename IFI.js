@@ -189,35 +189,6 @@ catch (e)  {
 }
 
 
-
-
-// Add Default Intake Documents
-$(document).on('knack-record-update.view_323', function (event, view, record) {
-
-  var user = Knack.getUserToken();
-  var headers = { "Authorization": user, "X-Knack-Application-ID": app_id, "Content-Type":"application/json"};
-
-  var clientID = Knack.models[vw_client_dtls_intact_docs].toJSON().id;
-  var AgeGroup = Knack.models[vw_client_dtls_intact_docs].toJSON()["field_289"];
-
-  Knack.showSpinner();
-
-  console.log ( $("#view_323-field_75 option:selected").text() );
-  if ($("#view_323-field_75 option:selected").text() == "Intake") {
-
-    SetDefaultIntakeDocuments (clientID, AgeGroup);
-
-  } // if ClientStatus == intake
-
-  Knack.hideSpinner();
-
-
-
-});
-
-
-
-
 /**********************************************************************************************
 //Event handler for record updates
 *************************************************************************************************/
@@ -228,8 +199,8 @@ $(document).on('knack-record-update.any' , function (event, view, record) {
 
     case dbObjects.Clients:
       addDefaultClientTeam (event, view, record);
-      // A $( document ).ready() block.
-          logStatusChange (event, view, record) ;
+      logStatusChange (event, view, record) ;
+      evalueDefaultIntakeDocuments (event, view, record) ;
 
       break;
 
@@ -475,7 +446,7 @@ $(document).on('knack-view-render.any' , function(event, view, data) {
        if (view.source.object == "object_1" ){
          $( document ).ready(function() {
              console.dir( $( document ) ) ;
-             setClientStatusText( data) ;             
+             setClientStatusText( data) ;
          });
 
 
