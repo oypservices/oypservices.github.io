@@ -4,7 +4,7 @@
  *********************************************************************************************/
 
 function evaluateDefaultIntakeDocuments (event, view, record) {
-//	return new Promise ((resolve, reject) => {
+	return new Promise ((resolve, reject) => {
 
       var proc = "evaluateDefaultIntakeDocuments" ;
       console.log(proc) ;
@@ -13,9 +13,7 @@ function evaluateDefaultIntakeDocuments (event, view, record) {
       // view_734 - Intake Docu Reset
 
       if (view.key != "view_323" && view.key != "view_734")
-     //   resolve ("Success") ;
-            return "success";
-    //     ;
+          resolve ("No Action Required on Intake Docs") ;
 
       var clientID = record.id;
       var ageGroup = record[dbClients.AgeGroup];
@@ -31,15 +29,13 @@ function evaluateDefaultIntakeDocuments (event, view, record) {
        if (status == "Intake") {
          console.log ("Perform Document Intake Generation") ;
          DeleteClientIntakeDocuments (clientID, docCount)
-            .then (result => { return result ; } ) ;
-
-        //  . then ( results => { return SetDefaultIntakeDocuments (clientID, ageGroup) ; } )
-        //  . then ( results2 => { resolve (results2) ; } )
+           . then ( results => { return SetDefaultIntakeDocuments (clientID, ageGroup) ; } )
+           . then ( results2 => { resolve (results2) ; } )
 
        } // if ClientStatus == intake
 
-       //resolve ("No Action") ;
-       return ;
+       // resolve ("No Action") ;
+      //return ;
 //
 //  })
 }
