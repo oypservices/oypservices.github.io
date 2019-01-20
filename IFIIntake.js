@@ -39,7 +39,7 @@ function evaluateDefaultIntakeDocuments (event, view, record) {
        //resolve ("No Action") ;
        return ;
 //
-  })
+//  })
 }
 
 /***********************************************************************************8
