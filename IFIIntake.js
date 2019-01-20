@@ -31,7 +31,7 @@ function evaluateDefaultIntakeDocuments (event, view, record) {
          console.log ("Perform Document Intake Generation") ;
          DeleteClientIntakeDocuments (clientD, docCount)
           . then ( results => { return SetDefaultIntakeDocuments (clientID, ageGroup) ; } )
-          . then ( results => { resolve (results) ; } )
+          . then ( results2 => { resolve (results2) ; } )
 
        } // if ClientStatus == intake
 
@@ -70,7 +70,9 @@ function DeleteClientIntakeDocuments (clientID, docCount ) {
       console.dir (getapidata);
 
       OYPKnackAPICall( headers, getapidata )
-        .then (resultDocumeents=> { deleteEachClientIntakeDoc (resultDocumeents, clientID)  } ) ;
+        .then (resultDocumeents=> {
+                resolve (deleteEachClientIntakeDoc (resultDocumeents, clientID) )
+                } ) ;
    })
 }
 
