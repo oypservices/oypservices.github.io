@@ -34,6 +34,8 @@ function evaluateDefaultIntakeDocuments (event, view, record) {
 
        } // if ClientStatus == intake
 
+       resolve () ;
+
   })
 }
 
@@ -48,6 +50,8 @@ function DeleteClientIntakeDocuments (clientID, docCount ) {
    cleaned up later in the backend
 */
 
+    console.log (clientID) ;
+    console.log (docCount) ;
     console.log ("DeleteClientIntakeDocuments") ;
 
 
