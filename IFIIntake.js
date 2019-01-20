@@ -128,7 +128,7 @@ function deleteEachClientIntakeDoc (resultDocuments, clientID ){
  Add the defualt set of intake documments to the client
 *************************************************************************************/
 
-function SetDefaultIntakeDocuments (clientID, documentCategory ){}
+function SetDefaultIntakeDocuments (clientID, documentCategory ){
   return new Promise ((resolve, reject) => {
 
       var minor = "Intake - All Adults";
