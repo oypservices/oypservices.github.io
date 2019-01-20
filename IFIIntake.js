@@ -29,7 +29,7 @@ function evaluateDefaultIntakeDocuments (event, view, record) {
        if (status == "Intake") {
          console.log ("Perform Document Intake Generation") ;
          DeleteClientIntakeDocuments (clientD, docCount)
-            .then (result => resolve (result) ;)
+            .then (result => { resolve (result) ; } )
         //  . then ( results => { return SetDefaultIntakeDocuments (clientID, ageGroup) ; } )
         //  . then ( results2 => { resolve (results2) ; } )
 
