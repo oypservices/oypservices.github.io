@@ -20,7 +20,6 @@ function evaluateDefaultIntakeDocuments (event, view, record) {
       var docCount = record[dbClients.IntakeDocumentCount];
       var status = record[dbClients.ClientStatus_raw][0].identifier ;
 
-      Knack.showSpinner();
 
        console.log (status );
        console.log (clientID ) ;
@@ -72,7 +71,11 @@ function DeleteClientIntakeDocuments (clientID, docCount ) {
       OYPKnackAPICall( headers, getapidata )
         .then (resultDocumeents=> {
                 resolve (deleteEachClientIntakeDoc (resultDocumeents, clientID) ) ;
-                } ) ;
+                } )
+        .catch(err => {
+           console.log('Promise.all error', err);
+           reject ( err) ;
+        });
    })
 }
 
