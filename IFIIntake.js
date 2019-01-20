@@ -12,10 +12,10 @@ function evaluateDefaultIntakeDocuments (event, view, record) {
       // view_323 - Intake Doc Add
       // view_734 - Intake Docu Reset
 
-      if (view.key != "view_323" || view.Key != "view_734")
+    //  if (view.key != "view_323" && view.Key != "view_734")
       //   resolve ("Success")
-           return "success";
-         ;
+    //       return "success";
+    //     ;
 
       var clientID = record.id;
       var ageGroup = record[dbClients.AgeGroup];
