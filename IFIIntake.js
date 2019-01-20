@@ -111,7 +111,7 @@ function deleteEachClientIntakeDoc (resultDocuments, clientID ){
                   "method": "put",
                   "knackobj": dbObjects.ClientIntakeDocuments ,
                   "appid": app_id,
-                  "id" : resultsDocument.records[i].id ,
+                  "id" : resultDocuments.records[i].id ,
                   "record":  {
                     "field_185" :  "" ,
                     "field_375" : [ clientID ]  //Deleted Client field
