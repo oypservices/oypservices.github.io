@@ -71,7 +71,7 @@ function DeleteClientIntakeDocuments (clientID, docCount ) {
 
       OYPKnackAPICall( headers, getapidata )
         .then (resultDocumeents=> {
-                resolve (deleteEachClientIntakeDoc (resultDocumeents, clientID) )
+                resolve (deleteEachClientIntakeDoc (resultDocumeents, clientID) ) ;
                 } ) ;
    })
 }
