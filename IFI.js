@@ -143,6 +143,9 @@ try {
         case "ReAuthorization - PA Review In Progress":
             $(mnuReAuth).show();
            break;
+        case "Intake":
+                $(mnuIntake).show();
+                break;
         case "Intake Complete":
            $(mnuCompIntake).show();
            break;
@@ -171,9 +174,7 @@ try {
     // Case Manager Status Roles
     if ( Knack.getUserRoles(roles.IFICM) || Knack.getUserRoles(roles.Admin)  ) {
       switch (status){
-        case "Intake":
-             $(mnuIntake).show();
-             break;
+
 
         default:
             break ;
