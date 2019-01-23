@@ -115,10 +115,10 @@ function hideShowContactNoteFields(view, val, data) {
 
     //hide all
 
-    $(fldPrefix +  dbContactNotes.ContactNotedate).hide();
+//    $(fldPrefix +  dbContactNotes.ContactNotedate).hide();
     $(fldPrefix +  dbContactNotes.CaseManager).hide();
     $(fldPrefix +  dbContactNotes.Client).hide();
-    $(fldPrefix +  dbContactNotes.NoteType).hide();
+//    $(fldPrefix +  dbContactNotes.NoteType).hide();
     $(fldPrefix +  dbContactNotes.ContactNoteStatus).hide();
     $(fldPrefix +  dbContactNotes.ClientIRP).hide();
     $(fldPrefix +  dbContactNotes.IRPGoals).hide();
@@ -179,7 +179,7 @@ function hideShowContactNoteFields(view, val, data) {
     	return true;
         }
 
-   else {
+   else if (val == "Contact Type") {
       console.log (val);
       AddPersonsPresent(view) ;
     	$(fldPrefix +  dbContactNotes.ContactNotedate).show();
