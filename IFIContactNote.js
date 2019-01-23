@@ -179,7 +179,7 @@ function hideShowContactNoteFields(view, val, data) {
     	return true;
         }
 
-   else if (val == "Contact Type") {
+   else if (val == "Contact Note") {
       console.log (val);
       AddPersonsPresent(view) ;
     	$(fldPrefix +  dbContactNotes.ContactNotedate).show();
