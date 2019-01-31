@@ -133,7 +133,8 @@ var dbClientIntakeDocuments = {
   "DateSent" : "field_182" ,
   "DateReceived" : "field_183" ,
   "ScannedImageFile" : "field_187" ,
-  "ClientTeamMember" : "field_190"
+  "ClientTeamMember" : "field_190",
+  "SortOrder" : "field_377"
 }
 
 var dbDocuments = {
@@ -144,7 +145,8 @@ var dbDocuments = {
   "RichText" : "field_237" ,
   "AdministratorsOnly" : "field_136" ,
   "DocumentCategory" : "field_176" ,
-  "GeneralDocument" : "field_288"
+  "GeneralDocument" : "field_288",
+  "SortOrder" : "field_376"
 }
 
 
