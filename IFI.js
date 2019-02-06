@@ -175,7 +175,9 @@ try {
     if ( Knack.getUserRoles(roles.IFICM) || Knack.getUserRoles(roles.Admin)  ) {
       switch (status){
 
-
+        case "Intake":
+                $(mnuIntake).show();
+                break;
         default:
             break ;
 
