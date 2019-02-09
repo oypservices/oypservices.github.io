@@ -46,8 +46,22 @@ console.log(arr.some(item => _.isEqual(item, objToFind2)));
 function applyFilters ( tblObject, filters ) {
 	for ( var n = 0  ; n < filters.conditions.length ; n++) {
 		var cond = filters.conditions[n];
-		if ( tblObject[ cond.key ] != cond.value )
+
 		 	 return false ;
+		switch (cond.value) {
+			case "=" :
+				if  (tblObject[ cond.key ] != cond.value)
+					return false ;
+				break ;
+
+			case "!=" :
+				if  (tblObject[ cond.key ] == cond.value)
+					return false ;
+				break;
+
+			default:
+			   break ;
+		}
 	}
 	return true ;
 }
@@ -78,16 +92,6 @@ try {
 				 "operation" : "="}]
 
 		};
-
-		var objToFind1 = {
-		    "conditions" : [{"key" : "field_6",
-				 "value" :  "abc1",
-				 "operation" : "="}]
-
-		};
-
-   console.log ( applyFilters (record, objToFind2 ) ) ;
-	 console.log ( applyFilters (record, objToFind1 ) ) ;
 
 
 		var apidata = {
@@ -153,6 +157,12 @@ function processAlerts(resultAlerts, record) {
  					var recordAlert = resultAlerts.records[n];
 					var dateField = recordAlert[dbAlertRules.DateField] ;
 					var notifyInterval = recordAlert[dbAlertRules.NotificationDateInDays] ;
+					var filters = recordAlert[dbAlertRules.Filters] ;
+
+					if ( filters != undefined) {
+ 						if (applyFilters (record, filters ) )
+							 continue ;
+					}
 
 					var targetCompleteInterval = recordAlert[dbAlertRules.TargetCompletionDateInDays] ;
 					if (targetCompleteInterval == undefined)

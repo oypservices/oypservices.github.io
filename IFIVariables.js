@@ -112,7 +112,7 @@ var dbAlertRules = {
   "AlertRuleName" : "field_362",
   "Frequency" : "field_390",
   "CalendarColor" :"field_389",
-  "Filter" : "field_378",
+  "Filters" : "field_378",
   "Notify" : "field_391",
   "tblObject":"field_394",
   "DateField" : "field_398",
