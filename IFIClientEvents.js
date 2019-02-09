@@ -71,8 +71,8 @@ try {
 		};
 
 
-		console.dir(record.some(item => _.isEqual(item, objToFind1)));
-		console.dir(record.some(item => _.isEqual(item, objToFind2)));
+		console.log(record.some(item => _.isEqual(item, objToFind1)));
+		console.log(record.some(item => _.isEqual(item, objToFind2)));
 
 
 
