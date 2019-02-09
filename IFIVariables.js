@@ -81,7 +81,9 @@ var dbObjects = {
   "ClientGoalInterventions" :  "object_25",
   "ClientIRPs" : "object_26" ,
   "Account" : "object_6" ,
-  "ClientTeamMemberRoles" : "object_39"
+  "ClientTeamMemberRoles" : "object_39",
+  "AlertRules" : "object_38",
+  "ClientEvents" : "object_40"
 }
 
 
@@ -91,6 +93,33 @@ var dbClientTeamMemberRoles = {
 }
 
 // Database Model
+
+var dbClientEvents = {
+  "Client" : "field_385",
+  "AlertRule" : "field_380",
+ "DateCreated" : "field_381",
+ "NotificationDate" : "field_397",
+ "TargetCompletionDate" : "field_382",
+ "Status" : "field_384",
+ "TaskClosedDate" : "field_383",
+ "CaseManager" : "field_386",
+ "Notes" : "field_387",
+  "EmailTemplate" : "field_407"
+}
+
+
+var dbAlertRules = {
+  "AlertRuleName" : "field_362",
+  "Frequency" : "field_390",
+  "CalendarColor" :"field_389",
+  "Filter" : "field_378",
+  "Notify" : "field_391",
+  "tblObject":"field_394",
+  "DateField" : "field_398",
+  "NotificationDateInDays" : "field_395" ,
+  "TargetCompletionDateInDays" : "field_399",
+  "EmailTemplate" : "field_406"
+}
 
 var dbClients = {
   "ClientName":"field_2",

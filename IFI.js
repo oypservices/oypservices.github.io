@@ -204,6 +204,7 @@ $(document).on('knack-record-update.any' , function (event, view, record) {
       addDefaultClientTeam (event, view, record);
       logStatusChange (event, view, record) ;
       evaluateDefaultIntakeDocuments (event, view, record) ;
+      getAlertRules (event, view, record) ;
 
       break;
 
