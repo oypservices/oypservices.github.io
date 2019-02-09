@@ -212,6 +212,10 @@ $(document).on('knack-record-update.any' , function (event, view, record) {
       evaluateContactNotes (event, view, record) ;
       break ;
 
+   case dbObjects.ClientIRPs :
+      getAlertRules (event, view, record) ;
+      break ;
+
     default:
       break ;
   }
@@ -236,7 +240,9 @@ $(document).on('knack-record-create.any' , function (event, view, record) {
       evaluateContactNotes (event, view, record) ;
       break ;
 
-
+      case dbObjects.ClientIRPs :
+         getAlertRules (event, view, record) ;
+         break;
 
    case dbObjects.Account :
     //  evaluateNewAccount (event, view, record);
