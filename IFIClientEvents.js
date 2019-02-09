@@ -31,7 +31,7 @@ try {
 
 		OYPKnackAPICall (headers,  apidata)
 		.then (resultAlerts => { resolve( processAlerts(resultAlerts, record) ) ; })
-		.catch (err => { reject (err)  ;})
+	//	.catch (err => { reject (err)  ;})
 
 }
 catch (e)  {
