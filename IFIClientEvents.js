@@ -144,8 +144,7 @@ function processAlerts(resultAlerts, record) {
 					var filters = recordAlert[dbAlertRules.Filters] ;
 
 					if ( filters != undefined) {
- 						if (!applyFilters (record, filters ) )
-							 continue ;
+ 						if (!applyFilters (record, filters ) )  continue ;
 					}
 
 					var targetCompleteInterval = recordAlert[dbAlertRules.TargetCompletionDateInDays] ;
