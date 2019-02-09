@@ -23,7 +23,7 @@ try {
 						"knackobj": dbObjects.AlertRules,
 						"appid": app_id,
 						"filters": [ {
-								"field" : dbAlertRules.Object ,
+								"field" : dbAlertRules.tblObject ,
 								"operator":"is",
 								"value": tblObject
 							} ]
@@ -90,7 +90,7 @@ function processAlerts(resultAlerts, record) {
 					console.log (dateNotify) ;
 
 
- 					record[dbGoals.ClientIRP] = newIRPId;
+ 				//	record[dbGoals.ClientIRP] = newIRPId;
 
  	//			 var p = 	postClientEventRecord (ClientId, record) ;
  		//		 plist.push (p);
