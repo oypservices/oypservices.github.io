@@ -90,8 +90,11 @@ function processAlerts(resultAlerts, record) {
 							console.log (dateFieldValue) ;
 
 							var dateTrigger = new Date(dateFieldValue);   //Convert text to date
-							dateNotify.setDate(dateTrigger.getDate() + Number(notifyInterval));
-							dateTargetComplete.setDate(dateTrigger.getDate() + Number(targetCompleteInterval));
+							var dateNotify = new Date (dateTrigger) ;
+							var dateTargetComplete = new Date (dateTrigger);
+
+							var dateNotify = dateNotify.setDate(dateNotify.getDate() + Number(notifyInterval));
+							dateTargetComplete.setDate(dateTargetComplete.getDate() + Number(targetCompleteInterval));
 							console.log (dateNotify) ;
 
 							recordAlert["NotificationDate"] = dateNotify;
