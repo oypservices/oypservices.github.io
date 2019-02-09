@@ -48,8 +48,7 @@ function applyFilters ( tblObject, filters ) {
 	filters = JSON.parse(filters);
 	for ( var n = 0  ; n < filters.conditions.length ; n++) {
 		var cond = filters.conditions[n];
-
-		 	 return false ;
+		
 		switch (cond.value) {
 			case "=" :
 				if  (tblObject[ cond.key ] != cond.value)
