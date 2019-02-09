@@ -72,8 +72,8 @@ try {
 
 
 		var jRecord = JSON.stringify (record) ;
-		console.log(jRecord.some(item => _.isEqual(item, objToFind1)));
-		console.log(jRecord.some(item => _.isEqual(item, objToFind2)));
+		console.log(jRecord.filter(item => _.isEqual(item, objToFind1)));
+		console.log(jRecord.filter(item => _.isEqual(item, objToFind2)));
 
 
 
