@@ -169,7 +169,7 @@ Create Client Event Record (if it does not already exists)
 
 							  OYPKnackAPICall (headers,  postapidata )
 								   .then ( result => { resolve (result); })
-									 .catch (err => { reject {err}; })
+									 .catch (err => { reject (err) })
 
 							}
 
