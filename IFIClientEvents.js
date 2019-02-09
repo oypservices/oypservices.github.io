@@ -83,15 +83,15 @@ function processAlerts(resultAlerts, record) {
 					var dateFieldValue = record[dateField] ;
 					if (dateFieldValue != undefined) {
 							console.log (dateFieldValue) ;
-						  
-							dateFieldValue.setDate (dateFieldValue) ;  //Convert text to date
-							dateNotify.setDate(dateFieldValue.getDate() + notifyInterval);
+
+							var dateNotify = new Date(dateFieldValue);   //Convert text to date
+							dateNotify.setDate(dateNotify.getDate() + notifyInterval);
 							console.log (dateNotify) ;
 					}
 
 
 				//	var date = new Date(dateFieldValue);
-			  //  var dateNotify = new Date(date);
+			  //
 
 
 
