@@ -81,9 +81,10 @@ function processAlerts(resultAlerts, record) {
 					var notifyInterval = recordAlert[dbAlertRules.NotificationDateInDays] ;
 					var targetCompleteInterval = recordAlert[dbAlertRules.TargetCompletionDateInDays] ;
 					var dateFieldValue = record[dateField].date ;
+					console.log (dateFieldValue) ;
 
-					var date = new Date(tt);
-			    var dateNotify = new Date(date);
+				//	var date = new Date(dateFieldValue);
+			  //  var dateNotify = new Date(date);
 
 			    dateNotify.setDate(dateFieldValue.getDate() + notifyInterval);
 					console.log (dateNotify) ;
