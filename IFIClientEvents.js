@@ -50,7 +50,7 @@ function applyFilters ( tblObject, filters ) {
 		var cond = filters.conditions[n];
 		var bMatch = (tblObject[ cond.key ] == cond.value) ;
 
-		switch (cond.value) {
+		switch (cond.operator) {
 			case "=" :
 				if (!bMatch) return false ;
 				break ;
