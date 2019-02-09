@@ -44,6 +44,8 @@ console.log(arr.some(item => _.isEqual(item, objToFind2)));
 */
 
 function applyFilters ( tblObject, filters ) {
+
+	filters = JSON.stringify(filters);
 	for ( var n = 0  ; n < filters.conditions.length ; n++) {
 		var cond = filters.conditions[n];
 
