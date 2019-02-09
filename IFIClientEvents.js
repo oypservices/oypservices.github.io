@@ -52,13 +52,11 @@ function applyFilters ( tblObject, filters ) {
 
 		switch (cond.value) {
 			case "=" :
-				if (!bMatch)
-					return false ;
+				if (!bMatch) return false ;
 				break ;
 
 			case "!=" :
-				if (bMatch)
-					return false ;
+				if (bMatch) return false ;
 				break;
 
 			default:
