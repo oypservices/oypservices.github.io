@@ -144,7 +144,7 @@ function processAlerts(resultAlerts, record) {
 					var filters = recordAlert[dbAlertRules.Filters] ;
 
 					if ( filters != undefined) {
- 						if !(applyFilters (record, filters ) )
+ 						if (!applyFilters (record, filters ) )
 							 continue ;
 					}
 
