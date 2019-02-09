@@ -43,9 +43,8 @@ console.log(arr.some(item => _.isEqual(item, objToFind1)));
 console.log(arr.some(item => _.isEqual(item, objToFind2)));
 */
 
-function applyFilters ( tblObject, filters )
-{
-	for ( int n = 0 ; n < filters.conditions.length ; n++) {
+function applyFilters ( tblObject, filters ) {
+	for ( int n = 0 , n < filters.conditions.length , n++) {
 		var cond = filters.conditions[n];
 		if ( tblObject[ cond.key ] != cond.value )
 		 	 return false ;
@@ -53,7 +52,7 @@ function applyFilters ( tblObject, filters )
 	return true ;
 }
 
-
+  
 /***********************************************************************************************************
 Retrieve the alert rule based on the object.  If an upcoming alert matches a criteria, add a client event if
 it does not already exist
