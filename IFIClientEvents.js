@@ -81,13 +81,19 @@ function processAlerts(resultAlerts, record) {
 					var notifyInterval = recordAlert[dbAlertRules.NotificationDateInDays] ;
 					var targetCompleteInterval = recordAlert[dbAlertRules.TargetCompletionDateInDays] ;
 					var dateFieldValue = record[dateField] ;
-					console.log (dateFieldValue) ;
+					if (dateFieldValue != undefined) {
+							console.log (dateFieldValue) ;
+						  
+							dateFieldValue.setDate (dateFieldValue) ;  //Convert text to date
+							dateNotify.setDate(dateFieldValue.getDate() + notifyInterval);
+							console.log (dateNotify) ;
+					}
+
 
 				//	var date = new Date(dateFieldValue);
 			  //  var dateNotify = new Date(date);
 
-			    dateNotify.setDate(dateFieldValue.getDate() + notifyInterval);
-					console.log (dateNotify) ;
+
 
 
  				//	record[dbGoals.ClientIRP] = newIRPId;
