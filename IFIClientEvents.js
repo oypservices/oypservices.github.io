@@ -19,7 +19,7 @@ try {
 
 		var apidata = {
 						"method": "get",
-						"format" : "raw" , 
+						"format" : "raw" ,
 						"knackobj": dbObjects.AlertRules,
 						"appid": app_id,
 						"filters": [ {
@@ -126,7 +126,7 @@ Create Client Event Record (if it does not already exists)
 		  "field_407" : record [dbAlertRules.EmailTemplate][0].id //  "EmailTemplate"
 		}
 
-   var getClientEvent =  = {
+   var getClientEvent = {
 							 "method": "get",
 							 "format" : "raw" ,
 							 "knackobj": dbObjects.ClientEvents,
