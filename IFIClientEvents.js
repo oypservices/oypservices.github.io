@@ -1,3 +1,48 @@
+
+/*
+
+const arr = [{
+  id: 19,
+  cost: 400,
+  name: "Arkansas",
+  height: 198,
+  weight: 35
+}, {
+  id: 21,
+  cost: 250,
+  name: "Blofeld",
+  height: 216,
+  weight: 54
+}, {
+  id: 38,
+  cost: 450,
+  name: "Gollum",
+  height: 147,
+  weight: 22
+}];
+
+console.log(arr.some(item => item.name === 'Blofeld'));
+console.log(arr.some(item => item.name === 'Blofeld2'));
+
+// search for object using lodash
+const objToFind1 = {
+  id: 21,
+  cost: 250,
+  name: "Blofeld",
+  height: 216,
+  weight: 54
+};
+const objToFind2 = {
+  id: 211,
+  cost: 250,
+  name: "Blofeld",
+  height: 216,
+  weight: 54
+};
+console.log(arr.some(item => _.isEqual(item, objToFind1)));
+console.log(arr.some(item => _.isEqual(item, objToFind2)));
+*/
+
 /***********************************************************************************************************
 Retrieve the alert rule based on the object.  If an upcoming alert matches a criteria, add a client event if
 it does not already exist
@@ -16,6 +61,20 @@ try {
 
 		console.log (tblObject);
 		console.log (tblObjectId) ;
+
+		var objToFind2 = {
+		  field_6: "abc"
+		};
+
+		var objToFind1 = {
+		  field_6: "abcx"
+		};
+
+
+		console.dir(record.some(item => _.isEqual(item, objToFind1)));
+		console.dir(record.some(item => _.isEqual(item, objToFind2)));
+
+
 
 		var apidata = {
 						"method": "get",
