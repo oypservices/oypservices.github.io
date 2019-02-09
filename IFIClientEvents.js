@@ -174,7 +174,7 @@ Create Client Event Record (if it does not already exists)
 							}
 
 
-							resolve ( "Client Event already exists"  ;);
+							resolve ( "Client Event already exists");
 
 
 						 } )
