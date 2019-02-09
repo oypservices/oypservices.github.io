@@ -86,8 +86,8 @@ try {
 
 		};
 
-   condole.log ( applyFilters (record, objToFind2 ) ) ;
-	 condole.log ( applyFilters (record, objToFind1 ) ) ;
+   console.log ( applyFilters (record, objToFind2 ) ) ;
+	 console.log ( applyFilters (record, objToFind1 ) ) ;
 
 
 		var apidata = {
