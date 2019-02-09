@@ -55,6 +55,7 @@ function processAlerts(resultAlerts, record) {
 	   var proc = "processAlerts" ;
 		 var plist = [] ;
 		 console.log ( proc) ;
+		 var ClientId = record.id ;
 
 
  		for (var n = 0; n < resultAlerts.records.length; n++ )
@@ -79,14 +80,25 @@ function processAlerts(resultAlerts, record) {
  					var recordAlert = resultAlerts.records[n];
 					var dateField = recordAlert[dbAlertRules.DateField] ;
 					var notifyInterval = recordAlert[dbAlertRules.NotificationDateInDays] ;
+
 					var targetCompleteInterval = recordAlert[dbAlertRules.TargetCompletionDateInDays] ;
+					if (targetCompleteInterval == undefined)
+					    targetCompleteInterval = 0 ;
+
 					var dateFieldValue = record[dateField] ;
 					if (dateFieldValue != undefined) {
 							console.log (dateFieldValue) ;
 
-							var dateNotify = new Date(dateFieldValue);   //Convert text to date
-							dateNotify.setDate(dateNotify.getDate() + Number(notifyInterval));
+							var dateTrigger = new Date(dateFieldValue);   //Convert text to date
+							dateNotify.setDate(dateTrigger.getDate() + Number(notifyInterval));
+							dateTargetComplete.setDate(dateTrigger.getDate() + Number(targetCompleteInterval));
 							console.log (dateNotify) ;
+
+							recordAlert["NotificationDate"] = dateNotify;
+							recordAlert["TargetCompletionDate"] = dateTargetComplete;
+
+							var p = postClientEventRecord (ClientId, recordAlert) ;
+							plist.push(p) ;
 					}
 
 
@@ -123,20 +135,20 @@ function processAlerts(resultAlerts, record) {
 Create Client Event Record (if it does not already exists)
 *********************************************************************************************************************/
 
-	function postClientEventRecord (ClientId, record) 	{
+	function postClientEventRecord (ClientId, recordAlert) 	{
 
 		return new Promise ((resolve, reject) => {
 
 		var record = {
 			"field_385" : ClientId ,
-		  "field_380" : [record.id ] ,   // "AlertRule"
-		  "field_397" : record["NotificationDate"] ,
-		  "field_382" : record["TargetCompletionDate"] ,
+		  "field_380" : [recordAlert.id ] ,   // "AlertRule"
+		  "field_397" : recordAlert["NotificationDate"] ,
+		  "field_382" : recordAlert["TargetCompletionDate"] ,
 //		  "field_386" : "CaseManager" ,
-		  "field_407" : record [dbAlertRules.EmailTemplate][0].id //  "EmailTemplate"
+		  "field_407" :  recordAlert [dbAlertRules.EmailTemplate]//  "EmailTemplate"
 		}
 
-   var getClientEvent = {
+   var apiClientEvent = {
 							 "method": "get",
 							 "format" : "raw" ,
 							 "knackobj": dbObjects.ClientEvents,
@@ -145,27 +157,20 @@ Create Client Event Record (if it does not already exists)
 								 "rules" : [ {
 													 "field": dbClientEvents.AlertRule,
 													 "operator":"is",
-													 "value": record.id
+													 "value": recordAlert.id
 												 },
 												 { "field": dbClientEvents.NotificationDate,
 												 "operator":"is",
-												 "value": record["NotificationDate"]
+												 "value": recordAlert["NotificationDate"]
 											 }]
 									 }
 			};
 
 
-			console.log (currentGoalId);
-			delete (record.id) ;
+			console.dir (apiClientEvent);
 
-			var postapidata = {
-						"method": "post",
-						"knackobj": dbObjects.ClientEvents,
-						"appid": app_id,
-						"record" : record
-					};
 
-			OYPKnackAPICall (headers,  getClientEvent ) //post the new goal
+			OYPKnackAPICall (headers,  apiClientEvent ) //post the new goal
 				 .then ( resultClientEvent => {
 							console.log (resultClientEvent);
 							if (resultClientEvent.records.length == 0)
@@ -176,9 +181,10 @@ Create Client Event Record (if it does not already exists)
 											"appid": app_id,
 											"record":  record
 										};
+								console.dir (postapidata) ;
 
 							  OYPKnackAPICall (headers,  postapidata )
-								   .then ( result => { resolve (result); })
+								   .then ( resultPost => { resolve (resultPost); })
 									 .catch (err => { reject (err) })
 
 							}
