@@ -85,7 +85,7 @@ function processAlerts(resultAlerts, record) {
 							console.log (dateFieldValue) ;
 
 							var dateNotify = new Date(dateFieldValue);   //Convert text to date
-							dateNotify.setDate(dateNotify.getDate() + notifyInterval);
+							dateNotify.setDate(dateNotify.getDate() + Number(notifyInterval));
 							console.log (dateNotify) ;
 					}
 
