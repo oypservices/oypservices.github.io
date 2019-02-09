@@ -43,6 +43,17 @@ console.log(arr.some(item => _.isEqual(item, objToFind1)));
 console.log(arr.some(item => _.isEqual(item, objToFind2)));
 */
 
+function applyFilters ( tblObject, filters )
+{
+	for ( int n = 0 ; n < filters.conditions.length ; n++) {
+		var cond = filters.conditions[n];
+		if ( tblObject[ cond.key ] != cond.value )
+		 	 return false ;
+	}
+	return true ;
+}
+
+
 /***********************************************************************************************************
 Retrieve the alert rule based on the object.  If an upcoming alert matches a criteria, add a client event if
 it does not already exist
@@ -63,18 +74,21 @@ try {
 		console.log (tblObjectId) ;
 
 		var objToFind2 = {
-		  field_6: "abc"
+		    "conditions" : [{"key" : "field_6",
+				 "value" :  "abc",
+				 "operation" : "="}]
+
 		};
 
 		var objToFind1 = {
-		  field_6: "abcx"
+		    "conditions" : [{"key" : "field_6",
+				 "value" :  "abc1",
+				 "operation" : "="}]
+
 		};
 
-
-		var jRecord = JSON.stringify (record) ;
-		console.log(jRecord.filter(item => _.isEqual(item, objToFind1)));
-		console.log(jRecord.filter(item => _.isEqual(item, objToFind2)));
-
+   condole.log ( applyFilters (record, objToFind2 ) ) ;
+	 condole.log ( applyFilters (record, objToFind1 ) ) ;
 
 
 		var apidata = {
