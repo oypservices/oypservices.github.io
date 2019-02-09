@@ -48,15 +48,16 @@ function applyFilters ( tblObject, filters ) {
 	filters = JSON.parse(filters);
 	for ( var n = 0  ; n < filters.conditions.length ; n++) {
 		var cond = filters.conditions[n];
-		
+		bMatch = (tblObject[ cond.key ] == cond.value) ;
+
 		switch (cond.value) {
 			case "=" :
-				if  (tblObject[ cond.key ] != cond.value)
+				if !(bMatch)
 					return false ;
 				break ;
 
 			case "!=" :
-				if  (tblObject[ cond.key ] == cond.value)
+				if (bMatch)
 					return false ;
 				break;
 
@@ -139,29 +140,13 @@ function processAlerts(resultAlerts, record) {
  		for (var n = 0; n < resultAlerts.records.length; n++ )
  		{
 
-/*
-				var dbAlertRules = {
-				  "AlertRuleName" : "field_362",
-				  "Frequency" : "field_390",
-				  "CalendarColor" :"field_389",
-				  "Filter" : "field_378",
-				  "Notify" : "field_391",
-				  "tblObject":"field_394",
-				  "DateField" : "field_398",
-				  "NotificationDateInDays" : "field_395" ,
-				  "TargetCompletionDateInDays" : "field_399",
-				  "EmailTemplate" : "field_406"
-				}
-*/
-
-
  					var recordAlert = resultAlerts.records[n];
 					var dateField = recordAlert[dbAlertRules.DateField] ;
 					var notifyInterval = recordAlert[dbAlertRules.NotificationDateInDays] ;
 					var filters = recordAlert[dbAlertRules.Filters] ;
 
 					if ( filters != undefined) {
- 						if (applyFilters (record, filters ) )
+ 						if !(applyFilters (record, filters ) )
 							 continue ;
 					}
 
@@ -188,20 +173,8 @@ function processAlerts(resultAlerts, record) {
 							plist.push(p) ;
 					}
 
-
-				//	var date = new Date(dateFieldValue);
-			  //
-
-
-
-
- 				//	record[dbGoals.ClientIRP] = newIRPId;
-
- 	//			 var p = 	postClientEventRecord (ClientId, record) ;
- 		//		 plist.push (p);
-
  			}
- /*
+
  			Promise.all(plist)
  					.then(result => {
  							console.log('Promise.all', result);
@@ -211,7 +184,7 @@ function processAlerts(resultAlerts, record) {
  							console.error('Promise.all error', err);
  						//	resolve ('copyGoalRecords successful');
  					});
-*/
+
 					resolve ('copyGoalRecords successful');
 
 	})
