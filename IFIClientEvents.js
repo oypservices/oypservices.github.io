@@ -48,7 +48,7 @@ function applyFilters ( tblObject, filters ) {
 	filters = JSON.parse(filters);
 	for ( var n = 0  ; n < filters.conditions.length ; n++) {
 		var cond = filters.conditions[n];
-		bMatch = (tblObject[ cond.key ] == cond.value) ;
+		var bMatch = (tblObject[ cond.key ] == cond.value) ;
 
 		switch (cond.value) {
 			case "=" :
