@@ -148,9 +148,9 @@ function processAlerts(resultAlerts, record) {
  						if (!applyFilters (record, filters ) )  continue ;
 					}
 
-					if ( clientField != undefined) {
-						// Get the client id, if this is not the client object 
- 						  ClientId = record[dbAlertRules.ClientField][0].id ;
+					if (  view.source.object != dbObjects.Clients && clientField != undefined) {
+						// Get the client id, if this is not the client object
+ 						  ClientId = record[clientField][0].id ;
 					}
 
 					var targetCompleteInterval = recordAlert[dbAlertRules.TargetCompletionDateInDays] ;
