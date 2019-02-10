@@ -218,6 +218,11 @@ Create Client Event Record (if it does not already exists)
 							 "appid": app_id,
 							 "filters": { "match": "and",
 								 "rules" : [ {
+													 "field": dbClientEvents.Client,
+													 "operator":"is",
+													 "value":ClientId
+												 },
+												 {
 													 "field": dbClientEvents.AlertRule,
 													 "operator":"is",
 													 "value": recordAlert.id
