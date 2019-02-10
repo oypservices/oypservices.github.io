@@ -118,7 +118,8 @@ var dbAlertRules = {
   "DateField" : "field_398",
   "NotificationDateInDays" : "field_395" ,
   "TargetCompletionDateInDays" : "field_399",
-  "EmailTemplate" : "field_406"
+  "EmailTemplate" : "field_406",
+  "ClientField" :"field_410"
 }
 
 var dbClients = {

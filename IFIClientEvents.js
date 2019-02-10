@@ -139,12 +139,17 @@ function processAlerts(resultAlerts, record) {
  		{
 
  					var recordAlert = resultAlerts.records[n];
+					var clientField = recordAlert[dbAlertRules.ClientField] ;
 					var dateField = recordAlert[dbAlertRules.DateField] ;
 					var notifyInterval = recordAlert[dbAlertRules.NotificationDateInDays] ;
 					var filters = recordAlert[dbAlertRules.Filters] ;
 
 					if ( filters != undefined) {
  						if (!applyFilters (record, filters ) )  continue ;
+					}
+
+					if ( clientField != undefined) {
+ 						  ClientId = recordAlert[dbAlertRules.ClientField][0].id ;
 					}
 
 					var targetCompleteInterval = recordAlert[dbAlertRules.TargetCompletionDateInDays] ;
