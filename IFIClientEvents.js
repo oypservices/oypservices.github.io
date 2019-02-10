@@ -148,7 +148,7 @@ function processAlerts(resultAlerts, record) {
  						if (!applyFilters (record, filters ) )  continue ;
 					}
 
-					if (  view.source.object != dbObjects.Clients && clientField != undefined) {
+					if (  recordAlert[dbAlertRules.tblObject]  != dbObjects.Clients && clientField != undefined) {
 						// Get the client id, if this is not the client object
  						  ClientId = record[clientField][0].id ;
 					}
