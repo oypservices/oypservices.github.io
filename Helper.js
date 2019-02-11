@@ -133,6 +133,41 @@ function  OYPServicesAPIPost( resource, headers, data )
 } ;
 
 /****************************************************************************************************************
+ API JSON Transforrm
+********************************************************************************************************************/
+
+function OYPAPIJSONTransform(template, date) {
+
+	console.dir (message);
+	var objTransform = {data: {}, template:{}};
+	objTransform.data.models = Knack.models['view_209'].data.models;
+	objTransform.template = message.records[0].field_178 ;
+
+ var resource = 'jsontransform';
+ OYPServicesAPIPost( resource, headers, objTransform )
+ 	.then (result=> {CallAPISendMail(result) } ) ;
+
+}
+/****************************************************************************************************************
+	API Send Mail
+********************************************************************************************************************/
+
+function OYPAPISendMail(headers, message) {
+
+	return new Promise ((resolve, reject) => {
+
+  			var resource = 'sendmail';
+				console.log ('sendmail');
+
+			  OYPServicesAPIPost( resource, headers, message )
+					.then (result => { resolve(result) ;})
+					.catch (err => {reject (err); })
+
+ }) ;
+
+}
+
+/****************************************************************************************************************
 	Wait funcdtion
 ********************************************************************************************************************/
 

@@ -205,6 +205,7 @@ $(document).on('knack-record-update.any' , function (event, view, record) {
       logStatusChange (event, view, record) ;
       evaluateDefaultIntakeDocuments (event, view, record) ;
       getAlertRules (event, view, record) ;
+      OYPAPISendMail(headers, record) ;
 
       break;
 
