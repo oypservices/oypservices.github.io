@@ -16,7 +16,7 @@ try {
 
     var clientId = objClient.id ;
 
-    var clientName = objClient[dbClients.ClientName][0].identifier;
+    var clientName = objClient[dbClients.ClientName];
     var clientStatus = objClient[dbClients.ClientStatus_raw][0].identifier;
     var clientStatusid = objClient[dbClients.ClientStatus_raw][0].id;
     var clientStatusNote = objClient[dbClients.ClientStatusNote] ;
