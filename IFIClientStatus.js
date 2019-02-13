@@ -15,6 +15,8 @@ try {
     console.dir (objClient);
 
     var clientId = objClient.id ;
+
+    var clientName = objClient[dbClients.ClientName || "_raw"][0].identifier;
     var clientStatus = objClient[dbClients.ClientStatus_raw][0].identifier;
     var clientStatusid = objClient[dbClients.ClientStatus_raw][0].id;
     var clientStatusNote = objClient[dbClients.ClientStatusNote] ;
@@ -73,7 +75,14 @@ try {
             if (clientStatusNote != "")
               resetClientStatusNote(clientId) ;
 
-      } ) ;
+      } )
+        .then ( result => {
+             var msg = {} ;
+             msg.to = {'vanessa@oypservices.com', 'brian@oypservices.com' );
+             msg.subject = clientName || ' - IFI Client Status Change (Test)';
+             msg.html = "Status has changed to " || clientStatus ;
+             OYPAPISendMail(headers, msg) ;
+        });
 
     }
   catch (e)
