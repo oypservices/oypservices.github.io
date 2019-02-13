@@ -16,7 +16,7 @@ try {
 
     var clientId = objClient.id ;
 
-    var clientName = objClient[dbClients.ClientName || "_raw"][0].identifier;
+    var clientName = objClient[dbClients.ClientName][0].identifier;
     var clientStatus = objClient[dbClients.ClientStatus_raw][0].identifier;
     var clientStatusid = objClient[dbClients.ClientStatus_raw][0].id;
     var clientStatusNote = objClient[dbClients.ClientStatusNote] ;
@@ -81,6 +81,7 @@ try {
              msg.to = ['vanessa@oypservices.com', 'brian@oypservices.com' ];
              msg.subject = clientName || ' - IFI Client Status Change (Test)';
              msg.html = "Status has changed to " || clientStatus ;
+             msg.from = "info@ifi-md.org" ;
              OYPAPISendMail(headers, msg) ;
         });
 
