@@ -99,8 +99,7 @@ function hideShowContactNoteFields(view, val, data) {
               }
               else {
 
-                $("label[ for= " + dbContactNotes.ClientIRP + "]")..children('span').text("IRP Name");
-                $("label[ for= " + dbContactNotes.ClientIRP + "]")..children('span').text("*");
+                $("label[ for= " + dbContactNotes.ClientIRP + "]").children('span').text("IRP Name");
                 $("label[ for= " + dbContactNotes.IRPGoals + "]").text("Goals Implementation:");
                 $("label[ for= " + dbContactNotes.PlanforNextVisit + "]").text("Plan for Next Contact:")  ;
                 $("label[ for= " + dbContactNotes.ClientResponses + "]").text("Client Response(s):")  ;
