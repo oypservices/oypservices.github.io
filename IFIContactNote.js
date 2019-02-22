@@ -80,14 +80,14 @@ function hideShowContactNoteFields(view, val, data) {
           }
           else {
 
-            $("label[ for= " + dbContactNotes.IRPGoals + "]").text("Rehabilitatve Goal:")
-            $("label[ for= " + dbContactNotes.PlanforNextVisit + "]").text("Plan for Next Month:")  ;
-            $("label[ for= " + dbContactNotes.ClientResponses + "]").text("Summary:")  ;
+            $("label[ for= " + dbContactNotes.IRPGoals + "] span:first-of-type").text("Rehabilitatve Goal:")
+            $("label[ for= " + dbContactNotes.PlanforNextVisit + "] span:first-of-type").text("Plan for Next Month:")  ;
+            $("label[ for= " + dbContactNotes.ClientResponses + "] span:first-of-type").text("Summary:")  ;
           }
 
           break ;
       case "Contact Note" :
-              if (bDetails)
+          "] span:first-of-type") (bDetails)
               {
                 $(fldPrefix + dbContactNotes.ClientIRP).children('.kn-detail-label').children('span').text("IRP Name:")  ;
                 $(fldPrefix + dbContactNotes.IRPGoals).children('.kn-detail-label').children('span').text("Goals Implementation:")  ;
@@ -100,11 +100,11 @@ function hideShowContactNoteFields(view, val, data) {
               else {
 
                 $("label[ for= " + dbContactNotes.ClientIRP + "] span:first-of-type").text("IRP Name");
-                $("label[ for= " + dbContactNotes.IRPGoals + "]").text("Goals Implementation:");
-                $("label[ for= " + dbContactNotes.PlanforNextVisit + "]").text("Plan for Next Contact:")  ;
-                $("label[ for= " + dbContactNotes.ClientResponses + "]").text("Client Response(s):")  ;
-                $("label[ for= " + dbContactNotes.ClientGoalInterventions + "]").text("List IRP goal(s) worked on during this contact:")
-                $("label[ for= " + dbContactNotes.ClientGoalInterventionText + "]").text("Intervention(s) implemented in accordance with the IRP:")
+                $("label[ for= " + dbContactNotes.IRPGoals + "] span:first-of-type").text("Goals Implementation:");
+                $("label[ for= " + dbContactNotes.PlanforNextVisit + "] span:first-of-type").text("Plan for Next Contact:")  ;
+                $("label[ for= " + dbContactNotes.ClientResponses + "] span:first-of-type").text("Client Response(s):")  ;
+                $("label[ for= " + dbContactNotes.ClientGoalInterventions + "] span:first-of-type").text("List IRP goal(s) worked on during this contact:")
+                $("label[ for= " + dbContactNotes.ClientGoalInterventionText + "] span:first-of-type").text("Intervention(s) implemented in accordance with the IRP:")
               }
 
               break ;
