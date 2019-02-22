@@ -87,7 +87,7 @@ function hideShowContactNoteFields(view, val, data) {
 
           break ;
       case "Contact Note" :
-          "] span:first-of-type") (bDetails)
+          if (bDetails)
               {
                 $(fldPrefix + dbContactNotes.ClientIRP).children('.kn-detail-label').children('span').text("IRP Name:")  ;
                 $(fldPrefix + dbContactNotes.IRPGoals).children('.kn-detail-label').children('span').text("Goals Implementation:")  ;
