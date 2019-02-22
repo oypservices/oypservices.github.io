@@ -100,11 +100,11 @@ function hideShowContactNoteFields(view, val, data) {
               else {
 
                 $("label[ for= " + dbContactNotes.ClientIRP + "] span:first-of-type").text("IRP Name");
-                $("label[ for= " + dbContactNotes.IRPGoals + "]").first-child('span').text("Goals Implementation:");
-                $("label[ for= " + dbContactNotes.PlanforNextVisit + "]").first-child('span').text("Plan for Next Contact:")  ;
-                $("label[ for= " + dbContactNotes.ClientResponses + "]").first-child('span').text("Client Response(s):")  ;
-                $("label[ for= " + dbContactNotes.ClientGoalInterventions + "]").first-child('span').text("List IRP goal(s) worked on during this contact:")
-                $("label[ for= " + dbContactNotes.ClientGoalInterventionText + "]").first-child('span').text("Intervention(s) implemented in accordance with the IRP:")
+                $("label[ for= " + dbContactNotes.IRPGoals + "]").text("Goals Implementation:");
+                $("label[ for= " + dbContactNotes.PlanforNextVisit + "]").text("Plan for Next Contact:")  ;
+                $("label[ for= " + dbContactNotes.ClientResponses + "]").text("Client Response(s):")  ;
+                $("label[ for= " + dbContactNotes.ClientGoalInterventions + "]").text("List IRP goal(s) worked on during this contact:")
+                $("label[ for= " + dbContactNotes.ClientGoalInterventionText + "]").text("Intervention(s) implemented in accordance with the IRP:")
               }
 
               break ;
