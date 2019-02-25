@@ -351,7 +351,7 @@ function validateContactNote(event, view, data)
           diff /= 60;
 
          alert ("Date diff " + diff);
-         return true;
+         return false;
       //  }
 
 
