@@ -340,8 +340,9 @@ function validateContactNote(event, view, data)
       var proc = "validateContactNote";
       var viewName = view.key ;
       var objView = Knack.models[viewName].toJSON();
-      console.dir (objView);
-      console.dir (dbContactNotes) ;
+      console.dir (event);
+      console.dir (view) ;
+      console.dir (data) ;
 
       $("#" + viewName + " .kn-button").on("click", function() {
         // If this value in the form doesn't equal "SpecificValue" then prevent the form from submitting
@@ -350,7 +351,7 @@ function validateContactNote(event, view, data)
       //  var contactNoteId = objView.id ;
       // var nextVisitDate = objView[dbContactNotes.ContactDateStart_raw] ;
 
-      var fldPrefix = "#kn-input-" ;
+      var fldPrefix = "#"  + viewName + "-";
 
 
 
