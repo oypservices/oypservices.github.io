@@ -512,11 +512,7 @@ $(document).on('knack-view-render.any' , function(event, view, data) {
 
 
           }
-
-
-
-
-
+    }
 
   catch (e)  {
       logerror(proc, e);
