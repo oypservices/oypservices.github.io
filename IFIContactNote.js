@@ -362,3 +362,4 @@ function validateContactNote(event, view, data)
 catch (e) {
   logerror (proc, e);
 }
+}
