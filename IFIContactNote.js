@@ -365,7 +365,7 @@ function validateContactNote(event, view, data)
           if (diff < 0 )
               msg = "Contact End Date cannot be less than Contact Start Date";
 
-          if (msg = "" && diff < 30)
+          if (msg == "" && diff < 30)
               msg = "Contact End Date cannot be less than Contact Start Date";
 
           if (msg != "") {
