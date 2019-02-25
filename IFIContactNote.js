@@ -357,7 +357,7 @@ function validateContactNote(event, view, data)
           var diff =(contactDateEnd.getTime() - contactDateStart.getTime()) / 1000;
           diff /= 60;
 
-          switch diff
+          switch (diff)
           {
             case < 0
               msg = "Contact End Date cannot be less than Contact Start Date";
