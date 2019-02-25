@@ -503,7 +503,7 @@ $(document).on('knack-view-render.any' , function(event, view, data) {
                hideShowContactNoteFields (  view, noteType, data);
 
              //validate function attached to submit
-             validateContactNote (event, view, data);
+             //validateContactNote (event, view, data);
 
 
               break ;
