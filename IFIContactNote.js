@@ -352,10 +352,10 @@ function validateContactNote(event, view, data)
       // var nextVisitDate = objView[dbContactNotes.ContactDateStart_raw] ;
 
       var fldPrefix = "#"  + viewName + "-";
-      var fldContactDateStart = $(fldPrefix +  dbContactNotes.ContactDateStart).val() + " "
+      var fldContactDateStart = $(fldPrefix +  dbContactNotes.ContactDateStart).val() + " " +
                                     $(fldPrefix +  dbContactNotes.ContactDateStart + "-time").val() ;
 
-      var fldContactDateEnd = $(fldPrefix +  dbContactNotes.ContactDateEnd).val() + " "
+      var fldContactDateEnd = $(fldPrefix +  dbContactNotes.ContactDateEnd).val() + " " +
                                     $(fldPrefix +  dbContactNotes.ContactDateEnd + "-time").val() ;
 
           var contactDateStart = new Date(fldContactDateStart);
@@ -373,6 +373,8 @@ function validateContactNote(event, view, data)
               msg = "Contact Start and End duration must be 30 minutes or greater";
 
           if (msg != "") {
+
+            $("#" + viewName + " > form").removechild( $("div .is-error" ));
 
             var $p = $( "p" ).add( "<strong>" + msg + "</strong>" );
             var $div = $("<div>", {id: "foo", "class": "kn-message is-error"});
