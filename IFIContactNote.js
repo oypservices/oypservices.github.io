@@ -340,7 +340,7 @@ function validateContactNote(event, view, data)
       var proc = "validateContactNote";
       var viewName = view.key ;
 
-      $(viewName + " .kn-button").on("click", function() {
+      $("#" + viewName + " .kn-button").on("click", function() {
         // If this value in the form doesn't equal "SpecificValue" then prevent the form from submitting
       //  if ($("#view_1-field_1").val() != "SpecificValue") {
 
