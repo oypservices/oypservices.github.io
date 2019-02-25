@@ -352,11 +352,14 @@ function validateContactNote(event, view, data)
       // var nextVisitDate = objView[dbContactNotes.ContactDateStart_raw] ;
 
       var fldPrefix = "#"  + viewName + "-";
+      var fldContactDateStart = $(fldPrefix +  dbContactNotes.ContactDateStart).val() + " "
+                                    $(fldPrefix +  dbContactNotes.ContactDateStart + "-time").val() ;
 
+      var fldContactDateEnd = $(fldPrefix +  dbContactNotes.ContactDateEnd).val() + " "
+                                    $(fldPrefix +  dbContactNotes.ContactDateEnd + "-time").val() ;
 
-
-          var contactDateStart = new Date($(fldPrefix +  dbContactNotes.ContactDateStart).val());
-          var contactDateEnd = new Date($(fldPrefix +  dbContactNotes.ContactDateEnd).val());
+          var contactDateStart = new Date(fldContactDateStart);
+          var contactDateEnd = new Date(fldContactDateEnd);
           var msg = "" ;
 
           var diff =(contactDateEnd.getTime() - contactDateStart.getTime()) / 1000;
@@ -367,7 +370,7 @@ function validateContactNote(event, view, data)
               msg = "Contact End Date cannot be less than Contact Start Date";
 
           if (msg == "" && diff < 30)
-              msg = "Contact Duration cannot be less than 30 minutes";
+              msg = "Contact Start and End duration must be 30 minutes or greater";
 
           if (msg != "") {
 
