@@ -359,10 +359,10 @@ function validateContactNote(event, view, data)
 
           switch (diff)
           {
-            case < 0
+            case < 0:
               msg = "Contact End Date cannot be less than Contact Start Date";
               break ;
-            case < 30
+            case < 30:
               msg = "Contact End Date cannot be less than Contact Start Date";
               break ;
             default:
