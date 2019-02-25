@@ -365,7 +365,7 @@ function validateContactNote(event, view, data)
 
           if (msg != "") {
 
-            var $p = $( "p" ).add( "<strong>" + msg + ""</strong>" );
+            var $p = $( "p" ).add( "<strong>" + msg + "</strong>" );
             var $div = $("<div>", {id: "foo", "class": "kn-message is-error"});
             $div.append ( $p) ;
             $("#" + viewName + " > form").prepend ($div) ;
