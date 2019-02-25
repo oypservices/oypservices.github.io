@@ -350,7 +350,13 @@ function validateContactNote(event, view, data)
           var diff =(dt2.getTime() - dt1.getTime()) / 1000;
           diff /= 60;
 
-         alert ("Date diff " + diff);
+
+          var $p = $( "p" ).add( "<strong>Date diff less than 90 minutes</span>" );
+          var $div = $("<div>", {id: "foo", "class": "kn-message is-error"});
+          $div.append ( $p) ;
+          $("#" + viewName + " > form").prepend ($div) ;
+
+
          return false;
       //  }
 
