@@ -350,8 +350,12 @@ function validateContactNote(event, view, data)
       //  var contactNoteId = objView.id ;
       // var nextVisitDate = objView[dbContactNotes.ContactDateStart_raw] ;
 
-          var contactDateStart = new Date(objView[dbContactNotes.ContactDateStart_raw]);
-          var contactDateEnd = new Date(objView[dbContactNotes.ContactDateEnd_raw]);
+      var fldPrefix = "#kn-input-" ;
+
+
+
+          var contactDateStart = new Date($(fldPrefix +  dbContactNotes.ContactDateStart).val());
+          var contactDateEnd = new Date($(fldPrefix +  dbContactNotes.ContactDateEnd).val());
           var msg = "" ;
 
           var diff =(contactDateEnd.getTime() - contactDateStart.getTime()) / 1000;
