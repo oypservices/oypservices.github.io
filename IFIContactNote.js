@@ -337,7 +337,7 @@ function validateContactNote(event, view, data)
 
   try {
 
-
+      var proc = "validateContactNote";
       var viewName = view.key ;
 
       $(viewName + " .kn-button").on("click", function() {
@@ -361,5 +361,4 @@ function validateContactNote(event, view, data)
     }
 catch (e) {
   logerror (proc, e);
-}
 }
