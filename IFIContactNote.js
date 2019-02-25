@@ -339,26 +339,46 @@ function validateContactNote(event, view, data)
 
       var proc = "validateContactNote";
       var viewName = view.key ;
+      var objView = Knack.models[viewName].toJSON();
+      console.dir (objView);
+      console.dir (dbContactNotes) ;
 
       $("#" + viewName + " .kn-button").on("click", function() {
         // If this value in the form doesn't equal "SpecificValue" then prevent the form from submitting
       //  if ($("#view_1-field_1").val() != "SpecificValue") {
 
-          var dt1 = new Date("October 13, 2014 11:11:00");
-          var dt2 = new Date("October 13, 2014 11:13:00");
+      //  var contactNoteId = objView.id ;
+      // var nextVisitDate = objView[dbContactNotes.ContactDateStart_raw] ;
 
-          var diff =(dt2.getTime() - dt1.getTime()) / 1000;
+          var contactDateStart = new Date(objView[dbContactNotes.ContactDateStart_raw]);
+          var contactDateEnd = new Date(objView[dbContactNotes.ContactDateEnd_raw]);
+          var msg = "" ;
+
+          var diff =(contactDateEnd.getTime() - contactDateStart.getTime()) / 1000;
           diff /= 60;
 
+          switch diff
+          {
+            case < 0
+              msg = "Contact End Date cannot be less than Contact Start Date";
+              break ;
+            case < 30
+              msg = "Contact End Date cannot be less than Contact Start Date";
+              break ;
+            default:
+              break ;
 
-          var $p = $( "p" ).add( "<strong>Date diff less than 90 minutes</span>" );
-          var $div = $("<div>", {id: "foo", "class": "kn-message is-error"});
-          $div.append ( $p) ;
-          $("#" + viewName + " > form").prepend ($div) ;
+          }
 
+          if (msg != "") {
 
-         return false;
-      //  }
+            var $p = $( "p" ).add( "<strong>" + msg + ""</strong>" );
+            var $div = $("<div>", {id: "foo", "class": "kn-message is-error"});
+            $div.append ( $p) ;
+            $("#" + viewName + " > form").prepend ($div) ;
+
+            return false;
+          }
 
 
       })
