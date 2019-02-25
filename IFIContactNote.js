@@ -332,32 +332,34 @@ function addNextVisitDate(nextContactVisit)
 }
 
 // Use on the Knack Standard Theme
-validateContactNote(event, view, data)
+function validateContactNote(event, view, data)
 {
 
-  var viewName = view.key ;
-
-  $(viewName + " .kn-button").on("click", function() {
-    // If this value in the form doesn't equal "SpecificValue" then prevent the form from submitting
-  //  if ($("#view_1-field_1").val() != "SpecificValue") {
-
-      var dt1 = new Date("October 13, 2014 11:11:00");
-      var dt2 = new Date("October 13, 2014 11:13:00");
-
-      var diff =(dt2.getTime() - dt1.getTime()) / 1000;
-      diff /= 60;
-      return Math.abs(Math.round(diff));
-
-     alert ("Date diff " + diff);
-     return false;
-  //  }
+  try {
 
 
+      var viewName = view.key ;
+
+      $(viewName + " .kn-button").on("click", function() {
+        // If this value in the form doesn't equal "SpecificValue" then prevent the form from submitting
+      //  if ($("#view_1-field_1").val() != "SpecificValue") {
+
+          var dt1 = new Date("October 13, 2014 11:11:00");
+          var dt2 = new Date("October 13, 2014 11:13:00");
+
+          var diff =(dt2.getTime() - dt1.getTime()) / 1000;
+          diff /= 60;
+          return Math.abs(Math.round(diff));
+
+         alert ("Date diff " + diff);
+         return false;
+      //  }
 
 
+      })
 
-  })
-
-
-
+    }
+catch (e) {
+  logerror (proc, e);
+}
 }
