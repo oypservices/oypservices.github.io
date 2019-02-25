@@ -77,6 +77,17 @@ try {
 
       } )
         .then ( result => {
+
+          var filters = [
+            {
+              "field":dbContacts.Name,
+              "operator":"contains",
+              "value": teamMember.Name
+            }
+           ]
+
+
+
              var msg = {} ;
              msg.to = ['vanessa@oypservices.com', 'brian@oypservices.com' ];
              msg.subject = clientName + ' - IFI Client Status Change (Test)';

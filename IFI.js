@@ -453,62 +453,70 @@ $(document).on('knack-view-render.any' , function(event, view, data) {
        if (!evaluateView (proc, view) )
           return ;
 
+          switch (view.source.object) {
 
-       if (view.source.object == "object_1" ){
-         $( document ).ready(function() {
-             console.dir( $( document ) ) ;
-             setClientStatusText( data) ;
-         });
+            case dbObjects.Clients:
+
+              $( document ).ready(function() {
+                  console.dir( $( document ) ) ;
+                  setClientStatusText( data) ;
+              });
+
+              $('#field_243').keyup(function() {
+                  var val = this.value.replace(/\D/g, '');
+                  var newVal = '';
+                  var sizes = [3, 2, 4];
+
+                  for (var i in sizes) {
+                    if (val.length > sizes[i]) {
+                      newVal += val.substr(0, sizes[i]) + '-';
+                      val = val.substr(sizes[i]);
+                    }
+                    else
+                      break;
+                  }
+
+                  newVal += val;
+                  this.value = newVal;
+              });
+
+              //FORMAT ID  FIELD
+              $('#field_243').css("width", $('#' + view_name + '-field_167').width()); //ID sized same as DOB
+              $('#field_6').css("width", $('#' + view_name + '-field_167').width());   //MA Number sized same as DOB
+
+              //$( "p" ).addClass( "myClass yourClass" );
+
+              break ;
+            case dbObjects.ContactNotes:
+            //ContactNotes
+
+              // Onchange event for Note Type Field
+               var fld_note_type =  view.key + '-field_236';
+               $('#' + fld_note_type).on('change',function(e){
+                 console.log (e);
+                 console.log ($('#' + fld_note_type).val());
+                 hideShowContactNoteFields (  view, $('#'+ fld_note_type).val() , data);
+               });
+
+               var noteType =  $('#'+ fld_note_type).val() ;
+               console.log (noteType) ;
+               hideShowContactNoteFields (  view, noteType, data);
+
+             //validate function attached to submit
+             validateContactNote (event, view, data);
+
+
+              break ;
+            default:
+              break ;
+
+
+          }
 
 
 
-         $('#field_243').keyup(function() {
-             var val = this.value.replace(/\D/g, '');
-             var newVal = '';
-             var sizes = [3, 2, 4];
-
-             for (var i in sizes) {
-               if (val.length > sizes[i]) {
-                 newVal += val.substr(0, sizes[i]) + '-';
-                 val = val.substr(sizes[i]);
-               }
-               else
-                 break;
-             }
-
-             newVal += val;
-             this.value = newVal;
-         });
-
-         //FORMAT ID  FIELD
-         $('#field_243').css("width", $('#' + view_name + '-field_167').width()); //ID sized same as DOB
-         $('#field_6').css("width", $('#' + view_name + '-field_167').width());   //MA Number sized same as DOB
-
-         //$( "p" ).addClass( "myClass yourClass" );
 
 
-
-         return ;
-       }
-
-       //ContactNotes
-       if (view.source.object == "object_4" ){
-
-          var fld_note_type =  view.key + '-field_236';
-         	$('#' + fld_note_type).on('change',function(e){
-         	  console.log (e);
-         	  console.log ($('#' + fld_note_type).val());
-         	  hideShowContactNoteFields (  view, $('#'+ fld_note_type).val() , data);
-         	});
-
-          var noteType =  $('#'+ fld_note_type).val() ;
-          console.log (noteType) ;
-          hideShowContactNoteFields (  view, noteType, data);
-
-          return ;
-        }
-
-     }
 
   catch (e)  {
       logerror(proc, e);

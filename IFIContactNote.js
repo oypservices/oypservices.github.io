@@ -73,38 +73,38 @@ function hideShowContactNoteFields(view, val, data) {
       case "Monthly Report" :
           if (bDetails)
           {
-            $(fldPrefix + dbContactNotes.IRPGoals).children('.kn-detail-label').children('span').text("Rehabilitatve Goal:")  ;
-            $(fldPrefix + dbContactNotes.PlanforNextVisit).children('.kn-detail-label').children('span').text("Plan for Next Month:")  ;
-            $(fldPrefix + dbContactNotes.ClientResponses).children('.kn-detail-label').children('span').text("Summary:") ;
+            $(fldPrefix + dbContactNotes.IRPGoals).children('.kn-detail-label').children('span').text("Rehabilitatve Goal")  ;
+            $(fldPrefix + dbContactNotes.PlanforNextVisit).children('.kn-detail-label').children('span').text("Plan for Next Month")  ;
+            $(fldPrefix + dbContactNotes.ClientResponses).children('.kn-detail-label').children('span').text("Summary") ;
 
           }
           else {
 
-            $("label[ for= " + dbContactNotes.IRPGoals + "] span:first-of-type").text("Rehabilitatve Goal:")
-            $("label[ for= " + dbContactNotes.PlanforNextVisit + "] span:first-of-type").text("Plan for Next Month:")  ;
-            $("label[ for= " + dbContactNotes.ClientResponses + "] span:first-of-type").text("Summary:")  ;
+            $("label[ for= " + dbContactNotes.IRPGoals + "] span:first-of-type").text("Rehabilitatve Goal")
+            $("label[ for= " + dbContactNotes.PlanforNextVisit + "] span:first-of-type").text("Plan for Next Month")  ;
+            $("label[ for= " + dbContactNotes.ClientResponses + "] span:first-of-type").text("Summary")  ;
           }
 
           break ;
       case "Contact Note" :
           if (bDetails)
               {
-                $(fldPrefix + dbContactNotes.ClientIRP).children('.kn-detail-label').children('span').text("IRP Name:")  ;
-                $(fldPrefix + dbContactNotes.IRPGoals).children('.kn-detail-label').children('span').text("Goals Implementation:")  ;
-                $(fldPrefix + dbContactNotes.PlanforNextVisit).children('.kn-detail-label').children('span').text("Plan for Next Contact:")  ;
-                $(fldPrefix + dbContactNotes.ClientResponses).children('.kn-detail-label').children('span').text("Client Response(s):") ;
-                $(fldPrefix + dbContactNotes.ClientGoalInterventions).children('.kn-detail-label').children('span').text("List IRP goal(s) worked on during this contact:") ;
-                $(fldPrefix + dbContactNotes.ClientGoalInterventionText).children('.kn-detail-label').children('span').text("Intervention(s) implemented in accordance with the IRP:") ;
+                $(fldPrefix + dbContactNotes.ClientIRP).children('.kn-detail-label').children('span').text("IRP Name")  ;
+                $(fldPrefix + dbContactNotes.IRPGoals).children('.kn-detail-label').children('span').text("Goals Implementation")  ;
+                $(fldPrefix + dbContactNotes.PlanforNextVisit).children('.kn-detail-label').children('span').text("Plan for Next Contact")  ;
+                $(fldPrefix + dbContactNotes.ClientResponses).children('.kn-detail-label').children('span').text("Client Response(s)") ;
+                $(fldPrefix + dbContactNotes.ClientGoalInterventions).children('.kn-detail-label').children('span').text("List IRP goal(s) worked on during this contact") ;
+                $(fldPrefix + dbContactNotes.ClientGoalInterventionText).children('.kn-detail-label').children('span').text("Intervention(s) implemented in accordance with the IRP") ;
 
               }
               else {
 
                 $("label[ for= " + dbContactNotes.ClientIRP + "] span:first-of-type").text("IRP Name");
-                $("label[ for= " + dbContactNotes.IRPGoals + "] span:first-of-type").text("Goals Implementation:");
-                $("label[ for= " + dbContactNotes.PlanforNextVisit + "] span:first-of-type").text("Plan for Next Contact:")  ;
-                $("label[ for= " + dbContactNotes.ClientResponses + "] span:first-of-type").text("Client Response(s):")  ;
-                $("label[ for= " + dbContactNotes.ClientGoalInterventions + "] span:first-of-type").text("List IRP goal(s) worked on during this contact:")
-                $("label[ for= " + dbContactNotes.ClientGoalInterventionText + "] span:first-of-type").text("Intervention(s) implemented in accordance with the IRP:")
+                $("label[ for= " + dbContactNotes.IRPGoals + "] span:first-of-type").text("Goals Implementation");
+                $("label[ for= " + dbContactNotes.PlanforNextVisit + "] span:first-of-type").text("Plan for Next Contact")  ;
+                $("label[ for= " + dbContactNotes.ClientResponses + "] span:first-of-type").text("Client Response(s)")  ;
+                $("label[ for= " + dbContactNotes.ClientGoalInterventions + "] span:first-of-type").text("List IRP goal(s) worked on during this contact")
+                $("label[ for= " + dbContactNotes.ClientGoalInterventionText + "] span:first-of-type").text("Intervention(s) implemented in accordance with the IRP")
               }
 
               break ;
@@ -329,4 +329,35 @@ function addNextVisitDate(nextContactVisit)
    catch (e) {
       logerror (proc, e);
     }
+}
+
+// Use on the Knack Standard Theme
+validateContactNote(event, view, data)
+{
+
+  var viewName = view.key ;
+
+  $(viewName + " .kn-button").on("click", function() {
+    // If this value in the form doesn't equal "SpecificValue" then prevent the form from submitting
+  //  if ($("#view_1-field_1").val() != "SpecificValue") {
+
+      var dt1 = new Date("October 13, 2014 11:11:00");
+      var dt2 = new Date("October 13, 2014 11:13:00");
+
+      var diff =(dt2.getTime() - dt1.getTime()) / 1000;
+      diff /= 60;
+      return Math.abs(Math.round(diff));
+
+     alert ("Date diff " + diff);
+     return false;
+  //  }
+
+
+
+
+
+  })
+
+
+
 }
