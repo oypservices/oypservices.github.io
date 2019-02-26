@@ -375,7 +375,7 @@ function validateContactNote(event, view, data)
           if (msg != "") {
 
             var $div = $("div .is-error" ) ;
-            if (errDiv != undefined )
+            if ($div != undefined )
               $div.innerHTML = "";
             else
               $div = $("<div>", { "class": "kn-message is-error"});
