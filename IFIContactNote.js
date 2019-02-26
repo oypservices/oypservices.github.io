@@ -193,7 +193,6 @@ function hideShowContactNoteFields(view, val, data) {
    else if (val == "Contact Note") {
       console.log (val);
       AddPersonsPresent(view) ;
-      AddIRPNA (view) ;
     	$(fldPrefix +  dbContactNotes.ContactNotedate).show();
     	$(fldPrefix +  dbContactNotes.CaseManager).show();
     	$(fldPrefix +  dbContactNotes.Client).show();
@@ -218,6 +217,7 @@ function hideShowContactNoteFields(view, val, data) {
     	$(fldPrefix +  dbContactNotes.MedicationChanges).show();
     	$(fldPrefix +  dbContactNotes.CaseManagerSignature).show();
       $(fldPrefix +  dbContactNotes.ClientPresent).show();
+      AddIRPNA (view) ;
     	return true;
     }
 
