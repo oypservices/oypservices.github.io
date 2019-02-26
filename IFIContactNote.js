@@ -369,10 +369,10 @@ function validateContactNote(event, view, data)
 
           //iniatilize the error block
           var $div = $("div .is-error" ) ;
-          if ($div != undefined )
-            $div.empty();
-          else
-            $div = $("<div>", { id: "foo" , "class": "kn-message is-error"});
+    //      if ($div.length > 0 )
+    //        $div.empty();
+    //      else
+    //        $div = $("<div>", { id: "foo" , "class": "kn-message is-error"});
 
 
           var diff =(contactDateEnd.getTime() - contactDateStart.getTime()) / 1000;
@@ -389,9 +389,9 @@ function validateContactNote(event, view, data)
               if (msg == "" && diff < 30)
               {
                   msg = "Contact Start and End duration must be 30 minutes or greater";
-                  var $p = $( "p" ).add( "<strong>" + msg + "</strong>" );
-                  $div.append ( $p)
-              //    $div = addErrorMessage ($div, msg) ;
+                //  var $p = $( "p" ).add( "<strong>" + msg + "</strong>" );
+                //  $div.append ( $p)
+                  $div = addErrorMessage ($div, msg) ;
                   bErrorFlag = true ;
               }
           }
@@ -416,7 +416,7 @@ catch (e) {
 
 function initializeErrorMessage() {
   var $div = $("div .is-error" ) ;
-  if ($div != undefined )
+  if ($div.length > 0 )
     $div.empty();
   else
     $div = $("<div>", { "class": "kn-message is-error"});
