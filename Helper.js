@@ -197,3 +197,26 @@ function wait(ms){
      end = new Date().getTime();
   }
 }
+
+
+
+function convertDateTime (dateString, timeString) {
+
+	var dateParts = dateString.split("/");
+	var timeParts = timeString.split(":");
+	if (timeParts[1].includes('am')) {
+		 timeParts[1] = timeParts[1].replace('am','');
+		 if (timeParts[0] == '12')
+				timeParts[0] = '00'
+	}
+	else {
+		timeParts[1] = timeParts[1].replace('pm','');
+		timeParts[0] = parseInt(timeParts[0]) + 12;
+
+	}
+
+	return new Date(dateParts[0], dateParts[1]-1, dateParts[2], timeParts[0], timeParts[1]);
+
+
+
+}

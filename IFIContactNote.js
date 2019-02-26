@@ -354,37 +354,12 @@ function validateContactNote(event, view, data)
           var fldPrefix = "#"  + viewName + "-";
           var fldContactDateStart = $(fldPrefix +  dbContactNotes.ContactDateStart).val() ;
           var fldContactDateStartTime =  $(fldPrefix +  dbContactNotes.ContactDateStart + "-time").val() ;
-
-          var dateParts = fldContactDateStart.split("/");
-          var timeParts = fldContactDateStartTime.split(":");
-          if (timeParts[1].includes('am')) {
-             timeParts[1] = timeParts[1].replace('am');
-             if (timeParts[0] == '12')
-                timeParts[0] == '00'
-          }
-          else {
-            timeParts[1] = timeParts[1].replace('pm');
-            timeParts[0] = parseInt(timeParts[0]) + 12;
-
-          }
-
-          var fldContactDateStart = new Date(dateParts[0], dateParts[1]-1, dateParts[2], timeParts[0], timeParts[1]);
-
-
-
+          contactDateStart = convertDateTime ( fldContactDateStart, fldContactDateStartTime) ;
 
           var fldContactDateEnd = $(fldPrefix +  dbContactNotes.ContactDateEnd).val() ;
           var fldContactDateEndTime = $(fldPrefix +  dbContactNotes.ContactDateEnd + "-time").val() ;
+          contactDateEnd = convertDateTime ( fldContactDateEnd, fldContactDateEndTime) ;
 
-
-
-      //    var dateFromPicker = "2012-10-12";
-      //    var timeFromPicker = "12:30";
-
-
-
-          var contactDateStart = new Date(fldContactDateStart);
-          var contactDateEnd = new Date(fldContactDateEnd);
           var msg = "" ;
 
           var diff =(contactDateEnd.getTime() - contactDateStart.getTime()) / 1000;
