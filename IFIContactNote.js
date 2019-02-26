@@ -25,7 +25,7 @@ function AddIRPNA (view) {
 
 
     $(fieldname).append('<option value="5c620b8db1be5f2ae2471d80">N/A</option>');
-    $('#view_654_field_217_chzn > div > ul').append ('<li id="view_654_field_217_chzn_o_2" class="active-result" style="">N/A</li>' );
+  //  $('#view_654_field_217_chzn > div > ul').append ('<li id="view_654_field_217_chzn_o_2" class="active-result" style="">N/A</li>' );
     $(fieldname).trigger("liszt:updated");
 
 
