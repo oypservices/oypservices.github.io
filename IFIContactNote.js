@@ -389,6 +389,7 @@ function validateContactNote(event, view, data)
           }
 
           if (bErrorFlag) {
+              console.dir ($div);
               $("#" + viewName + " > form").prepend ($div) ;
               return false;
           }
@@ -419,5 +420,6 @@ function addErrorMessage($div, msg)
 {
   var $p = $( "p" ).add( "<strong>" + msg + "</strong>" );
   $div.append ( $p) ;
+  console.dir ($div);
   return $div ;
 }
