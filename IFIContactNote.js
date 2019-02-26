@@ -351,11 +351,29 @@ function validateContactNote(event, view, data)
       //  var contactNoteId = objView.id ;
       // var nextVisitDate = objView[dbContactNotes.ContactDateStart_raw] ;
 
-      var fldPrefix = "#"  + viewName + "-";
-      var fldContactDateStart = $(fldPrefix +  dbContactNotes.ContactDateStart).val() ;
-       var fldContactDateStartTime =  $(fldPrefix +  dbContactNotes.ContactDateStart + "-time").val() ;
+          var fldPrefix = "#"  + viewName + "-";
+          var fldContactDateStart = $(fldPrefix +  dbContactNotes.ContactDateStart).val() ;
+          var fldContactDateStartTime =  $(fldPrefix +  dbContactNotes.ContactDateStart + "-time").val() ;
 
-      var fldContactDateEnd = $(fldPrefix +  dbContactNotes.ContactDateEnd).val() ;
+          var dateParts = fldContactDateStart.split("/");
+          var timeParts = fldContactDateStartTime.split(":");
+          if (timeParts[1].includes('am')) {
+             timeParts[1] = timeParts[1].replace('am');
+             if (timeParts[0] == '12')
+                timeParts[0] == '00'
+          }
+          else {
+            timeParts[1] = timeParts[1].replace('pm');
+            timeParts[0] = parseInt(timeParts[0]) + 12;
+
+          }
+
+          var fldContactDateStart = new Date(dateParts[0], dateParts[1]-1, dateParts[2], timeParts[0], timeParts[1]);
+
+
+
+
+          var fldContactDateEnd = $(fldPrefix +  dbContactNotes.ContactDateEnd).val() ;
           var fldContactDateEndTime = $(fldPrefix +  dbContactNotes.ContactDateEnd + "-time").val() ;
 
 
@@ -363,9 +381,6 @@ function validateContactNote(event, view, data)
       //    var dateFromPicker = "2012-10-12";
       //    var timeFromPicker = "12:30";
 
-          var dateParts = fldContactDateStart.split("-");
-          var timeParts = fldContactDateStartTime.split(":");
-          var localDate = new Date(dateParts[0], dateParts[1]-1, dateParts[2], timeParts[0], timeParts[1]);
 
 
           var contactDateStart = new Date(fldContactDateStart);
