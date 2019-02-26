@@ -506,14 +506,18 @@ $(document).on('knack-view-render.any' , function(event, view, data) {
                validateContactNote (event, view, data);
 
                // N/A Checkbox
-               //$('#field_372').change(function() {
+               $('#field_372').change(function() {
                    // this will contain a reference to the checkbox
-                //   if (this.checked) {
-                       // the checkbox is now checked
-                //   } else {
+                var fieldname = '#' + view.key + '-field_217';
+                 if (this.checked) {
+                    $(fieldname).val("5c620b8db1be5f2ae2471d80") ;
+                    $(fieldname).chosen().trigger("change");
+                 } else {
                        // the checkbox is now no longer checked
-                //   }
-              // });
+                      $(fieldname).val("") ;
+                      $(fieldname).chosen().trigger("change");
+                 }
+               });
 
 
 
