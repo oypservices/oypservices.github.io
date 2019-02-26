@@ -496,7 +496,7 @@ $(document).on('knack-view-render.any' , function(event, view, data) {
                 // this will contain a reference to the checkbox
              var fieldname = '#' + view.key + '-field_217';
               if (this.checked) {
-                 $(fieldname).val("5c620b8db1be5f2ae2471d80") ;
+                 $(fieldname).val("N/A") ;
                  $(fieldname).chosen().trigger("change");
               } else {
                     // the checkbox is now no longer checked
