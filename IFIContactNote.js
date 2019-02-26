@@ -372,7 +372,7 @@ function validateContactNote(event, view, data)
           if ($div != undefined )
             $div.empty();
           else
-            $div = $("<div>", { "class": "kn-message is-error"});
+            $div = $("<div>", { id: "foo" , "class": "kn-message is-error"});
 
 
           var diff =(contactDateEnd.getTime() - contactDateStart.getTime()) / 1000;
