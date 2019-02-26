@@ -24,13 +24,21 @@ function AddIRPNA (view) {
     //  });
 
 
-    $(fieldname).append('<option value="5c620b8db1be5f2ae2471d80">N/A</option>');
-  //  $('#view_654_field_217_chzn > div > ul').append ('<li id="view_654_field_217_chzn_o_2" class="active-result" style="">N/A</li>' );
+    var exists = false;
+    $(fieldname + ' option').each(function(){
+        if (this.value == '5c620b8db1be5f2ae2471d80') {
+            exists = true;
+            return false;
+        }
+    });
 
-    $(fieldname).trigger("liszt:updated");
-    $(fieldname).chosen().trigger("change");
+    if (exists == false ){
+        $(fieldname).append('<option value="5c620b8db1be5f2ae2471d80">N/A</option>');
+      //  $('#view_654_field_217_chzn > div > ul').append ('<li id="view_654_field_217_chzn_o_2" class="active-result" style="">N/A</li>' );
 
-
+        $(fieldname).trigger("liszt:updated");
+        $(fieldname).chosen().trigger("change");
+    }
 
 }
 
@@ -220,6 +228,7 @@ function hideShowContactNoteFields(view, val, data) {
     	$(fldPrefix +  dbContactNotes.ContactDateEnd).show();
     	$(fldPrefix +  dbContactNotes.VisitLocation).show();
     	$(fldPrefix +  dbContactNotes.ReasonforContact).show();
+      AddIRPNA (view) ;
     	return true;
         }
 
