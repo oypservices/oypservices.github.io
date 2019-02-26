@@ -502,8 +502,19 @@ $(document).on('knack-view-render.any' , function(event, view, data) {
                console.log (noteType) ;
                hideShowContactNoteFields (  view, noteType, data);
 
-             //validate function attached to submit
-             validateContactNote (event, view, data);
+               //validate function attached to submit
+               validateContactNote (event, view, data);
+
+               // N/A Checkbox
+               //$('#field_372').change(function() {
+                   // this will contain a reference to the checkbox
+                //   if (this.checked) {
+                       // the checkbox is now checked
+                //   } else {
+                       // the checkbox is now no longer checked
+                //   }
+              // });
+
 
 
               break ;
