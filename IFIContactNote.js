@@ -351,6 +351,9 @@ function validateContactNote(event, view, data)
       //  var contactNoteId = objView.id ;
       // var nextVisitDate = objView[dbContactNotes.ContactDateStart_raw] ;
 
+          var bErrorFlag = false ;
+          var noteType = $(fldPrefix +  dbContactNotes.NoteType).val() ;
+
           var fldPrefix = "#"  + viewName + "-";
           var fldContactDateStart = $(fldPrefix +  dbContactNotes.ContactDateStart).val() ;
           var fldContactDateStartTime =  $(fldPrefix +  dbContactNotes.ContactDateStart + "-time").val() ;
@@ -361,31 +364,34 @@ function validateContactNote(event, view, data)
           contactDateEnd = convertDateTime ( fldContactDateEnd, fldContactDateEndTime) ;
 
           var msg = "" ;
+          var $div = initializeErrorMessage() ;
+
 
           var diff =(contactDateEnd.getTime() - contactDateStart.getTime()) / 1000;
           diff /= 60;
           diff = Math.round(diff) ;
 
-          if (diff < 0 )
-              msg = "Contact End Date cannot be less than Contact Start Date";
+          if (noteType == "Appointment" || noteType = "Contact Note") {
+              if (diff < 0 ){
+                  msg = "Contact End Date cannot be less than Contact Start Date";
+                  $div = addErrorMessage ($div, msg) ;
+                  bErrorFlag = true ;
+              }
 
-          if (msg == "" && diff < 30)
-              msg = "Contact Start and End duration must be 30 minutes or greater";
-
-          if (msg != "") {
-
-            var $div = $("div .is-error" ) ;
-            if ($div != undefined )
-              $div.empty();
-            else
-              $div = $("<div>", { "class": "kn-message is-error"});
-
-            var $p = $( "p" ).add( "<strong>" + msg + "</strong>" );
-            $div.append ( $p) ;
-            $("#" + viewName + " > form").prepend ($div) ;
-
-            return false;
+              if (msg == "" && diff < 30)
+              {
+                  msg = "Contact Start and End duration must be 30 minutes or greater";
+                  $div = addErrorMessage ($div, msg) ;
+                  bErrorFlag = true ;
+              }
           }
+
+          if (bErrorFlag) {
+              $("#" + viewName + " > form").prepend ($div) ;
+              return false;
+          }
+          else
+              return true ;
 
 
       })
@@ -394,4 +400,22 @@ function validateContactNote(event, view, data)
 catch (e) {
   logerror (proc, e);
 }
+}
+
+
+functon initializeErrorMessage() {
+  var $div = $("div .is-error" ) ;
+  if ($div != undefined )
+    $div.empty();
+  else
+    $div = $("<div>", { "class": "kn-message is-error"});
+
+  return $div ;
+}
+
+function addErrorMessage($div, msg)
+{
+  var $p = $( "p" ).add( "<strong>" + msg + "</strong>" );
+  $div.append ( $p) ;
+  return $div ;
 }
