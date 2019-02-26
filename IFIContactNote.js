@@ -368,7 +368,7 @@ function validateContactNote(event, view, data)
           var msg = "" ;
 
           //iniatilize the error block
-          var $div = $("div .is-error" ) ;
+          var $div = initializeErrorMessage() ;
     //      if ($div.length > 0 )
     //        $div.empty();
     //      else
