@@ -505,8 +505,10 @@ $(document).on('knack-view-render.any' , function(event, view, data) {
                //validate function attached to submit
                validateContactNote (event, view, data);
 
+
+
                // N/A Checkbox
-               $('#kn-input-field_372').change(function() {
+               $("input[type='checkbox'][name='field_372']").change(function() {
                    // this will contain a reference to the checkbox
                 var fieldname = '#' + view.key + '-field_217';
                  if (this.checked) {
