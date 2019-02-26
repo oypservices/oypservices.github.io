@@ -383,7 +383,9 @@ function validateContactNote(event, view, data)
               if (msg == "" && diff < 30)
               {
                   msg = "Contact Start and End duration must be 30 minutes or greater";
-                  $div = addErrorMessage ($div, msg) ;
+                  var $p = $( "p" ).add( "<strong>" + msg + "</strong>" );
+                  $div.append ( $p)
+              //    $div = addErrorMessage ($div, msg) ;
                   bErrorFlag = true ;
               }
           }
