@@ -405,7 +405,7 @@ catch (e) {
 }
 
 
-functon initializeErrorMessage() {
+function initializeErrorMessage() {
   var $div = $("div .is-error" ) ;
   if ($div != undefined )
     $div.empty();
