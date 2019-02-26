@@ -5,7 +5,8 @@
 
 function AddIRPNA (view) {
 
-  var options = $("#" + view.key + '-field_217').attr('options');
+  var fieldname = '#' + view.key + '-field_217';
+  var options = $(fieldname).attr('options');
   options[options.length] = new Option('5c620b8db1be5f2ae2471d80', 'N/A', false, false);
 }
 
