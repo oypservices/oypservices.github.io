@@ -6,8 +6,22 @@
 function AddIRPNA (view) {
 
   var fieldname = '#' + view.key + '-field_217';
-  var options = $(fieldname).attr('options');
-  options[options.length] = new Option('5c620b8db1be5f2ae2471d80', 'N/A', false, false);
+//  var options = $(fieldname).attr('options');
+//  options[options.length] = new Option('5c620b8db1be5f2ae2471d80', 'N/A', false, false);
+
+  var myOptions = {
+      '5c620b8db1be5f2ae2471d80' : 'N/A'
+  };
+
+  var mySelect = $(fieldname);
+  $.each(myOptions, function(val, text) {
+      mySelect.append(
+          $('<option></option>').val(val).html(text)
+      );
+  });
+
+
+
 }
 
 
