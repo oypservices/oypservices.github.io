@@ -352,11 +352,21 @@ function validateContactNote(event, view, data)
       // var nextVisitDate = objView[dbContactNotes.ContactDateStart_raw] ;
 
       var fldPrefix = "#"  + viewName + "-";
-      var fldContactDateStart = $(fldPrefix +  dbContactNotes.ContactDateStart).val() + " " +
-                                    $(fldPrefix +  dbContactNotes.ContactDateStart + "-time").val() ;
+      var fldContactDateStart = $(fldPrefix +  dbContactNotes.ContactDateStart).val() ;
+       var fldContactDateStartTime =  $(fldPrefix +  dbContactNotes.ContactDateStart + "-time").val() ;
 
-      var fldContactDateEnd = $(fldPrefix +  dbContactNotes.ContactDateEnd).val() + " " +
-                                    $(fldPrefix +  dbContactNotes.ContactDateEnd + "-time").val() ;
+      var fldContactDateEnd = $(fldPrefix +  dbContactNotes.ContactDateEnd).val() ;
+          var fldContactDateEndTime = $(fldPrefix +  dbContactNotes.ContactDateEnd + "-time").val() ;
+
+
+
+      //    var dateFromPicker = "2012-10-12";
+      //    var timeFromPicker = "12:30";
+
+          var dateParts = fldContactDateStart.split("-");
+          var timeParts = fldContactDateStartTime.split(":");
+          var localDate = new Date(dateParts[0], dateParts[1]-1, dateParts[2], timeParts[0], timeParts[1]);
+
 
           var contactDateStart = new Date(fldContactDateStart);
           var contactDateEnd = new Date(fldContactDateEnd);
