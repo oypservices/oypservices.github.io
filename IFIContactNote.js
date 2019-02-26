@@ -375,8 +375,10 @@ function validateContactNote(event, view, data)
           if (msg != "") {
 
             var errDiv = $("div .is-error" ) ;
-            if (errDiv != undefined )
-              $("#" + viewName + " > form").removeChild( $("div .is-error" ));
+            if (errDiv != undefined ) {
+            //  $("#" + viewName + " > form").removeChild( $("div .is-error" ));
+              errDiv.parentNode.removeChild(errDiv) ;
+            }
 
             var $p = $( "p" ).add( "<strong>" + msg + "</strong>" );
             var $div = $("<div>", {id: "foo", "class": "kn-message is-error"});
