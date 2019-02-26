@@ -366,7 +366,13 @@ function validateContactNote(event, view, data)
           contactDateEnd = convertDateTime ( fldContactDateEnd, fldContactDateEndTime) ;
 
           var msg = "" ;
-          var $div = initializeErrorMessage() ;
+
+          //iniatilize the error block
+          var $div = $("div .is-error" ) ;
+          if ($div != undefined )
+            $div.empty();
+          else
+            $div = $("<div>", { "class": "kn-message is-error"});
 
 
           var diff =(contactDateEnd.getTime() - contactDateStart.getTime()) / 1000;
