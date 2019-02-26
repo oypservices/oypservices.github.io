@@ -352,9 +352,11 @@ function validateContactNote(event, view, data)
       // var nextVisitDate = objView[dbContactNotes.ContactDateStart_raw] ;
 
           var bErrorFlag = false ;
+          var fldPrefix = "#"  + viewName + "-";
+
           var noteType = $(fldPrefix +  dbContactNotes.NoteType).val() ;
 
-          var fldPrefix = "#"  + viewName + "-";
+
           var fldContactDateStart = $(fldPrefix +  dbContactNotes.ContactDateStart).val() ;
           var fldContactDateStartTime =  $(fldPrefix +  dbContactNotes.ContactDateStart + "-time").val() ;
           contactDateStart = convertDateTime ( fldContactDateStart, fldContactDateStartTime) ;
@@ -371,7 +373,7 @@ function validateContactNote(event, view, data)
           diff /= 60;
           diff = Math.round(diff) ;
 
-          if (noteType == "Appointment" || noteType = "Contact Note") {
+          if (noteType == "Appointment" || noteType == "Contact Note") {
               if (diff < 0 ){
                   msg = "Contact End Date cannot be less than Contact Start Date";
                   $div = addErrorMessage ($div, msg) ;
