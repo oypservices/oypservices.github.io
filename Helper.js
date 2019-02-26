@@ -215,7 +215,7 @@ function convertDateTime (dateString, timeString) {
 
 	}
 
-	var newdate = new Date(dateParts[2], dateParts[0], dateParts[1], timeParts[0], timeParts[1]);
+	var newdate = new Date(dateParts[2], dateParts[0]-1, dateParts[1], timeParts[0], timeParts[1]);
 
 	return newdate ;
 
