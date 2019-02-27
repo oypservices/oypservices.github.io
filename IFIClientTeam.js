@@ -205,8 +205,6 @@ function GetContact (filters) {
   OYPServicesAPIPost( resource, headers, getapidata )
     .then (resultContact=> { resolve ( resultContact) ; } )
     .catch (err => {reject (err) ; })
-  }) ;
-
 }
 catch (e)
   {
