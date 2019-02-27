@@ -180,6 +180,46 @@ catch (e)
 }
 
 /*********************************************************************************
+Get a contact based on the filter
+**********************************************************************************/
+
+function GetContact (filters) {
+
+
+  try {
+
+  var contactid = "" ;
+  var resource = 'knackobject';
+
+  //Get the template from the api table
+  var getapidata =
+  {
+    "method": "get",
+    "knackobj": dbObjects.Contacts,
+    "appid": app_id ,
+    "filters": filters
+  }
+
+  console.dir (getapidata);
+
+  OYPServicesAPIPost( resource, headers, getapidata )
+    .then (resultContact=> { resolve ( resultContact) ; } )
+    .catch (err => {reject (err) ; })
+  }) ;
+
+}
+catch (e)
+  {
+    console.error(e);
+    console.error(e.stack) ;
+  }
+
+}
+
+
+
+
+/*********************************************************************************
 find and add contacts to client team
 **********************************************************************************/
 
@@ -321,7 +361,8 @@ function addClientTeamMember (contactid, role, clientId) {
                   field_105: contactid,
                   field_106: role ,
                   field_367: [roleResults.records[0].id] ,
-                  field_196: clientId }
+                  field_196: clientId,
+                  field_421: ['Client Team'] }
                 } ;
 
               OYPKnackAPICall(  headers, postapidata )
