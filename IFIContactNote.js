@@ -536,10 +536,10 @@ function checkFinalizeDate(view, data)
       {
         var fldOverridExpireDate = $(fldPrefix +  dbContactNotes.OverrideExpireDate).val() ;
         if ( fldOverridExpireDate != undefined)
-          contactMaxDate = convertDateTime ( fldOverridExpireDate, "12:00"") ;
+          contactMaxDate = convertDateTime ( fldOverridExpireDate, "12:00") ;
         else {
           var fldContactDateStart = $(fldPrefix +  dbContactNotes.ContactDateStart).val() ;
-          contactMaxDate = convertDateTime ( fldContactDateStart, "12:00"") ;
+          contactMaxDate = convertDateTime ( fldContactDateStart, "12:00") ;
         }
 
 
