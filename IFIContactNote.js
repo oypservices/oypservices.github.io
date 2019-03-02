@@ -567,8 +567,9 @@ function checkFinalizeDate(view, data)
 
 
       var currDay = new Date() ;
-      var diff =(targetDate.getDate() - currDay.getDate())
-      if (diff < 0) {
+      var diffDays = (targetDate.getTime() - currDay.getTime()) / 864000000  ;
+      
+      if (diffDays < 0) {
         return false ;
       }
 
