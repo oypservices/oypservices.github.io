@@ -263,6 +263,7 @@ function hideShowContactNoteFields(view, val, data) {
     	$(fldPrefix +  dbContactNotes.CaseManagerSignature).show();
       $(fldPrefix +  dbContactNotes.ClientPresent).show();
       AddIRPNA (view) ;
+      setOverrideDate(view);
     	return true;
     }
 
@@ -275,19 +276,9 @@ function hideShowContactNoteFields(view, val, data) {
        $(fldPrefix +  dbContactNotes.NoteType).show();
        $(fldPrefix +  dbContactNotes.ContactDateStart).show();
        $(fldPrefix +  dbContactNotes.OverrideExpireDate).show();
-       if ($('#' + view.key + "-"  + dbContactNotes.OverrideExpireDate).val() == "") {
-         var currDay = new Date();
-         var nextDay = new Date() ;
-         nextDay.setDate(currDay.getDate() + 1) ;
+       setOverrideDate(view) ;
 
-         var day = ("0" + nextDay.getDate()).slice(-2);
-         var month = ("0" + (nextDay.getMonth() + 1)).slice(-2);
 
-         var nextDayStr = (nextDay.getMonth() + 1) + '/' + nextDay.getDate() + '/' +  nextDay.getFullYear();
-         nextDayStr = (month) + '/' + (day) + '/' +  nextDay.getFullYear();
-        //  nextDayStr = nextDay.getFullYear() + '-' + (month) + '-' + (day) ;
-         $('#' + view.key + "-"  + dbContactNotes.OverrideExpireDate).val(nextDayStr) ;
-       }
 
        return true;
      }
@@ -525,8 +516,28 @@ function addErrorMessage($div, msg)
   return $div ;
 }
 
-function checkBeginEndDate()
+function setOverrideDate(view)
 {
+  try {
+
+      var proc = "setOverrideDate" ;
+      if ($('#' + view.key + "-"  + dbContactNotes.OverrideExpireDate).val() == "") {
+        var currDay = new Date();
+        var nextDay = new Date() ;
+        nextDay.setDate(currDay.getDate() + 1) ;
+
+        var day = ("0" + nextDay.getDate()).slice(-2);
+        var month = ("0" + (nextDay.getMonth() + 1)).slice(-2);
+
+        var nextDayStr = (nextDay.getMonth() + 1) + '/' + nextDay.getDate() + '/' +  nextDay.getFullYear();
+        nextDayStr = (month) + '/' + (day) + '/' +  nextDay.getFullYear();
+       //  nextDayStr = nextDay.getFullYear() + '-' + (month) + '-' + (day) ;
+        $('#' + view.key + "-"  + dbContactNotes.OverrideExpireDate).val(nextDayStr) ;
+      }
+    }
+  catch (e) {
+  logerror (proc, e);
+  }
 
 }
 
