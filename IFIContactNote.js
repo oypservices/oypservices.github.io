@@ -550,10 +550,9 @@ function checkFinalizeDate(view, data)
       return false ;
     }
 
-    return true ;
   }
 
 
-
+  return true ;
 
 }
