@@ -278,7 +278,7 @@ function hideShowContactNoteFields(view, val, data) {
        $(fldPrefix +  dbContactNotes.ContactDateStart).show();
        $(fldPrefix +  dbContactNotes.OverrideExpireDate).show();
        if ($(fldPrefix +  dbContactNotes.OverrideExpireDate).val() == "") {
-         $(fldPrefix +  dbContactNotes.OverrideExpireDate).datepicker("setDate",new Date() + 1);
+         $(fldPrefix +  dbContactNotes.OverrideExpireDate).datepicker().datepicker("setDate",new Date() + 1);
        }
 
       // $(document).on('knack-scene-render.scene_1', function(event, scene) {
