@@ -442,38 +442,39 @@ function validateContactNote(event, view, data)
 
           var fldContactDateStart = $(fldPrefix +  dbContactNotes.ContactDateStart).val() ;
           var fldContactDateStartTime =  $(fldPrefix +  dbContactNotes.ContactDateStart + "-time").val() ;
-          contactDateStart = convertDateTime ( fldContactDateStart, fldContactDateStartTime) ;
+          if (fldContactDateStart != undefined && fldContactDateStartTime != undefined)
+             contactDateStart = convertDateTime ( fldContactDateStart, fldContactDateStartTime) ;
 
           var fldContactDateEnd = $(fldPrefix +  dbContactNotes.ContactDateEnd).val() ;
           var fldContactDateEndTime = $(fldPrefix +  dbContactNotes.ContactDateEnd + "-time").val() ;
-          contactDateEnd = convertDateTime ( fldContactDateEnd, fldContactDateEndTime) ;
+          if (fldContactDateEnd != undefined && fldContactDateEndTime != undefined)
+             contactDateEnd = convertDateTime ( fldContactDateEnd, fldContactDateEndTime) ;
 
           var msg = "" ;
 
           //iniatilize the error block
           var $div = initializeErrorMessage() ;
-    //      if ($div.length > 0 )
-    //        $div.empty();
-    //      else
-    //        $div = $("<div>", { id: "foo" , "class": "kn-message is-error"});
-
-
-          var diff =(contactDateEnd.getTime() - contactDateStart.getTime()) / 1000;
-          diff /= 60;
-          diff = Math.round(diff) ;
 
           if (noteType == "Appointment" || noteType == "Contact Note") {
+
+            var diff = 0
+            if (contactDateEnd != undefined && contactDateStart != undefined)
+            {
+                diff = (contactDateEnd.getTime() - contactDateStart.getTime()) / 1000;
+                diff /= 60;
+                diff = Math.round(diff) ;
+            }
+
+
               if (diff < 0 ){
                   msg = "Contact End Date cannot be less than Contact Start Date";
                   $div = addErrorMessage ($div, msg) ;
                   bErrorFlag = true ;
               }
 
-              if (msg == "" && diff < 30)
+              if (msg == "" && diff < 30 %% diff > 0 )
               {
                   msg = "Contact Start Time and End Time duration must be 30 minutes or greater";
-                //  var $p = $( "p" ).add( "<strong>" + msg + "</strong>" );
-                //  $div.append ( $p)
                   $div = addErrorMessage ($div, msg) ;
                   bErrorFlag = true ;
               }
@@ -481,7 +482,7 @@ function validateContactNote(event, view, data)
 
           if (noteType == 'Contact Note') {
               if ( !checkFinalizeDate(view, data) ) {
-                msg = "Contact Note requires PA Override.  Finalized Notes must be submitted within 48 hours of Contact Date";
+                msg = "Contact Note requires PA override. Contact Shavon Neal.  Finalized Notes must be submitted within 48 hours of Contact Date";
                 $div = addErrorMessage ($div, msg) ;
                 bErrorFlag = true ;
               }
@@ -524,6 +525,11 @@ function addErrorMessage($div, msg)
   return $div ;
 }
 
+function checkBeginEndDate()
+{
+
+}
+
 function checkFinalizeDate(view, data)
 {
   var fldPrefix = "#"  + view.key + "-";
@@ -532,11 +538,18 @@ function checkFinalizeDate(view, data)
 
   var fldContactNoteStatus = $(fldPrefix +  dbContactNotes.ContactNoteStatus + " option:selected").text();
   var recContactNoteStatus = data[dbContactNotes.ContactNoteStatus + "_raw"][0].identifier ;
+  var recOverridExpireDate = data[dbContactNotes.OverrideExpireDate ] ;
+  var recFinalizedDate = data[dbContactNotes.FinalizedDate ] ;
+
+  if (recFinalizedDate != undefined) {
+    //This record was previously finalized.  Therefore there is no need to validate the timeframe
+    return true ;
+  }
 
   if (fldContactNoteStatus == "Finalized" && recContactNoteStatus != fldContactNoteStatus)
   {
-    var fldOverridExpireDate = $(fldPrefix +  dbContactNotes.OverrideExpireDate).val() ;
-    if ( fldOverridExpireDate != undefined)
+    if ( recOverridExpireDate != undefined)
+     // recOverride date is a PA exception.  Validate the timefram against this date instead of contact start date
       contactMaxDate = convertDateTime ( fldOverridExpireDate, "12:00") ;
     else {
       var fldContactDateStart = $(fldPrefix +  dbContactNotes.ContactDateStart).val() ;
