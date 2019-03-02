@@ -234,7 +234,7 @@ var dbContactNotes = {
   "ClientPresent" : "field_355",
   "AddlPersonsPresent":"field_364",
   "IRPNA":"field_372",
-  "FinalizedDate" : "field_428" ;
+  "FinalizedDate" : "field_428" ,
   "OverrideExpireDate" : "field_427"
 } ;
 
