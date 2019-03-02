@@ -549,7 +549,7 @@ function checkFinalizeDate(view, data)
     var recOverridExpireDate = data[dbContactNotes.OverrideExpireDate ] ;
     var recFinalizedDate = data[dbContactNotes.FinalizedDate ] ;
 
-    if (recFinalizedDate != undefined) {
+    if (recFinalizedDate != undefined && recFinalizedDate != "") {
       //This record was previously finalized.  Therefore there is no need to validate the timeframe
       return true ;
     }
