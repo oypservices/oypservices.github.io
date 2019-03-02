@@ -277,7 +277,7 @@ function hideShowContactNoteFields(view, val, data) {
 //       $(fldPrefix +  dbContactNotes.MeetingStatus).show();
        $(fldPrefix +  dbContactNotes.ContactDateStart).show();
        $(fldPrefix +  dbContactNotes.OverrideExpireDate).show();
-       if ($(fldPrefix +  dbContactNotes.OverrideExpireDate).val() == "") {
+       if ($('#' + view.key + "-"  + dbContactNotes.OverrideExpireDate).val() == "") {
          var currDay = new Date();
          var nextDay = new Date() ;
          nextDay.setDate(currDay.getDate() + 1) ;
@@ -285,9 +285,9 @@ function hideShowContactNoteFields(view, val, data) {
          var day = ("0" + nextDay.getDate()).slice(-2);
          var month = ("0" + (nextDay.getMonth() + 1)).slice(-2);
 
-         //nextDayStr = (nextDay.getMonth() + 1) + '/' + nextDay.getDate() + '/' +  nextDay.getFullYear();
-         var nextDayStr = nextDay.getFullYear() + '-' + (month) + '-' + (day) ;
-         $('#' + view.key + "-"  + dbContactNotes.OverrideExpireDate).valueAsDate = nextDay ;
+         var nextDayStr = (nextDay.getMonth() + 1) + '/' + nextDay.getDate() + '/' +  nextDay.getFullYear();
+        // var nextDayStr = nextDay.getFullYear() + '-' + (month) + '-' + (day) ;
+         $('#' + view.key + "-"  + dbContactNotes.OverrideExpireDate).val(nextDay) ;
        }
 
       // $(document).on('knack-scene-render.scene_1', function(event, scene) {
