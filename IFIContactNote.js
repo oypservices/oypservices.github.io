@@ -556,7 +556,7 @@ function checkFinalizeDate(view, data)
 
     if (fldContactNoteStatus == "Finalized" && recContactNoteStatus != fldContactNoteStatus)
     {
-      if ( recOverridExpireDate != undefined)
+      if ( recOverridExpireDate != undefined && recOverridExpireDate != "")
        // recOverride date is a PA exception.  Validate the timefram against this date instead of contact start date
         contactMaxDate = convertDateTime ( fldOverridExpireDate, "12:00") ;
       else {
