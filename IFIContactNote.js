@@ -532,40 +532,52 @@ function checkBeginEndDate()
 
 function checkFinalizeDate(view, data)
 {
-  var fldPrefix = "#"  + view.key + "-";
 
-  var noteType = $(fldPrefix +  dbContactNotes.NoteType).val() ;
+  try
+  {
+    var proc = "checkFinalizeDate";
+    var fldPrefix = "#"  + view.key + "-";
 
-  var fldContactNoteStatus = $(fldPrefix +  dbContactNotes.ContactNoteStatus + " option:selected").text();
-  var recContactNoteStatus = data[dbContactNotes.ContactNoteStatus + "_raw"][0].identifier ;
-  var recOverridExpireDate = data[dbContactNotes.OverrideExpireDate ] ;
-  var recFinalizedDate = data[dbContactNotes.FinalizedDate ] ;
+    var noteType = $(fldPrefix +  dbContactNotes.NoteType).val() ;
 
-  if (recFinalizedDate != undefined) {
-    //This record was previously finalized.  Therefore there is no need to validate the timeframe
+    var fldContactNoteStatus = $(fldPrefix +  dbContactNotes.ContactNoteStatus + " option:selected").text();
+
+    var recContactNoteStatus ;
+    if (data[dbContactNotes.ContactNoteStatus + "_raw"] != undefined)
+       recContactNoteStatus = data[dbContactNotes.ContactNoteStatus + "_raw"][0].identifier ;
+
+    var recOverridExpireDate = data[dbContactNotes.OverrideExpireDate ] ;
+    var recFinalizedDate = data[dbContactNotes.FinalizedDate ] ;
+
+    if (recFinalizedDate != undefined) {
+      //This record was previously finalized.  Therefore there is no need to validate the timeframe
+      return true ;
+    }
+
+    if (fldContactNoteStatus == "Finalized" && recContactNoteStatus != fldContactNoteStatus)
+    {
+      if ( recOverridExpireDate != undefined)
+       // recOverride date is a PA exception.  Validate the timefram against this date instead of contact start date
+        contactMaxDate = convertDateTime ( fldOverridExpireDate, "12:00") ;
+      else {
+        var fldContactDateStart = $(fldPrefix +  dbContactNotes.ContactDateStart).val() ;
+        contactMaxDate = convertDateTime ( fldContactDateStart, "12:00") ;
+      }
+
+
+      var currDay = new Date() ;
+      var diff =(contactMaxDate.getDate() - currDay.getDate())
+      if (diff > 2) {
+        return false ;
+      }
+
+    }
+
+
     return true ;
   }
-
-  if (fldContactNoteStatus == "Finalized" && recContactNoteStatus != fldContactNoteStatus)
-  {
-    if ( recOverridExpireDate != undefined)
-     // recOverride date is a PA exception.  Validate the timefram against this date instead of contact start date
-      contactMaxDate = convertDateTime ( fldOverridExpireDate, "12:00") ;
-    else {
-      var fldContactDateStart = $(fldPrefix +  dbContactNotes.ContactDateStart).val() ;
-      contactMaxDate = convertDateTime ( fldContactDateStart, "12:00") ;
-    }
-
-
-    var currDay = new Date() ;
-    var diff =(contactMaxDate.getDate() - currDay.getDate())
-    if (diff > 2) {
-      return false ;
-    }
-
-  }
-
-
-  return true ;
+catch (e) {
+logerror (proc, e);
+}
 
 }
