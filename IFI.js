@@ -449,10 +449,11 @@ $(document).on('knack-view-render.any' , function(event, view, data) {
 
 	     var view_name =  view.key ;
        var proc = 'knack-view-render.any:' + view_name ;
+       
        console.dir(view);
        console.dir (data);
        console.dir(event);
-       
+
        console.log(view_name) ;
        if (!evaluateView (proc, view) )
           return ;
