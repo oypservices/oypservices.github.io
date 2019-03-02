@@ -278,8 +278,12 @@ function hideShowContactNoteFields(view, val, data) {
        $(fldPrefix +  dbContactNotes.ContactDateStart).show();
        $(fldPrefix +  dbContactNotes.OverrideExpireDate).show();
        if ($(fldPrefix +  dbContactNotes.OverrideExpireDate).val() == "") {
-         $(fldPrefix +  dbContactNotes.OverrideExpireDate).val(new Date() + 1);
+         $(fldPrefix +  dbContactNotes.OverrideExpireDate).datepicker("setDate",new Date() + 1);
        }
+
+      // $(document).on('knack-scene-render.scene_1', function(event, scene) {
+      //   $('#view_1 #field_1').attr('disabled', 'disabled');
+       //});
 
 //       $(fldPrefix +  dbContactNotes.ContactDateEnd).show();
 //       $(fldPrefix +  dbContactNotes.VisitLocation).show();
