@@ -233,7 +233,8 @@ var dbContactNotes = {
   "RelatedContactNote_raw" : "field_345_raw",
   "ClientPresent" : "field_355",
   "AddlPersonsPresent":"field_364",
-  "IRPNA":"field_372"
+  "IRPNA":"field_372",
+  "OverrideExpireDate" : "field_427"
 } ;
 
 

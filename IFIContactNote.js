@@ -141,6 +141,9 @@ function hideShowContactNoteFields(view, val, data) {
       case "Contact Note" :
           if (bDetails)
               {
+
+
+
                 $(fldPrefix + dbContactNotes.ClientIRP).children('.kn-detail-label').children('span').text("IRP Name")  ;
                 $(fldPrefix + dbContactNotes.IRPGoals).children('.kn-detail-label').children('span').text("Goals Implementation")  ;
                 $(fldPrefix + dbContactNotes.PlanforNextVisit).children('.kn-detail-label').children('span').text("Plan for Next Contact")  ;
@@ -196,7 +199,7 @@ function hideShowContactNoteFields(view, val, data) {
     $(fldPrefix +  dbContactNotes.PersonsPresent).hide();
 
     $(fldPrefix +  dbContactNotes.MedicationChanges).hide();
-    $(fldPrefix +  dbContactNotes.IRPNA).hide();
+//    $(fldPrefix +  dbContactNotes.IRPNA).hide();
     $(fldPrefix +  dbGoals.Objective).hide();
 
 
@@ -208,7 +211,7 @@ function hideShowContactNoteFields(view, val, data) {
     	$(fldPrefix +  dbContactNotes.NoteType).show();
       $(fldPrefix +  dbContactNotes.ContactNoteStatus).show();
       $(fldPrefix +  dbContactNotes.ClientIRP).show();
-      $(fldPrefix +  dbContactNotes.IRPNA).show();
+  //    $(fldPrefix +  dbContactNotes.IRPNA).show();
       $(fldPrefix +  dbContactNotes.IRPGoals).show();
 
       $(fldPrefix +  dbContactNotes.ClientResponses).show();
@@ -245,7 +248,7 @@ function hideShowContactNoteFields(view, val, data) {
     	$(fldPrefix +  dbContactNotes.ContactDateEnd).show();
     	$(fldPrefix +  dbContactNotes.VisitLocation).show();
     	$(fldPrefix +  dbContactNotes.ReasonforContact).show();
-      $(fldPrefix +  dbContactNotes.IRPNA).show();
+//      $(fldPrefix +  dbContactNotes.IRPNA).show();
     	$(fldPrefix +  dbContactNotes.ClientIRP).show();
     	$(fldPrefix +  dbContactNotes.IRPGoals).show();
     	$(fldPrefix +  dbContactNotes.ClientGoalInterventions).show();
@@ -262,6 +265,43 @@ function hideShowContactNoteFields(view, val, data) {
       AddIRPNA (view) ;
     	return true;
     }
+
+    else if (val == "Contact Note - PA Override") {
+       console.log (val);
+//      AddPersonsPresent(view) ;
+       $(fldPrefix +  dbContactNotes.ContactNotedate).show();
+       $(fldPrefix +  dbContactNotes.CaseManager).show();
+       $(fldPrefix +  dbContactNotes.Client).show();
+       $(fldPrefix +  dbContactNotes.NoteType).show();
+       $(fldPrefix +  dbContactNotes.ContactNoteStatus).show();
+//       $(fldPrefix +  dbContactNotes.MeetingStatus).show();
+       $(fldPrefix +  dbContactNotes.ContactDateStart).show();
+       $(fldPrefix +  dbContactNotes.OverrideExpireDate).show();
+       if $(fldPrefix +  dbContactNotes.OverrideExpireDate).val() == ""
+       {
+         $(fldPrefix +  dbContactNotes.OverrideExpireDate).val(new Date() + 1)); 
+       }
+
+//       $(fldPrefix +  dbContactNotes.ContactDateEnd).show();
+//       $(fldPrefix +  dbContactNotes.VisitLocation).show();
+//       $(fldPrefix +  dbContactNotes.ReasonforContact).show();
+ //      $(fldPrefix +  dbContactNotes.IRPNA).show();
+//       $(fldPrefix +  dbContactNotes.ClientIRP).show();
+//       $(fldPrefix +  dbContactNotes.IRPGoals).show();
+//       $(fldPrefix +  dbContactNotes.ClientGoalInterventions).show();
+//       $(fldPrefix +  dbContactNotes.ClientGoalInterventionText).show();
+//       $(fldPrefix +  dbContactNotes.PersonsPresent).show();
+  //     $(fldPrefix +  dbContactNotes.AddlPersonsPresent).show();
+//       $(fldPrefix +  dbContactNotes.ClientResponses).show();
+//       $(fldPrefix +  dbContactNotes.NextVisitDate).show();
+//       $(fldPrefix +  dbContactNotes.PlanforNextVisit).show();
+//       $(fldPrefix +  dbContactNotes.OtherComment).show();
+//       $(fldPrefix +  dbContactNotes.MedicationChanges).show();
+//       $(fldPrefix +  dbContactNotes.CaseManagerSignature).show();
+//       $(fldPrefix +  dbContactNotes.ClientPresent).show();
+//       AddIRPNA (view) ;
+       return true;
+     }
 
 
 }
