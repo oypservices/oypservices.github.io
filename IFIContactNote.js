@@ -482,7 +482,7 @@ function validateContactNote(event, view, data)
 
           if (noteType == 'Contact Note') {
               if ( !checkFinalizeDate(view, data) ) {
-                msg = "Contact Note requires PA override. Contact Shavon Neal.  Finalized Notes must be submitted within 48 hours of Contact Date";
+                msg = "Finalized Notes must be submitted within 48 hours of Contact Date.  An override is required.  Contact Shavon Neal";
                 $div = addErrorMessage ($div, msg) ;
                 bErrorFlag = true ;
               }
@@ -519,7 +519,7 @@ function initializeErrorMessage() {
 
 function addErrorMessage($div, msg)
 {
-  var $p = $( "p" ).add( "<strong>" + msg + "</strong><br/>" );
+  var $p = $( "p" ).add( "<strong>" + msg + "</strong><br/><br/>" );
   $div.append ( $p) ;
   console.dir ($div);
   return $div ;
