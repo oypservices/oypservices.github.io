@@ -531,7 +531,7 @@ function checkFinalizeDate(view, data)
   var noteType = $(fldPrefix +  dbContactNotes.NoteType).val() ;
 
   var fldContactNoteStatus = $(fldPrefix +  dbContactNotes.ContactNoteStatus + " option:selected").text();
-  var recContactNoteStatus = data[dbContactNotes.ContactNoteStatus + "_raw"].identifier ;
+  var recContactNoteStatus = data[dbContactNotes.ContactNoteStatus + "_raw"][0].identifier ;
 
   if (fldContactNoteStatus == "Finalized" && recContactNoteStatus != fldContactNoteStatus)
   {
