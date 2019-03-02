@@ -281,8 +281,12 @@ function hideShowContactNoteFields(view, val, data) {
          var currDay = new Date();
          var nextDay = new Date() ;
          nextDay.setDate(currDay.getDate() + 1) ;
+
+         var day = ("0" + nextDay.getDate()).slice(-2);
+         var month = ("0" + (nextDay.getMonth() + 1)).slice(-2);
+
          //nextDayStr = (nextDay.getMonth() + 1) + '/' + nextDay.getDate() + '/' +  nextDay.getFullYear();
-         var nextDayStr = nextDay.getFullYear() + '-' + (nextDay.getMonth() + 1) + '-' + nextDay.getDate() ; 
+         var nextDayStr = nextDay.getFullYear() + '-' + (month) + '-' + (day) ;
          $(fldPrefix +  dbContactNotes.OverrideExpireDate).val(nextDayStr) ;
        }
 
