@@ -278,9 +278,9 @@ function hideShowContactNoteFields(view, val, data) {
        $(fldPrefix +  dbContactNotes.ContactDateStart).show();
        $(fldPrefix +  dbContactNotes.OverrideExpireDate).show();
        if ($(fldPrefix +  dbContactNotes.OverrideExpireDate).val() == "") {
-         var OverrideDate = new Date() + 1 ;
-         OverrideDate = OverrideDate.getMonth() + 1) + '/' + OverrideDate.getDate() + '/' +  OverrideDate.getFullYear()
-         $(fldPrefix +  dbContactNotes.OverrideExpireDate).val(OverrideDate) ;
+         var nextDay = new Date() + 1 ;
+         nextDayStr = (nextDay.getMonth() + 1) + '/' + nextDay.getDate() + '/' +  nextDay.getFullYear()
+         $(fldPrefix +  dbContactNotes.OverrideExpireDate).val(nextDayStr) ;
        }
 
       // $(document).on('knack-scene-render.scene_1', function(event, scene) {
