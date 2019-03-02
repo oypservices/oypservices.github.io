@@ -545,7 +545,7 @@ function checkFinalizeDate(view, data)
 
         var currDay = new Date() ;
         var diff =(contactMaxDate.getDate() - currDay.getDate())
-        if {diff > 2} {
+        if (diff > 2) {
           return false ;
         }
 
