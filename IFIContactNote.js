@@ -527,12 +527,12 @@ function checkFinalizeDate(view, data)
   var fldPrefix = "#"  + viewName + "-";
 
   var noteType = $(fldPrefix +  dbContactNotes.NoteType).val() ;
-  if (noteType = "Contact Note")
+  if (noteType == "Contact Note")
   {
       var fldContactNoteStatus = $(fldPrefix +  dbContactNotes.ContactNoteStatus).val() ;
       var recContactNoteStatus = data[ContactNoteStatus] ;
 
-      if (fldContactNoteStatus = "Finalized" and recContactNoteStatus != fldContactNoteStatus)
+      if (fldContactNoteStatus == "Finalized" && recContactNoteStatus != fldContactNoteStatus)
       {
         var fldOverridExpireDate = $(fldPrefix +  dbContactNotes.OverrideExpireDate).val() ;
         if ( fldOverridExpireDate != undefined)
