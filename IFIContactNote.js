@@ -457,7 +457,7 @@ function validateContactNote(event, view, data)
 
           if (noteType == "Appointment" || noteType == "Contact Note") {
 
-            var diff = 0
+            var diff = 99999
             if (contactDateEnd != undefined && contactDateStart != undefined)
             {
                 diff = (contactDateEnd.getTime() - contactDateStart.getTime()) / 1000;
@@ -472,7 +472,7 @@ function validateContactNote(event, view, data)
                   bErrorFlag = true ;
               }
 
-              if (msg == "" && diff < 30 && diff > 0 )
+              if (msg == "" && diff < 30 )
               {
                   msg = "Contact Start Time and End Time duration must be 30 minutes or greater";
                   $div = addErrorMessage ($div, msg) ;
