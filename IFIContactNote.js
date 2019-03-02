@@ -437,7 +437,7 @@ function validateContactNote(event, view, data)
           var bErrorFlag = false ;
           var fldPrefix = "#"  + viewName + "-";
 
-          var noteType = $(fldPrefix +  dbContactNotes.NoteType).val() ;
+          var noteType = $(fldPrefix +  dbContactNotes.NoteType option:selected").text();
 
 
           var fldContactDateStart = $(fldPrefix +  dbContactNotes.ContactDateStart).val() ;
@@ -479,10 +479,12 @@ function validateContactNote(event, view, data)
               }
           }
 
-          if ( !checkFinalizeDate(view, data) ) {
-            msg = "Contact Note requires PA Override.  Finalized Notes must be submitted within 48 hours of Contact Date";
-            $div = addErrorMessage ($div, msg) ;
-            bErrorFlag = true ;
+          if (noteType == 'Contact Note') {
+              if ( !checkFinalizeDate(view, data) ) {
+                msg = "Contact Note requires PA Override.  Finalized Notes must be submitted within 48 hours of Contact Date";
+                $div = addErrorMessage ($div, msg) ;
+                bErrorFlag = true ;
+              }
           }
 
 
@@ -527,31 +529,28 @@ function checkFinalizeDate(view, data)
   var fldPrefix = "#"  + view.key + "-";
 
   var noteType = $(fldPrefix +  dbContactNotes.NoteType).val() ;
-  if (noteType == "Contact Note")
+
+  var fldContactNoteStatus = $(fldPrefix +  dbContactNotes.ContactNoteStatus option:selected").text();
+  var recContactNoteStatus = data[dbContactNotes.ContactNoteStatus + "_raw"].identifier ;
+
+  if (fldContactNoteStatus == "Finalized" && recContactNoteStatus != fldContactNoteStatus)
   {
-      var fldContactNoteStatus = $(fldPrefix +  dbContactNotes.ContactNoteStatus).val() ;
-      var recContactNoteStatus = data[dbContactNotes.ContactNoteStatus] ;
-
-      if (fldContactNoteStatus == "Finalized" && recContactNoteStatus != fldContactNoteStatus)
-      {
-        var fldOverridExpireDate = $(fldPrefix +  dbContactNotes.OverrideExpireDate).val() ;
-        if ( fldOverridExpireDate != undefined)
-          contactMaxDate = convertDateTime ( fldOverridExpireDate, "12:00") ;
-        else {
-          var fldContactDateStart = $(fldPrefix +  dbContactNotes.ContactDateStart).val() ;
-          contactMaxDate = convertDateTime ( fldContactDateStart, "12:00") ;
-        }
+    var fldOverridExpireDate = $(fldPrefix +  dbContactNotes.OverrideExpireDate).val() ;
+    if ( fldOverridExpireDate != undefined)
+      contactMaxDate = convertDateTime ( fldOverridExpireDate, "12:00") ;
+    else {
+      var fldContactDateStart = $(fldPrefix +  dbContactNotes.ContactDateStart).val() ;
+      contactMaxDate = convertDateTime ( fldContactDateStart, "12:00") ;
+    }
 
 
-        var currDay = new Date() ;
-        var diff =(contactMaxDate.getDate() - currDay.getDate())
-        if (diff > 2) {
-          return false ;
-        }
+    var currDay = new Date() ;
+    var diff =(contactMaxDate.getDate() - currDay.getDate())
+    if (diff > 2) {
+      return false ;
+    }
 
-      }
-
-      return true ;
+    return true ;
   }
 
 
