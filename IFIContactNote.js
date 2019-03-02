@@ -437,7 +437,7 @@ function validateContactNote(event, view, data)
           var bErrorFlag = false ;
           var fldPrefix = "#"  + viewName + "-";
 
-          var noteType = $(fldPrefix +  dbContactNotes.NoteType option:selected").text();
+          var noteType = $(fldPrefix +  dbContactNotes.NoteType + " option:selected").text();
 
 
           var fldContactDateStart = $(fldPrefix +  dbContactNotes.ContactDateStart).val() ;
@@ -530,7 +530,7 @@ function checkFinalizeDate(view, data)
 
   var noteType = $(fldPrefix +  dbContactNotes.NoteType).val() ;
 
-  var fldContactNoteStatus = $(fldPrefix +  dbContactNotes.ContactNoteStatus option:selected").text();
+  var fldContactNoteStatus = $(fldPrefix +  dbContactNotes.ContactNoteStatus + " option:selected").text();
   var recContactNoteStatus = data[dbContactNotes.ContactNoteStatus + "_raw"].identifier ;
 
   if (fldContactNoteStatus == "Finalized" && recContactNoteStatus != fldContactNoteStatus)
