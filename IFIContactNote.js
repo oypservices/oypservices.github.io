@@ -524,7 +524,7 @@ function addErrorMessage($div, msg)
 
 function checkFinalizeDate(view, data)
 {
-  var fldPrefix = "#"  + viewName + "-";
+  var fldPrefix = "#"  + view.key + "-";
 
   var noteType = $(fldPrefix +  dbContactNotes.NoteType).val() ;
   if (noteType == "Contact Note")
