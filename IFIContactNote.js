@@ -519,7 +519,7 @@ function initializeErrorMessage() {
 
 function addErrorMessage($div, msg)
 {
-  var $p = $( "p" ).add( "<strong>" + msg + "</strong>" );
+  var $p = $( "p" ).add( "<strong>" + msg + "</strong><br/>" );
   $div.append ( $p) ;
   console.dir ($div);
   return $div ;
@@ -567,8 +567,8 @@ function checkFinalizeDate(view, data)
 
 
       var currDay = new Date() ;
-      var diffDays = (targetDate.getTime() - currDay.getTime()) / 864000000  ;
-      
+      var diffDays = (targetDate.getTime() - currDay.getTime()) / 86400000  ;
+
       if (diffDays < 0) {
         return false ;
       }
