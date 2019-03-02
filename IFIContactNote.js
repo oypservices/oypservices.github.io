@@ -273,8 +273,6 @@ function hideShowContactNoteFields(view, val, data) {
        $(fldPrefix +  dbContactNotes.CaseManager).show();
        $(fldPrefix +  dbContactNotes.Client).show();
        $(fldPrefix +  dbContactNotes.NoteType).show();
-       $(fldPrefix +  dbContactNotes.ContactNoteStatus).show();
-//       $(fldPrefix +  dbContactNotes.MeetingStatus).show();
        $(fldPrefix +  dbContactNotes.ContactDateStart).show();
        $(fldPrefix +  dbContactNotes.OverrideExpireDate).show();
        if ($('#' + view.key + "-"  + dbContactNotes.OverrideExpireDate).val() == "") {
@@ -291,28 +289,6 @@ function hideShowContactNoteFields(view, val, data) {
          $('#' + view.key + "-"  + dbContactNotes.OverrideExpireDate).val(nextDayStr) ;
        }
 
-      // $(document).on('knack-scene-render.scene_1', function(event, scene) {
-      //   $('#view_1 #field_1').attr('disabled', 'disabled');
-       //});
-
-//       $(fldPrefix +  dbContactNotes.ContactDateEnd).show();
-//       $(fldPrefix +  dbContactNotes.VisitLocation).show();
-//       $(fldPrefix +  dbContactNotes.ReasonforContact).show();
- //      $(fldPrefix +  dbContactNotes.IRPNA).show();
-//       $(fldPrefix +  dbContactNotes.ClientIRP).show();
-//       $(fldPrefix +  dbContactNotes.IRPGoals).show();
-//       $(fldPrefix +  dbContactNotes.ClientGoalInterventions).show();
-//       $(fldPrefix +  dbContactNotes.ClientGoalInterventionText).show();
-//       $(fldPrefix +  dbContactNotes.PersonsPresent).show();
-  //     $(fldPrefix +  dbContactNotes.AddlPersonsPresent).show();
-//       $(fldPrefix +  dbContactNotes.ClientResponses).show();
-//       $(fldPrefix +  dbContactNotes.NextVisitDate).show();
-//       $(fldPrefix +  dbContactNotes.PlanforNextVisit).show();
-//       $(fldPrefix +  dbContactNotes.OtherComment).show();
-//       $(fldPrefix +  dbContactNotes.MedicationChanges).show();
-//       $(fldPrefix +  dbContactNotes.CaseManagerSignature).show();
-//       $(fldPrefix +  dbContactNotes.ClientPresent).show();
-//       AddIRPNA (view) ;
        return true;
      }
 
@@ -503,6 +479,13 @@ function validateContactNote(event, view, data)
               }
           }
 
+          if ( !checkFinalizeDate(view, data) ) {
+            msg = "Contact Note requires PA Override.  Finalized Notes must be submitted within 48 hours of Contact Date";
+            $div = addErrorMessage ($div, msg) ;
+            bErrorFlag = true ;
+          }
+
+
           if (bErrorFlag) {
               console.dir ($div);
               $("#" + viewName + " > form").prepend ($div) ;
@@ -537,4 +520,41 @@ function addErrorMessage($div, msg)
   $div.append ( $p) ;
   console.dir ($div);
   return $div ;
+}
+
+function checkFinalizeDate(view, data)
+{
+  var fldPrefix = "#"  + viewName + "-";
+
+  var noteType = $(fldPrefix +  dbContactNotes.NoteType).val() ;
+  if (noteType = "Contact Note")
+  {
+      var fldContactNoteStatus = $(fldPrefix +  dbContactNotes.ContactNoteStatus).val() ;
+      var recContactNoteStatus = data[ContactNoteStatus] ;
+
+      if (fldContactNoteStatus = "Finalized" and recContactNoteStatus != fldContactNoteStatus)
+      {
+        var fldOverridExpireDate = $(fldPrefix +  dbContactNotes.OverrideExpireDate).val() ;
+        if ( fldOverridExpireDate != undefined)
+          contactMaxDate = convertDateTime ( fldOverridExpireDate, "12:00"") ;
+        else {
+          var fldContactDateStart = $(fldPrefix +  dbContactNotes.ContactDateStart).val() ;
+          contactMaxDate = convertDateTime ( fldContactDateStart, "12:00"") ;
+        }
+
+
+        var currDay = new Date() ;
+        var diff =(contactMaxDate.getDate() - currDay.getDate())
+        if {diff > 2} {
+          return false ;
+        }
+
+      }
+
+      return true ;
+  }
+
+
+
+
 }
