@@ -530,7 +530,7 @@ function checkFinalizeDate(view, data)
   if (noteType == "Contact Note")
   {
       var fldContactNoteStatus = $(fldPrefix +  dbContactNotes.ContactNoteStatus).val() ;
-      var recContactNoteStatus = data[ContactNoteStatus] ;
+      var recContactNoteStatus = data[dbContactNotes.ContactNoteStatus] ;
 
       if (fldContactNoteStatus == "Finalized" && recContactNoteStatus != fldContactNoteStatus)
       {
