@@ -263,7 +263,7 @@ function hideShowContactNoteFields(view, val, data) {
     	$(fldPrefix +  dbContactNotes.CaseManagerSignature).show();
       $(fldPrefix +  dbContactNotes.ClientPresent).show();
       AddIRPNA (view) ;
-      setOverrideDate(view);
+    //  setOverrideDate(view);
     	return true;
     }
 
@@ -276,7 +276,7 @@ function hideShowContactNoteFields(view, val, data) {
        $(fldPrefix +  dbContactNotes.NoteType).show();
        $(fldPrefix +  dbContactNotes.ContactDateStart).show();
        $(fldPrefix +  dbContactNotes.OverrideExpireDate).show();
-       setOverrideDate(view) ;
+  //     setOverrideDate(view) ;
 
 
 
@@ -521,7 +521,7 @@ function setOverrideDate(view)
   try {
 
       var proc = "setOverrideDate" ;
-      if ($('#' + view.key + "-"  + dbContactNotes.OverrideExpireDate).val() == "") {
+//      if ($('#' + view.key + "-"  + dbContactNotes.OverrideExpireDate).val() == "") {
         var currDay = new Date();
         var nextDay = new Date() ;
         nextDay.setDate(currDay.getDate() + 1) ;
@@ -533,7 +533,7 @@ function setOverrideDate(view)
         nextDayStr = (month) + '/' + (day) + '/' +  nextDay.getFullYear();
        //  nextDayStr = nextDay.getFullYear() + '-' + (month) + '-' + (day) ;
         $('#' + view.key + "-"  + dbContactNotes.OverrideExpireDate).val(nextDayStr) ;
-      }
+//      }
     }
   catch (e) {
   logerror (proc, e);
