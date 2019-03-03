@@ -449,7 +449,7 @@ $(document).on('knack-view-render.any' , function(event, view, data) {
 
 	     var view_name =  view.key ;
        var proc = 'knack-view-render.any:' + view_name ;
-       
+
        console.dir(view);
        console.dir (data);
        console.dir(event);
@@ -494,6 +494,7 @@ $(document).on('knack-view-render.any' , function(event, view, data) {
               break ;
             case dbObjects.ContactNotes:
             //ContactNotes
+            setOverrideDate(view);
 
             // N/A Checkbox
             var chkbox = $("input[type='checkbox'][name='field_372']")
