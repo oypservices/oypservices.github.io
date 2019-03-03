@@ -473,7 +473,7 @@ function validateContactNote(event, view, data)
 
           if (noteType == 'Contact Note') {
               if ( !checkFinalizeDate(view, data) ) {
-                msg = "Finalized Notes must be submitted within 48 hours of Contact Date.  An override is required.  Contact Shavon Neal";
+                msg = "Finalized Notes must be submitted within 48 hours of Contact Date.  An override is required. Please save the note as a 'Draft' and contact the PA for an override.";
                 $div = addErrorMessage ($div, msg) ;
                 bErrorFlag = true ;
               }
