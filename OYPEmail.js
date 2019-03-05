@@ -45,6 +45,7 @@ try {
 									 }
 					};
 
+    console.dir(apidata) ;
 		OYPKnackAPICall (headers,  apidata)
 
   		.then (resultActivities => {
