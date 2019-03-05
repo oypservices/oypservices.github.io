@@ -23,8 +23,8 @@ try {
     console.log (productGroupId) ;
 
     //line tems will be added manually.
-    if ( objOrders[dfltProductFieldKey] == "No" )
-        window.location.href =  hrefAddOrderLinePage ;
+  //  if ( objOrders[dfltProductFieldKey] == "No" )
+  //      window.location.href =  hrefAddOrderLinePage ;
 
 
 		var apidata = {
