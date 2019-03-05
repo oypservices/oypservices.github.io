@@ -136,7 +136,6 @@ function getFieldKey(dbObject, label ) {
 Database Objects -- https://api.knack.com/v1/objects/
 *******************************************************************************************************/
 
-
 var dbTables = {
     "tables": [
         {
@@ -258,10 +257,196 @@ var dbTables = {
         {
             "name": "Document",
             "key": "object_36"
+        },
+        {
+            "name": "Emails",
+            "key": "object_39"
         }
     ]
 }
 
+var dbEmails = {
+    "fields": [
+        {
+            "label": "Contacts",
+            "key": "field_357",
+            "required": false,
+            "type": "connection",
+            "relationship": {
+                "object": "object_1",
+                "has": "many",
+                "belongs_to": "many"
+            }
+        },
+        {
+            "label": "Project",
+            "key": "field_358",
+            "required": false,
+            "type": "connection",
+            "relationship": {
+                "object": "object_10",
+                "has": "one",
+                "belongs_to": "many"
+            }
+        },
+        {
+            "label": "Send",
+            "key": "field_364",
+            "required": false,
+            "type": "multiple_choice",
+            "choices": [
+                "Immediately Upon Completion",
+                "Based on Schedule"
+            ]
+        },
+        {
+            "label": "Email Template Category",
+            "key": "field_363",
+            "required": false,
+            "type": "connection",
+            "relationship": {
+                "object": "object_31",
+                "has": "one",
+                "belongs_to": "many"
+            }
+        },
+        {
+            "label": "Email Template",
+            "key": "field_360",
+            "required": false,
+            "type": "connection",
+            "relationship": {
+                "belongs_to": "many",
+                "has": "one",
+                "object": "object_40"
+            }
+        },
+        {
+            "label": "Email Schedule",
+            "key": "field_361",
+            "required": false,
+            "type": "date_time"
+        },
+        {
+            "label": "Email Name",
+            "key": "field_342",
+            "required": false,
+            "type": "short_text"
+        },
+        {
+            "label": "To",
+            "key": "field_345",
+            "required": false,
+            "type": "connection",
+            "relationship": {
+                "belongs_to": "many",
+                "has": "many",
+                "object": "object_1"
+            }
+        },
+        {
+            "label": "CC",
+            "key": "field_347",
+            "required": false,
+            "type": "connection",
+            "relationship": {
+                "belongs_to": "many",
+                "has": "many",
+                "object": "object_1"
+            }
+        },
+        {
+            "label": "BCC",
+            "key": "field_348",
+            "required": false,
+            "type": "connection",
+            "relationship": {
+                "belongs_to": "many",
+                "has": "many",
+                "object": "object_1"
+            }
+        },
+        {
+            "label": "From",
+            "key": "field_346",
+            "required": false,
+            "type": "short_text"
+        },
+        {
+            "label": "Subject",
+            "key": "field_349",
+            "required": false,
+            "type": "short_text"
+        },
+        {
+            "label": "Body",
+            "key": "field_350",
+            "required": false,
+            "type": "rich_text"
+        },
+        {
+            "label": "Direction",
+            "key": "field_344",
+            "required": false,
+            "type": "multiple_choice",
+            "choices": [
+                "Received",
+                "Sent"
+            ]
+        },
+        {
+            "label": "Users",
+            "key": "field_352",
+            "required": false,
+            "type": "connection",
+            "relationship": {
+                "belongs_to": "many",
+                "has": "many",
+                "object": "object_5"
+            }
+        },
+        {
+            "label": "Site",
+            "key": "field_353",
+            "required": false,
+            "type": "connection",
+            "relationship": {
+                "belongs_to": "many",
+                "has": "one",
+                "object": "object_16"
+            }
+        },
+        {
+            "label": "Created Date",
+            "key": "field_343",
+            "required": false,
+            "type": "date_time"
+        },
+        {
+            "label": "Sent Date",
+            "key": "field_354",
+            "required": false,
+            "type": "date_time"
+        },
+        {
+            "label": "Received Date",
+            "key": "field_355",
+            "required": false,
+            "type": "date_time"
+        },
+        {
+            "label": "Status",
+            "key": "field_356",
+            "required": false,
+            "type": "connection",
+            "relationship": {
+                "object": "object_31",
+                "has": "one",
+                "belongs_to": "many"
+            }
+        }
+    ]
+}
 
 
 /*******************************************************************************************************
@@ -501,126 +686,167 @@ var dbActivities = {
           { "key" :"System" , "fields" : ["User", "Site", "Contact Name Expression"] }
         ] },
     ] ,
-      "fields": [
-        {
-                   "label": "Activity Associated With",
-                   "key": "field_233",
-                   "required": false,
-                   "type": "multiple_choice",
-                   "choices": [
-                       "A Project",
-                       "A Contact",
-                       "General"
-                   ]
-               },
-
-          {
-              "label": "Contact",
-              "key": "field_22",
-              "required": false,
-              "type": "connection",
-              "relationship": {
-                  "object": "object_1",
-                  "has": "one",
-                  "belongs_to": "many"
-              }
-          },
-          {
-              "label": "Project",
-              "key": "field_166",
-              "required": false,
-              "type": "connection",
-              "relationship": {
-                  "object": "object_10",
-                  "has": "one",
-                  "belongs_to": "many"
-              }
-          },
-          {
-              "label": "Date",
-              "key": "field_34",
-              "required": false,
-              "type": "date_time"
-          },
-          {
-              "label": "Activity Type",
-              "key": "field_150",
-              "required": false,
-              "type": "connection",
-              "relationship": {
-                  "belongs_to": "many",
-                  "has": "one",
-                  "object": "object_27"
-              }
-          },
-          {
-              "label": "Notes",
-              "key": "field_2",
-              "required": false,
-              "type": "paragraph_text"
-          },
-          {
-              "label": "Add Task or Meeting",
-              "key": "field_35",
-              "required": false,
-              "type": "boolean"
-          },
-          {
-              "label": "Activity Sub Type",
-              "key": "field_42",
-              "required": false,
-              "type": "connection",
-              "relationship": {
-                  "belongs_to": "many",
-                  "has": "one",
-                  "object": "object_28"
-              }
-          },
-          {
-              "label": "Due Date",
-              "key": "field_37",
-              "required": false,
-              "type": "date_time"
-          },
-          {
-              "label": "Task Status",
-              "key": "field_50",
-              "required": false,
-              "type": "multiple_choice",
-              "choices": [
-                  "Pending",
-                  "Completed"
-              ]
-          },
-          {
-              "label": "Task Update",
-              "key": "field_51",
-              "required": false,
-              "type": "paragraph_text"
-          },
-          {
-              "label": "Assigned To",
-              "key": "field_58",
-              "required": false,
-              "type": "connection",
-              "relationship": {
-                  "belongs_to": "many",
-                  "has": "one",
-                  "object": "object_5"
-              }
-          },
-          {
-              "label": "Site",
-              "key": "field_146",
-              "required": false,
-              "type": "connection",
-              "relationship": {
-                  "belongs_to": "many",
-                  "has": "one",
-                  "object": "object_16"
-              }
+  "fields": [
+      {
+          "label": "Task For",
+          "key": "field_321",
+          "required": false,
+          "type": "concatenation"
+      },
+      {
+          "label": "Activity Associated With",
+          "key": "field_233",
+          "required": false,
+          "type": "multiple_choice",
+          "choices": [
+              "A Project",
+              "A Contact",
+              "Neither"
+          ]
+      },
+      {
+          "label": "Project",
+          "key": "field_166",
+          "required": false,
+          "type": "connection",
+          "relationship": {
+              "object": "object_10",
+              "has": "one",
+              "belongs_to": "many"
           }
-      ]
+      },
+      {
+          "label": "Contact",
+          "key": "field_22",
+          "required": false,
+          "type": "connection",
+          "relationship": {
+              "object": "object_1",
+              "has": "one",
+              "belongs_to": "many"
+          }
+      },
+      {
+          "label": "Task Number",
+          "key": "field_326",
+          "required": false,
+          "type": "concatenation"
+      },
+      {
+          "label": "Activity Type",
+          "key": "field_150",
+          "required": false,
+          "type": "connection",
+          "relationship": {
+              "belongs_to": "many",
+              "has": "one",
+              "object": "object_27"
+          }
+      },
+      {
+          "label": "Activity Sub Type",
+          "key": "field_42",
+          "required": false,
+          "type": "connection",
+          "relationship": {
+              "belongs_to": "many",
+              "has": "one",
+              "object": "object_28"
+          }
+      },
+      {
+          "label": "Add Task or Meeting",
+          "key": "field_35",
+          "required": false,
+          "type": "boolean"
+      },
+      {
+          "label": "Categories",
+          "key": "field_340",
+          "required": false,
+          "type": "connection",
+          "relationship": {
+              "object": "object_31",
+              "has": "many",
+              "belongs_to": "many"
+          }
+      },
+      {
+          "label": "Task Name",
+          "key": "field_235",
+          "required": false,
+          "type": "short_text"
+      },
+      {
+          "label": "Notes",
+          "key": "field_2",
+          "required": false,
+          "type": "paragraph_text"
+      },
+      {
+          "label": "Assigned To",
+          "key": "field_58",
+          "required": false,
+          "type": "connection",
+          "relationship": {
+              "belongs_to": "many",
+              "has": "one",
+              "object": "object_5"
+          }
+      },
+      {
+          "label": "Task/Meeting Due Date",
+          "key": "field_37",
+          "required": false,
+          "type": "date_time"
+      },
+      {
+          "label": "Task Status",
+          "key": "field_50",
+          "required": false,
+          "type": "connection",
+          "relationship": {
+              "belongs_to": "many",
+              "has": "one",
+              "object": "object_31"
+          }
+      },
+      {
+          "label": "Task Update",
+          "key": "field_51",
+          "required": false,
+          "type": "paragraph_text"
+      },
+      {
+          "label": "Date",
+          "key": "field_34",
+          "required": false,
+          "type": "date_time"
+      },
+      {
+          "label": "Complete Date",
+          "key": "field_341",
+          "required": false,
+          "type": "date_time"
+      },
+      {
+          "label": "Item Number",
+          "key": "field_325",
+          "required": false,
+          "type": "number"
+      },
+      {
+          "label": "Site",
+          "key": "field_146",
+          "required": false,
+          "type": "connection",
+          "relationship": {
+              "belongs_to": "many",
+              "has": "one",
+              "object": "object_16"
+          }
+      }
+  ]
   };
 
 

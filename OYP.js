@@ -35,6 +35,29 @@ function logObject (msg) {
   return
 }
 
+
+
+
+/**********************************************************************************************
+//Event handler for submitted forms
+*************************************************************************************************/
+
+$(document).on('knack-record-create.any' , function (event, view, record) {
+  console.dir (view) ;
+
+  switch (view.source.object) {
+
+   case getObjectKey("Activities") :
+      submitEmail (event, view, record)  ;
+      break ;
+
+    default:
+      break ;
+  }
+
+});
+
+
 /**********************************************************************************************
 //Event handler for created records
 *************************************************************************************************/
