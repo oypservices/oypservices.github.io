@@ -47,7 +47,7 @@ $(document).on('knack-form-submit.any' , function (event, view, record) {
 
   switch (view.source.object) {
 
-   case getObjectKey("Activities") :
+   case getObjectKey("Emails") :
       submitEmail (event, view, record)  ;
       break ;
 
