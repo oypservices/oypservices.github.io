@@ -35,13 +35,9 @@ try {
 						"filters" : { "match": "and",
 								 "rules" : [ {
 													 "field":   getFieldKey(dbActivities, "Complete Date") ,
-													 "operator":"is after",
-													 "value": "02/28/2019"
-												 },
-												 {
-													 "field": getFieldKey(dbActivities, "Complete Date"),
-													 "operator":"is today or before"
-												 }]
+													 "operator":"is during the previous",
+													 "value": "week"
+												 } ]
 									 }
 					};
 
