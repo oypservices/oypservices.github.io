@@ -19,8 +19,8 @@ try {
 
     var emailId = objEmail.id;
     console.log (emailId);
-    var productGroupId = objOrders[productGroupFieldKey][0].id ;
-    console.log (productGroupId) ;
+  //  var productGroupId = objOrders[productGroupFieldKey][0].id ;
+  //  console.log (productGroupId) ;
 
     //line tems will be added manually.
   //  if ( objOrders[dfltProductFieldKey] == "No" )
