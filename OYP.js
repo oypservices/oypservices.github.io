@@ -42,7 +42,7 @@ function logObject (msg) {
 //Event handler for submitted forms
 *************************************************************************************************/
 
-$(document).on('knack-record-create.any' , function (event, view, record) {
+$(document).on('knack-record-submit.any' , function (event, view, record) {
   console.dir (view) ;
 
   switch (view.source.object) {
@@ -62,7 +62,7 @@ $(document).on('knack-record-create.any' , function (event, view, record) {
 //Event handler for created records
 *************************************************************************************************/
 
-$(document).on('knack-record-create.any' , function (event, view, record) {
+$(document).on('knack-view-create.any' , function (event, view, record) {
   console.dir (view) ;
 
   switch (view.source.object) {
