@@ -47,7 +47,7 @@ try {
   		.then (resultActivities => {
 
               var data = {"accomplishments" : resultActivities.records }  ;
-              console.dir(dynamic_template_data) ;
+              console.dir(data) ;
               var msg = {} ;
               msg.to = ['brian@oypservices.com' ];
               msg.subject = ' Project Status Report (test)';
