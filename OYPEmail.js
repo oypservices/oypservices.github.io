@@ -45,7 +45,7 @@ try {
 		OYPKnackAPICall (headers,  apidata)
 
   		.then (resultActivities => {
-              var dynamic_template_data.ccomplishments = [resultActivities] ;
+              var dynamic_template_data.accomplishments : [resultActivities] ;
               console.dir(dynamic_template_data) ;
 
               console.dir (resultActivities);
