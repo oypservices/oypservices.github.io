@@ -53,7 +53,7 @@ try {
               msg.to = [\ 'brian@oypservices.com' ];
               msg.subject = ' Project Status Report (test)';
         //      msg.html = "Status has changed to " + clientStatus ;
-              msg.from = "info@ifi-md.org" ;
+              msg.from = "info@oypcrm.com" ;
               msg.dynamic_template_data = dynamic_template_data ;
               msg.template_id = "d-dbd4fd2a6cbf42c6837e8198ca9564b0";
               OYPAPISendMail(headers, msg) ;
