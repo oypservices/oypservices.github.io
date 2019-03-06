@@ -50,7 +50,7 @@ try {
                                             {"accomplishments" : resultActivities.records } } ;
               console.dir(dynamic_template_data) ;
               var msg = {} ;
-              msg.to = [\ 'brian@oypservices.com' ];
+              msg.to = ['brian@oypservices.com' ];
               msg.subject = ' Project Status Report (test)';
         //      msg.html = "Status has changed to " + clientStatus ;
               msg.from = "info@oypcrm.com" ;
