@@ -54,6 +54,7 @@ try {
         //      msg.html = "Status has changed to " + clientStatus ;
               msg.from = "info@oypcrm.com" ;
               msg.dynamic_template_data = data ;
+              msg.dynamic_template_data.subject = ' Project Status Report (test)';
               msg.template_id = "d-dbd4fd2a6cbf42c6837e8198ca9564b0";
               OYPAPISendMail(headers, msg) ;
 
