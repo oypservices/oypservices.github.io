@@ -152,30 +152,15 @@ function OYPAPIJSONTransform(template, date) {
 	API Send Mail
 ********************************************************************************************************************/
 
-function OYPAPISendMail(headers, msgObj) {
+function OYPAPISendMail(headers, msg) {
 
 	return new Promise ((resolve, reject) => {
 
   			var resource = 'sendmail';
-				var msg = {} ;
+				//var msg = {} ;
 				console.log ('sendmail');
 
 				//format the message
-
-				if (msgObj.to != undefined)
-					 msg.to = msgObj.to ;
-
-				if (msgObj.from != undefined)
-	 					 msg.from = msgObj.from ;
-
-				if (msgObj.subject != undefined)
-						 	msg.subject = msgObj.subject ;
-
-				if (msgObj.html != undefined)
-							msg.html = msgObj.html ;
-
-				if (msgObj.dynamic_template_data != undefined)
-							msg.dynamic_template_data = msgObj.dynamic_template_data ;
 
 			  OYPServicesAPIPost( resource, headers, msg )
 					.then (result => { resolve(result) ;})
