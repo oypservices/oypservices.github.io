@@ -46,15 +46,14 @@ try {
 
   		.then (resultActivities => {
 
-              var dynamic_template_data = { "dynamic_template_data" :
-                                            {"accomplishments" : resultActivities.records } } ;
+              var data = {"accomplishments" : resultActivities.records }  ;
               console.dir(dynamic_template_data) ;
               var msg = {} ;
               msg.to = ['brian@oypservices.com' ];
               msg.subject = ' Project Status Report (test)';
         //      msg.html = "Status has changed to " + clientStatus ;
               msg.from = "info@oypcrm.com" ;
-              msg.dynamic_template_data = dynamic_template_data ;
+              msg.dynamic_template_data = data ;
               msg.template_id = "d-dbd4fd2a6cbf42c6837e8198ca9564b0";
               OYPAPISendMail(headers, msg) ;
 
