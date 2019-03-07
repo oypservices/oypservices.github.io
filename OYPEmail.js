@@ -47,15 +47,9 @@ try {
     msg.from = "info@oypcrm.com" ;
     msg.template_id = "d-dbd4fd2a6cbf42c6837e8198ca9564b0";
 
-    getEmailAddress(msg.to)
-      .then ( msg => { return msg ;}  )
-		  .then ( msg => {
-            resultActivities = OYPKnackAPICall (headers,  apidata);
-            msg.dynamic_template_data  = {"accomplishments" : resultActivities.records } ;
-            msg.dynamic_template_data.subject = ' Project Status Report (test)';
-            return msg;
-       })
 
+    setEmailAddress(msg, "to")
+		  .then ( msg => { setDynamicTemplateData(msg, "accomplishments") ; })
       .then ( msg => {
                 console.log (msg) ;
                 OYPAPISendMail(headers, msg) ;
@@ -68,21 +62,42 @@ catch (e)  {
 }
 
 /****************************************************************************************************************
-Get a database row by its id
+Set a database row by its id
 ********************************************************************************************************************/
 
-function getEmailAddress(msgComponent)
+function setEmailAddress(msg, component)
 {
 		return new Promise ((resolve, reject) => {
 
-        var proc = "getDBOjectById" ;
+        var proc = "setEmailAddress" ;
         console.log (proc);
-        var addr = ["brian@oypservices.com", "bkanthony185@gmail.com"];
-        msgComponent = addr ;
-
+        msg[component] = ["brian@oypservices.com", "bkanthony185@gmail.com"];
         //getDBOjectById(headers, "object_1", "aaaaaaa" );
-        resolve(msgComponent) ;
+        console.dir (msg) ;
+        resolve(msg) ;
 
    })
+
+}
+
+
+/****************************************************************************************************************
+Set a dynamic_template_data
+********************************************************************************************************************/
+
+function setDynamicTemplateData(msg, component)
+{
+		return new Promise ((resolve, reject) => {
+
+      var proc = "setDynamicTemplateData" ;
+      console.log (proc);
+
+      OYPKnackAPICall (headers,  apidata)
+      . then ( resultActivities => {
+            msg.dynamic_template_data  = {component : resultActivities.records } ;
+            msg.dynamic_template_data.subject = ' Project Status Report (test)';
+            resolve (msg) ;
+      })
+    })
 
 }
