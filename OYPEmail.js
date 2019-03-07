@@ -77,7 +77,7 @@ function setEmailAddress(msg, component, field)
         console.log (proc);
         var addr = [];
 
-        for (var n = 0; n < field.lenth ; n++)
+        for (var n = 0; n < field.length ; n++)
         {
           getDBOjectById(headers, "object_1", field[n].id )
             .then ( result => {
