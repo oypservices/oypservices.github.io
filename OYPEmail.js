@@ -55,18 +55,20 @@ try {
               msg.dynamic_template_data = data ;
               msg.dynamic_template_data.subject = ' Project Status Report (test)';
               msg.template_id = "d-dbd4fd2a6cbf42c6837e8198ca9564b0";
-              return msg ;
+              resultActivities.msg =  msg ;
+              response (resultActivities) ;
             })
 
-      .then ( msg => {
+      .then ( result => {
+                console.log(result);
                 getDBOjectById(headers, "object_1", "aaaaaaa" )
-                msg.to = ['brian@oypservices.com' ];
-                return msg ;
+                result.msg.to = ['brian@oypservices.com' ];
+                response (result) ;
         })
 
-      .then ( msg => {
-                console.log (msg) ;
-                OYPAPISendMail(headers, msg) ;
+      .then ( result => {
+                console.log (result) ;
+                OYPAPISendMail(headers, result.msg) ;
          })
 
 }
