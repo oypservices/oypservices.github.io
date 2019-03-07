@@ -33,6 +33,7 @@ try {
     msg.to = {};
     msg.from = "info@oypcrm.com" ;
     msg.template_id = "d-dbd4fd2a6cbf42c6837e8198ca9564b0";
+    msg.dynamic_template_data = {};
 
 
     var pTo = 	setEmailAddress(msg, "to") ;
@@ -119,6 +120,7 @@ function setDynamicTemplateData(msg, component)
 
       OYPKnackAPICall (headers,  apidata)
       . then ( resultActivities => {
+
             msg.dynamic_template_data[component] = resultActivities.records ;
             msg.dynamic_template_data.subject = 'Project Status Report (test)';
             resolve(msg);
