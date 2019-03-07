@@ -77,7 +77,7 @@ function getEmailAddress(msgComponent)
 
         var proc = "getDBOjectById" ;
         console.log (proc);
-        var addr = ["brian@oypservices.com"];
+        var addr = ["brian@oypservices.com", "bkanthony185@gmail.com"];
         msgComponent = addr ;
 
         //getDBOjectById(headers, "object_1", "aaaaaaa" );
