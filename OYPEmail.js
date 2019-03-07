@@ -35,15 +35,14 @@ try {
     msg.template_id = "d-dbd4fd2a6cbf42c6837e8198ca9564b0";
     msg.dynamic_template_data = {};
 
-
-    var pTo = 	setEmailAddress(msg, "to") ;
+    var pTo = 	setEmailAddress(msg, "to"); // record[getFieldKey(dbEmails, "To")]) ;
     plist.push (pTo);
+
+  //  var pFrom = 	setEmailAddress(msg, "from", record[getFieldKey(dbEmails, "From")]) ;
+  //  plist.push (pFrom);
 
     var pData = setDynamicTemplateData(msg, "accomplishments");
     plist.push (pData);
-
-
-
 
      Promise.all(plist)
          .then(result => {
@@ -56,10 +55,6 @@ try {
              console.error('Promise.all error', err);
            //	resolve ('copyGoalRecords successful');
          });
-
-
-
-
 
 }
 catch (e)  {
@@ -77,7 +72,16 @@ function setEmailAddress(msg, component)
 
         var proc = "setEmailAddress" ;
         console.log (proc);
-        msg[component] = ["brian@oypservices.com", "bkanthony185@gmail.com"];
+        var addr = [];
+
+            addr.push ( { "email": "brian@oypservices.com",
+                          "name" : "Brian Anthony"}) ;
+
+            addr.push ( { "email": "bkanthony185@gmail.com",
+                          "name" : "Brian K Anthony"}) ;
+
+
+        msg[component] = addr;
         //getDBOjectById(headers, "object_1", "aaaaaaa" );
         console.dir (msg) ;
         resolve(msg) ;
