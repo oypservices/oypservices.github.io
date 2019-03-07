@@ -214,6 +214,7 @@ $(document).on('knack-record-update.any' , function (event, view, record) {
       break ;
 
    case dbObjects.ClientIRPs :
+      updateIRPName (event, view, record) ;
       getAlertRules (event, view, record) ;
       break ;
 
@@ -242,6 +243,7 @@ $(document).on('knack-record-create.any' , function (event, view, record) {
       break ;
 
       case dbObjects.ClientIRPs :
+         updateIRPName (event, view, record) ;
          getAlertRules (event, view, record) ;
          break;
 

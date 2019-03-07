@@ -1,3 +1,40 @@
+
+/****************************************************************************************************
+	Force an IRP update for calculation purposes
+****************************************************************************************************/
+function updateIRPName (event, view, record) {
+
+	return new Promise ((resolve, reject) => {
+
+	   var proc = "updateIRPName" ;
+		 console.log ( proc) ;
+
+		 var IRPId = record.id ;
+		 var IRPName = record.field_413 ;
+		 var IRP = {"field_199":IRPName} ;
+
+//		 IRP[dbIRPs.IRPCreateDate] = getToday();
+//		 IRP[dbIRPs.IRPStatus] = "Update" ;
+
+
+		 var apidata = {
+						"method": "put",
+						"knackobj": dbObjects.ClientIRPs,
+						"appid": app_id,
+						"id" : IRPId
+						"record" : IRP
+					};
+
+			OYPKnackAPICall (headers,  apidata)
+			    .then ( result => {
+							console.dir (result);
+							resolve (result) ;
+					}	)
+
+	})
+}
+
+
 /***********************************************************************************************************
 copying an IRP is a multistep process
 1. Copy the IRP records
@@ -35,6 +72,9 @@ catch (e)  {
 				logerror(proc, e);
 		 }
 }
+
+
+
 
 /****************************************************************************************************
 	Create a new IRP record based on the existing
