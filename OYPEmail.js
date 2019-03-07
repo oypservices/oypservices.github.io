@@ -41,8 +41,8 @@ try {
     var pTo = 	setEmailAddress(msg, "to", record[getFieldKey(dbEmails, "To") + "_raw"]) ;
     plist.push (pTo);
 
-    var pFrom = 	setEmailAddress(msg, "from", record[getFieldKey(dbEmails, "From")+ "_raw"]) ;
-    plist.push (pFrom);
+    var pCc = 	setEmailAddress(msg, "cc", record[getFieldKey(dbEmails, "CC")+ "_raw"]) ;
+    plist.push (pCc);
 
     var pData = setDynamicTemplateData(msg, "accomplishments");
     plist.push (pData);
