@@ -79,7 +79,7 @@ function setEmailAddress(msg, component, field)
           getDBOjectById(headers, "object_1", fields[n].id )
             .then ( result => {
               addr.push ( { "email": result["field_126"],
-                            "name" : result[]"field_194"]}) ;
+                            "name" : result["field_194"]}) ;
               resolve (result) ;
             })
         }
