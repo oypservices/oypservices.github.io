@@ -38,7 +38,7 @@ try {
     msg.template_id = "d-dbd4fd2a6cbf42c6837e8198ca9564b0";
     msg.dynamic_template_data = {};
 
-    var pTo = 	setEmailAddress(msg, "to", record[getFieldKey(dbEmails, "To")]) ;
+    var pTo = 	setEmailAddress(msg, "to", record[getFieldKey(dbEmails, "To")+ "_raw"]) ;
     plist.push (pTo);
 
   //  var pFrom = 	setEmailAddress(msg, "from", record[getFieldKey(dbEmails, "From")]) ;
