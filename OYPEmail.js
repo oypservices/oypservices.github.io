@@ -10,6 +10,9 @@ try {
 
     var viewName = view["key"] ;
     var objEmail = Knack.models[viewName].toJSON();
+
+    console.log (record) ;
+
 //    var productGroupFieldKey = getFieldKey(dbOrders, "Product Group") + "_raw" ;
 //    var dfltProductFieldKey = getFieldKey(dbOrders, "Add Default Products") ;
 //    var hrefAddOrderLinePage = $(".kn-back-link a").attr("href") ;
@@ -74,9 +77,9 @@ function setEmailAddress(msg, component, field)
         console.log (proc);
         var addr = [];
 
-        for (var n = 0; n < fields.lenth ; n++)
+        for (var n = 0; n < field.lenth ; n++)
         {
-          getDBOjectById(headers, "object_1", fields[n].id )
+          getDBOjectById(headers, "object_1", field[n].id )
             .then ( result => {
               addr.push ( { "email": result["field_126"],
                             "name" : result["field_194"]}) ;
