@@ -54,7 +54,7 @@ try {
             msg.dynamic_template_data  = {"accomplishments" : resultActivities.records } ;
             msg.dynamic_template_data.subject = ' Project Status Report (test)';
             return msg;
-       }
+       })
 
       .then ( msg => {
                 console.log (msg) ;
