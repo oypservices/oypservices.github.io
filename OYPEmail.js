@@ -48,7 +48,7 @@ try {
          .then(result => {
              console.log('Promise.all', result);
              console.log(result) ;
-             OYPAPISendMail(headers, result[0])  ;
+             OYPAPISendMail(headers, result[1])  ;
              return 'copyGoalRecords successful';
          })
          .catch(err => {
@@ -119,9 +119,9 @@ function setDynamicTemplateData(msg, component)
 
       OYPKnackAPICall (headers,  apidata)
       . then ( resultActivities => {
-            msg.dynamic_template_data  = {component : resultActivities.records } ;
-            msg.dynamic_template_data.subject = ' Project Status Report (test)';
-            resolve(msg );
+            msg.dynamic_template_data[component] = resultActivities.records ;
+            msg.dynamic_template_data.subject = 'Project Status Report (test)';
+            resolve(msg);
       })
 
     resolve(msg) ;
