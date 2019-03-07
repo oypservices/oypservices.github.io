@@ -101,7 +101,7 @@ function setDynamicTemplateData(msg, component)
       . then ( resultActivities => {
             msg.dynamic_template_data  = {component : resultActivities.records } ;
             msg.dynamic_template_data.subject = ' Project Status Report (test)';
-            resolve (msg) ;
+            return msg ;
       })
   //  })
 
