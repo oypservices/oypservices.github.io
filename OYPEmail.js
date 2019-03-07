@@ -72,7 +72,7 @@ Set a dynamic_template_data
 
 function setDynamicTemplateData(msg, component)
 {
-	//	return new Promise ((resolve, reject) => {
+		return new Promise ((resolve, reject) => {
 
 
       var proc = "setDynamicTemplateData" ;
@@ -101,8 +101,9 @@ function setDynamicTemplateData(msg, component)
       . then ( resultActivities => {
             msg.dynamic_template_data  = {component : resultActivities.records } ;
             msg.dynamic_template_data.subject = ' Project Status Report (test)';
-            return msg ;
+            resolve(msg );
       })
-  //  })
+
+    resolve(msg) ;
 
 }
