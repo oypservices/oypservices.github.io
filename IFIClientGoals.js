@@ -92,7 +92,7 @@ function copyIRPRecord (IRP) {
 
 		 IRP[dbIRPs.IRPCreateDate] = getToday();
 		 IRP[dbIRPs.IRPStatus] = "Update" ;
-		 var client = IRP["field_200"][0].identifier;
+		 var client = IRP["field_448"];
 		 var IRPName = client + ' IRP As of ' + IRP[dbIRPs.IRPCreateDate] ;
 		 IRP["field_199"] = IRPName ;
 
