@@ -85,13 +85,14 @@ function copyIRPRecord (IRP) {
 
 	   var proc = "copyIRPRecord" ;
 		 console.log ( proc) ;
+		 console.log (IRP) ;
 
 		 delete (IRP.id) ;
 		 delete (IRP[dbIRPs.IRPCreateDate] ) ;
 
 		 IRP[dbIRPs.IRPCreateDate] = getToday();
 		 IRP[dbIRPs.IRPStatus] = "Update" ;
-		 var client = IRP[dbIRPs.Client + "_raw"][0].identifier;
+		 var client = IRP["field_200_raw"][0].identifier;
 		 var IRPName = client + ' IRP As of ' + IRP[dbIRPs.IRPCreateDate] ;
 		 IRP[dbIRPs.field_199] = IRPName ;
 
