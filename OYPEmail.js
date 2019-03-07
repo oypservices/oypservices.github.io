@@ -106,4 +106,6 @@ function setDynamicTemplateData(msg, component)
 
     resolve(msg) ;
 
+  })
+
 }
