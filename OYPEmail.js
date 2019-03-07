@@ -48,14 +48,14 @@ try {
     msg.template_id = "d-dbd4fd2a6cbf42c6837e8198ca9564b0";
 
     getEmailAddress(msg.to)
-      .then ( msg => { return msg} ; )
+      .then ( msg => { return msg ;}  )
 		  .then ( msg => {
             resultActivities = OYPKnackAPICall (headers,  apidata);
             msg.dynamic_template_data  = {"accomplishments" : resultActivities.records } ;
             msg.dynamic_template_data.subject = ' Project Status Report (test)';
             return msg;
        }
-       
+
       .then ( msg => {
                 console.log (msg) ;
                 OYPAPISendMail(headers, msg) ;
