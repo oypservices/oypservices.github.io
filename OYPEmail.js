@@ -27,18 +27,38 @@ try {
   //      window.location.href =  hrefAddOrderLinePage ;
 
 
+    var plist = [] ;
     var msg = {} ;
+
     msg.to = {};
     msg.from = "info@oypcrm.com" ;
     msg.template_id = "d-dbd4fd2a6cbf42c6837e8198ca9564b0";
 
 
-    setEmailAddress(msg, "to")
-		  .then ( msg => { setDynamicTemplateData(msg, "accomplishments"); })
-      .then ( msg => {
-                console.log (msg) ;
-                OYPAPISendMail(headers, msg) ;
+    var pTo = 	setEmailAddress(msg, "to") ;
+    plist.push (pTo);
+
+    var pData = setDynamicTemplateData(msg, "accomplishments");
+    plist.push (pData);
+
+
+
+
+     Promise.all(plist)
+         .then(result => {
+             console.log('Promise.all', result);
+             console.log(result) ;
+             //OYPAPISendMail(headers, msg)  ;
+             resolve ('copyGoalRecords successful');
          })
+         .catch(err => {
+             console.error('Promise.all error', err);
+           //	resolve ('copyGoalRecords successful');
+         });
+
+
+
+
 
 }
 catch (e)  {
