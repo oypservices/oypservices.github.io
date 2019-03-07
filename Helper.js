@@ -219,6 +219,7 @@ function getDBOjectById(headers, objectKey, dataId )
 
         var apidata = {
               "method": "get",
+							"format" : "raw" ,
               "knackobj": objectKey,
               "appid": app_id,
 							"id":dataId ,
