@@ -27,25 +27,11 @@ try {
   //      window.location.href =  hrefAddOrderLinePage ;
 
 
-		var apidata = {
-						"method": "get",
-						"format" : "raw" ,
-						"knackobj": getObjectKey("Activities"),
-						"appid": app_id,
-						"filters" : { "match": "and",
-								 "rules" : [ {
-													 "field":   getFieldKey(dbActivities, "Complete Date") ,
-													 "operator":"is during the previous",
-													 "value": "week"
-												 } ]
-									 }
-					};
-
-    console.dir(apidata) ;
     var msg = {} ;
     msg.to = {};
     msg.from = "info@oypcrm.com" ;
     msg.template_id = "d-dbd4fd2a6cbf42c6837e8198ca9564b0";
+
 
     setEmailAddress(msg, "to")
 		  .then ( msg => { setDynamicTemplateData(msg, "accomplishments") ; })
@@ -88,8 +74,27 @@ function setDynamicTemplateData(msg, component)
 {
 		return new Promise ((resolve, reject) => {
 
+
       var proc = "setDynamicTemplateData" ;
       console.log (proc);
+
+      var apidata = {
+  						"method": "get",
+  						"format" : "raw" ,
+  						"knackobj": getObjectKey("Activities"),
+  						"appid": app_id,
+  						"filters" : { "match": "and",
+  								 "rules" : [ {
+  													 "field":   getFieldKey(dbActivities, "Complete Date") ,
+  													 "operator":"is during the previous",
+  													 "value": "week"
+  												 } ]
+  									 }
+  					};
+  
+      console.dir(apidata) ;
+
+
 
       OYPKnackAPICall (headers,  apidata)
       . then ( resultActivities => {
