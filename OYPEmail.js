@@ -42,38 +42,47 @@ try {
 					};
 
     console.dir(apidata) ;
-		OYPKnackAPICall (headers,  apidata)
-  		.then (resultActivities => {
+    var msg = {} ;
+    msg.to = {};
+    msg.from = "info@oypcrm.com" ;
+    msg.template_id = "d-dbd4fd2a6cbf42c6837e8198ca9564b0";
 
-              var data = {"accomplishments" : resultActivities.records }  ;
-              console.dir(data) ;
-              var msg = {} ;
-          //    msg.to = ['brian@oypservices.com' ];
-              msg.subject = ' Project Status Report (test)';
-        //      msg.html = "Status has changed to " + clientStatus ;
-              msg.from = "info@oypcrm.com" ;
-              msg.dynamic_template_data = data ;
-              msg.dynamic_template_data.subject = ' Project Status Report (test)';
-              msg.template_id = "d-dbd4fd2a6cbf42c6837e8198ca9564b0";
-              resultActivities.msg =  msg ;
-              response (resultActivities) ;
-            })
-
-      .then ( result => {
-                console.log(result);
-                getDBOjectById(headers, "object_1", "aaaaaaa" )
-                result.msg.to = ['brian@oypservices.com' ];
-                result.msg.dynamic_template_data.subject = ' Project Status Report (adjusted test)';
-                response (result) ;
-        })
-
-      .then ( result => {
-                console.log (result) ;
-                OYPAPISendMail(headers, result.msg) ;
+    getEmailAddress(msg.to)
+      .then ( msg => { return msg} ; )
+		  .then ( msg => {
+            resultActivities = OYPKnackAPICall (headers,  apidata);
+            msg.dynamic_template_data  = {"accomplishments" : resultActivities.records } ;
+            msg.dynamic_template_data.subject = ' Project Status Report (test)';
+            return msg;
+       }
+       
+      .then ( msg => {
+                console.log (msg) ;
+                OYPAPISendMail(headers, msg) ;
          })
 
 }
 catch (e)  {
 				logerror( e);
 		 }
+}
+
+/****************************************************************************************************************
+Get a database row by its id
+********************************************************************************************************************/
+
+function getEmailAddress(msgComponent)
+{
+		return new Promise ((resolve, reject) => {
+
+        var proc = "getDBOjectById" ;
+        console.log (proc);
+        var  addr = {['brian@oypservices.com']}
+        msgComponent = addr ;
+
+        //getDBOjectById(headers, "object_1", "aaaaaaa" );
+        resolve(msgComponent) ;
+
+   })
+
 }
