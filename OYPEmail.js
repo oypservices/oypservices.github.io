@@ -38,14 +38,20 @@ try {
     msg.template_id = "d-dbd4fd2a6cbf42c6837e8198ca9564b0";
     msg.dynamic_template_data = {};
 
-    var pTo = 	setEmailAddress(msg, "to", record[getFieldKey(dbEmails, "To")+ "_raw"]) ;
+    var pTo = 	setEmailAddress(msg, "to", record[getFieldKey(dbEmails, "To") + "_raw"]) ;
     plist.push (pTo);
 
-  //  var pFrom = 	setEmailAddress(msg, "from", record[getFieldKey(dbEmails, "From")]) ;
-  //  plist.push (pFrom);
+    var pFrom = 	setEmailAddress(msg, "from", record[getFieldKey(dbEmails, "From")+ "_raw"]) ;
+    plist.push (pFrom);
 
     var pData = setDynamicTemplateData(msg, "accomplishments");
     plist.push (pData);
+
+    var pDatat = setDynamicTemplateData(msg, "tasks");
+    plist.push (pDatat);
+
+    var pDatar = setDynamicTemplateData(msg, "risks");
+    plist.push (pDatar);
 
      Promise.all(plist)
          .then(result => {
