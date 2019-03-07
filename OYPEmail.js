@@ -48,8 +48,8 @@ try {
          .then(result => {
              console.log('Promise.all', result);
              console.log(result) ;
-             //OYPAPISendMail(headers, msg)  ;
-             resolve ('copyGoalRecords successful');
+             OYPAPISendMail(headers, result[0])  ;
+             return 'copyGoalRecords successful';
          })
          .catch(err => {
              console.error('Promise.all error', err);
