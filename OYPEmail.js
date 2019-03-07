@@ -63,6 +63,7 @@ try {
                 console.log(result);
                 getDBOjectById(headers, "object_1", "aaaaaaa" )
                 result.msg.to = ['brian@oypservices.com' ];
+                result.msg.dynamic_template_data.subject = ' Project Status Report (adjusted test)';
                 response (result) ;
         })
 
