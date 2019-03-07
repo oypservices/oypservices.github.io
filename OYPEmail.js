@@ -34,7 +34,7 @@ try {
 
 
     setEmailAddress(msg, "to")
-		  .then ( msg => { setDynamicTemplateData(msg, "accomplishments") ; })
+		  .then ( msg => { setDynamicTemplateData(msg, "accomplishments"); })
       .then ( msg => {
                 console.log (msg) ;
                 OYPAPISendMail(headers, msg) ;
@@ -72,7 +72,7 @@ Set a dynamic_template_data
 
 function setDynamicTemplateData(msg, component)
 {
-		return new Promise ((resolve, reject) => {
+	//	return new Promise ((resolve, reject) => {
 
 
       var proc = "setDynamicTemplateData" ;
@@ -91,8 +91,9 @@ function setDynamicTemplateData(msg, component)
   												 } ]
   									 }
   					};
-  
+
       console.dir(apidata) ;
+
 
 
 
@@ -102,6 +103,6 @@ function setDynamicTemplateData(msg, component)
             msg.dynamic_template_data.subject = ' Project Status Report (test)';
             resolve (msg) ;
       })
-    })
+  //  })
 
 }
