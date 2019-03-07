@@ -21,7 +21,7 @@ function updateIRPName (event, view, record) {
 						"method": "put",
 						"knackobj": dbObjects.ClientIRPs,
 						"appid": app_id,
-						"id" : IRPId
+						"id" : IRPId ,
 						"record" : IRP
 					};
 
