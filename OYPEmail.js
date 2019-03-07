@@ -35,7 +35,7 @@ try {
     msg.template_id = "d-dbd4fd2a6cbf42c6837e8198ca9564b0";
     msg.dynamic_template_data = {};
 
-    var pTo = 	setEmailAddress(msg, "to"); // record[getFieldKey(dbEmails, "To")]) ;
+    var pTo = 	setEmailAddress(msg, "to", record[getFieldKey(dbEmails, "To")]) ;
     plist.push (pTo);
 
   //  var pFrom = 	setEmailAddress(msg, "from", record[getFieldKey(dbEmails, "From")]) ;
@@ -66,7 +66,7 @@ catch (e)  {
 Set a database row by its id
 ********************************************************************************************************************/
 
-function setEmailAddress(msg, component)
+function setEmailAddress(msg, component, field)
 {
 		return new Promise ((resolve, reject) => {
 
@@ -74,11 +74,17 @@ function setEmailAddress(msg, component)
         console.log (proc);
         var addr = [];
 
-            addr.push ( { "email": "brian@oypservices.com",
-                          "name" : "Brian Anthony"}) ;
+        for (var n = 0; n < fields.lenth ; n++)
+        {
+          getDBOjectById(headers, "object_1", fields[n].id )
+            .then ( result => {
+              addr.push ( { "email": result["field_126"],
+                            "name" : result[]"field_194"]}) ;
+              resolve (result) ;
+            })
+        }
 
-            addr.push ( { "email": "bkanthony185@gmail.com",
-                          "name" : "Brian K Anthony"}) ;
+
 
 
         msg[component] = addr;
