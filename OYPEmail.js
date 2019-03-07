@@ -47,7 +47,6 @@ try {
     msg.from = "info@oypcrm.com" ;
     msg.template_id = "d-dbd4fd2a6cbf42c6837e8198ca9564b0";
 
-
     setEmailAddress(msg, "to")
 		  .then ( msg => { setDynamicTemplateData(msg, "accomplishments") ; })
       .then ( msg => {
