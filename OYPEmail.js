@@ -63,13 +63,11 @@ try {
                 msg.to = ['brian@oypservices.com' ];
                 return msg ;
         })
-           
+
       .then ( msg => {
                 console.log (msg) ;
                 OYPAPISendMail(headers, msg) ;
          })
-
-   })
 
 }
 catch (e)  {

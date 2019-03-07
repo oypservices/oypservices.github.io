@@ -204,6 +204,35 @@ function convertDateTime (dateString, timeString) {
 
 	return newdate ;
 
+}
+
+/****************************************************************************************************************
+Get a database row by its id
+********************************************************************************************************************/
+
+function getDBOjectById(headers, objectKey, dataId )
+{
+		return new Promise ((resolve, reject) => {
+
+        var proc = "getDBOjectById" ;
+        console.log (proc);
+
+        var apidata = {
+              "method": "get",
+              "knackobj": objectKey,
+              "appid": app_id,
+							"id":dataId ,
+//             "filters": [ {
+//                        "field":dbContactNotes.RelatedContactNote ,
+//                        "operator":"is",
+//                        "value": nextContactVisit[dbContactNotes.RelatedContactNote]
+//                      } ]
+              };
 
 
+        OYPKnackAPICall (headers,  apidata)
+						.then (result => { resolve(result) ;})
+						.catch (err => {reject (err); })
+
+		}) ;
 }
