@@ -12,11 +12,6 @@ try {
     var objEmail = Knack.models[viewName].toJSON();
 
     console.log (record) ;
-
-//    var productGroupFieldKey = getFieldKey(dbOrders, "Product Group") + "_raw" ;
-//    var dfltProductFieldKey = getFieldKey(dbOrders, "Add Default Products") ;
-//    var hrefAddOrderLinePage = $(".kn-back-link a").attr("href") ;
-
     console.dir (objEmail);
     logObject (objEmail) ;
 
@@ -36,6 +31,7 @@ try {
     msg.to = {};
     msg.from = "info@oypcrm.com" ;
     msg.template_id = "d-dbd4fd2a6cbf42c6837e8198ca9564b0";
+    msg.html = record[getFieldKey(dbEmails, "Body") ] ;
     msg.dynamic_template_data = {};
 
     msg.subject = record[getFieldKey(dbEmails, "Subject") ] ;
@@ -80,6 +76,43 @@ catch (e)  {
 Set a database row by its id
 ********************************************************************************************************************/
 
+function getEmailTemplate(templateId)
+{
+		return new Promise ((resolve, reject) => {
+
+        var proc = "getEmailTemplate" ;
+        console.log (proc);
+
+        getDBOjectById(headers, "object_1", templateId )
+          .then ( result => {
+                    console.dir (result);
+                    resolve (result) ; }
+
+        for (var n = 0; n < field.length ; n++)
+        {
+          getDBOjectById(headers, "object_1", templateId )
+            .then ( result => {
+              addr.push ( { "email": result["field_26"].email,
+                            "name" : result["field_194"]}) ;
+              resolve (result) ;
+            })
+        }
+
+        msg[component] = addr;
+
+        console.dir (msg) ;
+        resolve(msg) ;
+
+   })
+
+}
+
+
+
+/****************************************************************************************************************
+Set a database row by its id
+********************************************************************************************************************/
+
 function setEmailAddress(msg, component, field)
 {
 		return new Promise ((resolve, reject) => {
@@ -100,7 +133,6 @@ function setEmailAddress(msg, component, field)
 
         msg[component] = addr;
 
-        //getDBOjectById(headers, "object_1", "aaaaaaa" );
         console.dir (msg) ;
         resolve(msg) ;
 
