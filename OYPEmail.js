@@ -168,7 +168,7 @@ function setDynamicTemplateData(record, msg, component)
   													 "value": "week"
   												 },
                            {"field":   getFieldKey(dbActivities, "Project"),
-                            "operator" : "contains"
+                            "operator" : "contains",
                             "value" : record[getFieldKey(dbEmails, "Project") ]
                            }]
   									 }
