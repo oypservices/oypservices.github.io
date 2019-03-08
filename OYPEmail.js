@@ -83,10 +83,10 @@ function getEmailTemplate(templateId)
         var proc = "getEmailTemplate" ;
         console.log (proc);
 
-        getDBOjectById(headers, "object_1", templateId )
-          .then ( result => {
-                    console.dir (result);
-                    resolve (result) ; }
+  //      getDBOjectById(headers, "object_1", templateId )
+  //        .then ( result => {
+  //                  console.dir (result);
+  //                  resolve (result) ; })
 
         for (var n = 0; n < field.length ; n++)
         {
