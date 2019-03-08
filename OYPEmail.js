@@ -34,7 +34,7 @@ try {
 
     if (record[getFieldKey(dbEmails, "Body") ].length > 0)
       msg.html = record[getFieldKey(dbEmails, "Body") ] ;
-      
+
     msg.dynamic_template_data = {};
 
     msg.subject = record[getFieldKey(dbEmails, "Subject") ] ;
@@ -48,13 +48,13 @@ try {
     var pBcc = 	setEmailAddress(msg, "bcc", record[getFieldKey(dbEmails, "BCC")+ "_raw"]) ;
     plist.push (pBcc);
 
-    var pData = setDynamicTemplateData(msg, "accomplishments");
+    var pData = setDynamicTemplateData(record, msg, "accomplishments");
     plist.push (pData);
 
-    var pDatat = setDynamicTemplateData(msg, "tasks");
+    var pDatat = setDynamicTemplateData(record, msg, "tasks");
     plist.push (pDatat);
 
-    var pDatar = setDynamicTemplateData(msg, "risks");
+    var pDatar = setDynamicTemplateData(record, msg, "risks");
     plist.push (pDatar);
 
      Promise.all(plist)
@@ -148,7 +148,7 @@ function setEmailAddress(msg, component, field)
 Set a dynamic_template_data
 ********************************************************************************************************************/
 
-function setDynamicTemplateData(msg, component)
+function setDynamicTemplateData(record, msg, component)
 {
 		return new Promise ((resolve, reject) => {
 
@@ -166,7 +166,11 @@ function setDynamicTemplateData(msg, component)
   													 "field":   getFieldKey(dbActivities, "Complete Date") ,
   													 "operator":"is during the previous",
   													 "value": "week"
-  												 } ]
+  												 },
+                           {"field":   getFieldKey(dbActivities, "Project"),
+                            "operator" : "contains"
+                            "value" : record[getFieldKey(dbEmails, "Subject") ]
+                           }]
   									 }
   					};
 
