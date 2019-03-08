@@ -31,7 +31,10 @@ try {
     msg.to = {};
     msg.from = "info@oypcrm.com" ;
     msg.template_id = "d-dbd4fd2a6cbf42c6837e8198ca9564b0";
-    msg.html = record[getFieldKey(dbEmails, "Body") ] ;
+
+    if (record[getFieldKey(dbEmails, "Body") ].length > 0)
+      msg.html = record[getFieldKey(dbEmails, "Body") ] ;
+      
     msg.dynamic_template_data = {};
 
     msg.subject = record[getFieldKey(dbEmails, "Subject") ] ;
