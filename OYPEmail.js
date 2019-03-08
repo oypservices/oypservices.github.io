@@ -169,7 +169,7 @@ function setDynamicTemplateData(record, msg, component)
   												 },
                            {"field":   getFieldKey(dbActivities, "Project"),
                             "operator" : "contains",
-                            "value" : record[getFieldKey(dbEmails, "Project") ]
+                            "value" : record[getFieldKey(dbEmails, "Project") + "_raw" ][0].id
                            }]
   									 }
   					};
