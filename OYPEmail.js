@@ -37,7 +37,7 @@ try {
     msg.from = "info@oypcrm.com" ;
     msg.template_id = "d-dbd4fd2a6cbf42c6837e8198ca9564b0";
     msg.dynamic_template_data = {};
-    mag.subject = record[getFieldKey(dbEmails, "Subject") ] ;
+    msg.subject = record[getFieldKey(dbEmails, "Subject") ] ;
 
     var pTo = 	setEmailAddress(msg, "to", record[getFieldKey(dbEmails, "To") + "_raw"]) ;
     plist.push (pTo);
@@ -149,7 +149,7 @@ function setDynamicTemplateData(msg, component)
 
             if (msg.dynamic_template_data.subject == undefined)
                 msg.dynamic_template_data.subject = msg.subject;
-                
+
             resolve(msg);
       })
 
