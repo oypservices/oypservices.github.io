@@ -37,6 +37,7 @@ try {
     msg.from = "info@oypcrm.com" ;
     msg.template_id = "d-dbd4fd2a6cbf42c6837e8198ca9564b0";
     msg.dynamic_template_data = {};
+
     msg.subject = record[getFieldKey(dbEmails, "Subject") ] ;
 
     var pTo = 	setEmailAddress(msg, "to", record[getFieldKey(dbEmails, "To") + "_raw"]) ;
@@ -97,10 +98,7 @@ function setEmailAddress(msg, component, field)
             })
         }
 
-
-
-        if (addr.length > 0)
-          msg[component] = addr;
+        msg[component] = addr;
 
         //getDBOjectById(headers, "object_1", "aaaaaaa" );
         console.dir (msg) ;
