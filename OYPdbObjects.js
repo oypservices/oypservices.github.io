@@ -261,6 +261,14 @@ var dbTables = {
         {
             "name": "Emails",
             "key": "object_39"
+        },
+        {
+            "name": "Email Templates",
+            "key": "object_40"
+        },
+        {
+          "name": "Email Template Sections",
+          "key": "object_41"
         }
     ]
 }
@@ -446,8 +454,97 @@ var dbEmails = {
             }
         }
     ]
+};
+
+
+var dbEmailTemplates = {
+    "fields": [
+        {
+            "label": "Email Templates Name",
+            "key": "field_359",
+            "required": false,
+            "type": "short_text"
+        },
+        {
+            "label": "Template Category",
+            "key": "field_362",
+            "required": false,
+            "type": "connection",
+            "relationship": {
+                "belongs_to": "many",
+                "has": "one",
+                "object": "object_31"
+            }
+        },
+        {
+            "label": "Sendgrid Template",
+            "key": "field_365",
+            "required": false,
+            "type": "short_text"
+        },
+        {
+            "label": "Site",
+            "key": "field_366",
+            "required": false,
+            "type": "connection",
+            "relationship": {
+                "object": "object_16",
+                "has": "many",
+                "belongs_to": "many"
+            }
+        }
+    ]
 }
 
+
+var dbEmailTemplateSections = {
+    "fields": [
+        {
+            "label": "Email Template",
+            "key": "field_368",
+            "required": false,
+            "type": "connection",
+            "relationship": {
+                "belongs_to": "many",
+                "has": "one",
+                "object": "object_40"
+            }
+        },
+        {
+            "label": "Email Template Sections Name",
+            "key": "field_367",
+            "required": false,
+            "type": "short_text"
+        },
+        {
+            "label": "Email Section",
+            "key": "field_369",
+            "required": false,
+            "type": "multiple_choice",
+            "choices": [
+                "to",
+                "from",
+                "subject",
+                "cc",
+                "bcc",
+                "body",
+                "dynamic_template_data"
+            ]
+        },
+        {
+            "label": "JSON Path",
+            "key": "field_371",
+            "required": false,
+            "type": "short_text"
+        },
+        {
+            "label": "APIData",
+            "key": "field_370",
+            "required": false,
+            "type": "paragraph_text"
+        }
+    ]
+}
 
 /*******************************************************************************************************
 Database Objects
