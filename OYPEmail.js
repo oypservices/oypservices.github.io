@@ -94,6 +94,8 @@ function getEmailTemplate(templateId, msg)
                 console.dir (msg) ;
                 resolve (msg) ;
               }
+              else resolve (msg) ;
+
             })
    })
 
@@ -137,12 +139,9 @@ function getEmailTemplateSections(templateId, msg)
                    var apiMailPathSub = record[getFieldKey(dbEmailTemplateSections, "JSON Path")];
                    var apiApplicationData = record[getFieldKey(dbEmailTemplateSections, "APIData")];
 
-
-
-                   var apiData = JSON.parse (apiApplicationData);
+                  var apiData = JSON.parse (apiApplicationData);
                    var apiDataStr = JSON.stringify(apiData, replacer);
                    apiData = JSON.parse (apiDataStr);
-
 
 
                    if (apiMailPath == "dynamic_template_data") {
@@ -161,6 +160,7 @@ function getEmailTemplateSections(templateId, msg)
             })
             .catch(err => {
                 console.error('Promise.all error', err);
+                reject (msg) ;
 
             });
 
@@ -181,6 +181,7 @@ function setEmailAddress(msg, component, field)
         var proc = "setEmailAddress" ;
         console.log (proc);
         var addr = [];
+        if field.length = 0 then resolve (msg) ;
 
         for (var n = 0; n < field.length ; n++)
         {
