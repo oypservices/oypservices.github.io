@@ -193,6 +193,8 @@ function setEmailAddress(msg, component, field)
             })
         }
 
+        msg[component] = addr;
+        resolve (msg) ;
    })
 
 }
