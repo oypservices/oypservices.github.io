@@ -48,6 +48,7 @@ try {
     var templateId = record[getFieldKey(dbEmails, "Email Template") + "_raw"] ;
     if (templateId.length > 0) {
       templateId = templateId[0].id
+      
       var pTemplate =  getEmailTemplate(templateId, msg) ;
       plist.push (pTemplate);
 
