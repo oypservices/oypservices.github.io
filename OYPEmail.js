@@ -215,7 +215,7 @@ function setDynamicTemplateData(record, msg, component, apiApplicationData)
       apidata["appid"] = app_id;
 
       console.dir(apidata) ;
-      if (msg.dynamic_template_data == undefined }
+      if (msg.dynamic_template_data == undefined )
         msg["dynamic_template_data"] = {};
 
       OYPKnackAPICall (headers,  apidata)
