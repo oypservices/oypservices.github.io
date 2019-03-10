@@ -131,7 +131,7 @@ function getEmailTemplateSections(templateId, msg)
          OYPKnackAPICall (headers,  apidata)
           .then (result => {
 
-                msg.dynamic_template_data = {};
+
                 for (var n = 0; n < result.records.length ; n++) {
                    var record = result.records[n];
                    var sectionName = record[getFieldKey(dbEmailTemplateSections, "Email Template Sections Name")];
@@ -215,6 +215,8 @@ function setDynamicTemplateData(record, msg, component, apiApplicationData)
       apidata["appid"] = app_id;
 
       console.dir(apidata) ;
+      if (msg.dynamic_template_data == undefined }
+        msg["dynamic_template_data"] = {};
 
       OYPKnackAPICall (headers,  apidata)
       . then ( resultActivities => {
