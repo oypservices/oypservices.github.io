@@ -206,6 +206,8 @@ function setDynamicTemplateData(record, msg, component, apiApplicationData)
       console.log (proc);
 
       var apidata = apiApplicationData;
+      apidata.appid = app_id;
+      
       console.dir(apidata) ;
 
       OYPKnackAPICall (headers,  apidata)
