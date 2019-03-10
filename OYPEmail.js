@@ -137,7 +137,7 @@ function getEmailTemplateSections(templateId, msg)
                    var apiMailPathSub = record[getFieldKey(dbEmailTemplateSections, "JSON Path")];
                    var apiApplicationData = record[getFieldKey(dbEmailTemplateSections, "APIData")];
 
-                   if (sectionName == "dynamic_template_data") {
+                   if (apiMailPath == "dynamic_template_data") {
 
                       var pData = setDynamicTemplateData(record, msg, apiMailPathSub, apiApplicationData );
                       plist.push (pData);
@@ -207,7 +207,7 @@ function setDynamicTemplateData(record, msg, component, apiApplicationData)
 
       var apidata = apiApplicationData;
       apidata.appid = app_id;
-      
+
       console.dir(apidata) ;
 
       OYPKnackAPICall (headers,  apidata)
