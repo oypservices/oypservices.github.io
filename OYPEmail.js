@@ -136,11 +136,14 @@ function getEmailTemplateSections(templateId, msg)
                    var apiMailPath = record[getFieldKey(dbEmailTemplateSections, "Email Section")];
                    var apiMailPathSub = record[getFieldKey(dbEmailTemplateSections, "JSON Path")];
                    var apiApplicationData = record[getFieldKey(dbEmailTemplateSections, "APIData")];
-                   var apiApplicationData = JSON.parse (apiApplicationData);
+
+
+                   var apiDataStr = JSON.stringify(apiApplicationData, replacer);
+                   var apiData = JSON.parse (apiDataStr);
 
                    if (apiMailPath == "dynamic_template_data") {
 
-                      var pData = setDynamicTemplateData(record, msg, apiMailPathSub, apiApplicationData );
+                      var pData = setDynamicTemplateData(record, msg, apiMailPathSub, apiData );
                       plist.push (pData);
                    }
                 }
@@ -225,4 +228,13 @@ function setDynamicTemplateData(record, msg, component, apiApplicationData)
 
   })
 
+}
+
+
+function replacer(key, value) {
+  console.log(typeof value);
+  if (key === 'email') {
+    return undefined;
+  }
+  return value;
 }
