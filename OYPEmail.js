@@ -48,8 +48,11 @@ try {
     var templateId = record[getFieldKey(dbEmails, "Email Template") + "_raw"] ;
     if (templateId.length > 0) {
       templateId = templateId[0].id
-      getEmailTemplate(templateId, msg) ;
-      getEmailTemplateSections(templateId, msg) ;
+      var pTemplate =  getEmailTemplate(templateId, msg) ;
+      plist.push (pTemplate);
+
+      var pTemplateSects =  getEmailTemplateSections(templateId, msg) ;
+      plist.push (pTemplateSects);
     }
 
      Promise.all(plist)
@@ -85,9 +88,11 @@ function getEmailTemplate(templateId, msg)
         getDBOjectById(headers, getObjectKey("Email Templates"), templateId )
             .then ( result => {
 
-              msg.template_id = result.record[getFieldKey(dbEmailTemplates, "Sendgrid Template")];
-              console.dir (msg) ;
-              resolve (msg) ;
+              if (result != undefined) {
+                msg.template_id = result[getFieldKey(dbEmailTemplates, "Sendgrid Template")];
+                console.dir (msg) ;
+                resolve (msg) ;
+              }
             })
    })
 
@@ -113,7 +118,7 @@ function getEmailTemplateSections(templateId, msg)
                 "appid": app_id,
                 "filters" : { "match": "and",
                      "rules" : [ {
-                               "field":   getFieldKey(dbEmailTemplateSection, "Email Template"),
+                               "field":   getFieldKey(dbEmailTemplateSections, "Email Template"),
                               "operator" : "contains",
                               "value" : templateId
                              }]
