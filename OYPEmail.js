@@ -136,6 +136,7 @@ function getEmailTemplateSections(templateId, msg)
                    var apiMailPath = record[getFieldKey(dbEmailTemplateSections, "Email Section")];
                    var apiMailPathSub = record[getFieldKey(dbEmailTemplateSections, "JSON Path")];
                    var apiApplicationData = record[getFieldKey(dbEmailTemplateSections, "APIData")];
+                   var apiApplicationData = JSON.parse (apiApplicationData);
 
                    if (apiMailPath == "dynamic_template_data") {
 
@@ -206,7 +207,7 @@ function setDynamicTemplateData(record, msg, component, apiApplicationData)
       console.log (proc);
 
       var apidata = apiApplicationData;
-      apidata.appid = app_id;
+      apidata["appid = app_id;
 
       console.dir(apidata) ;
 
