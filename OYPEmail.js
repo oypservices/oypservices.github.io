@@ -45,8 +45,9 @@ try {
     if (record[getFieldKey(dbEmails, "Body") ].length > 0)
       msg.html = record[getFieldKey(dbEmails, "Body") ] ;
 
-    var templateId = record[getFieldKey(dbEmails, "Email Template") ] ;
+    var templateId = record[getFieldKey(dbEmails, "Email Template") + "_raw"] ;
     if (templateId.length > 0) {
+      templateId = templateId[0].id
       getEmailTemplate(templateId, msg) ;
       getEmailTemplateSections(templateId, msg) ;
     }
