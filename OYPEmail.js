@@ -48,7 +48,7 @@ try {
     var templateId = record[getFieldKey(dbEmails, "Email Template") + "_raw"] ;
     if (templateId.length > 0) {
       templateId = templateId[0].id
-      
+
       var pTemplate =  getEmailTemplate(templateId, msg) ;
       plist.push (pTemplate);
 
@@ -132,10 +132,10 @@ function getEmailTemplateSections(templateId, msg)
                 msg.dynamic_template_data = {};
                 for (var n = 0; n < result.records.length ; n++) {
                    var record = result.records[n];
-                   var sectionName = record[getFieldKey(dbEmailTemplateSection, "Email Template Sections Name")];
-                   var apiMailPath = record[getFieldKey(dbEmailTemplateSection, "Email Section")];
-                   var apiMailPathSub = record[getFieldKey(dbEmailTemplateSection, "JSON Path")];
-                   var apiApplicationData = record[getFieldKey(dbEmailTemplateSection, "APIData")];
+                   var sectionName = record[getFieldKey(dbEmailTemplateSections, "Email Template Sections Name")];
+                   var apiMailPath = record[getFieldKey(dbEmailTemplateSections, "Email Section")];
+                   var apiMailPathSub = record[getFieldKey(dbEmailTemplateSections, "JSON Path")];
+                   var apiApplicationData = record[getFieldKey(dbEmailTemplateSections, "APIData")];
 
                    if (sectionName == "dynamic_template_data") {
 
