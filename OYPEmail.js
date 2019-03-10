@@ -150,19 +150,23 @@ function getEmailTemplateSections(templateId, msg)
                       plist.push (pData);
                    }
                 }
+
+                Promise.all(plist)
+                    .then(result => {
+                        console.log('Promise.all', result);
+                        console.log(result) ;
+                        resolve (msg) ;
+                    })
+                    .catch(err => {
+                        console.error('Promise.all error', err);
+                        reject (msg) ;
+
+                    });
+
+
           }) ;
 
-        Promise.all(plist)
-            .then(result => {
-                console.log('Promise.all', result);
-                console.log(result) ;
-                resolve (msg) ;
-            })
-            .catch(err => {
-                console.error('Promise.all error', err);
-                reject (msg) ;
-
-            });
+          resolve (msg) ;
 
    })
 
