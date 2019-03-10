@@ -30,12 +30,6 @@ try {
 
     msg.to = {};
     msg.from = "info@oypcrm.com" ;
-    msg.template_id = "d-dbd4fd2a6cbf42c6837e8198ca9564b0";
-
-    if (record[getFieldKey(dbEmails, "Body") ].length > 0)
-      msg.html = record[getFieldKey(dbEmails, "Body") ] ;
-
-    msg.dynamic_template_data = {};
 
     msg.subject = record[getFieldKey(dbEmails, "Subject") ] ;
 
@@ -48,14 +42,14 @@ try {
     var pBcc = 	setEmailAddress(msg, "bcc", record[getFieldKey(dbEmails, "BCC")+ "_raw"]) ;
     plist.push (pBcc);
 
-    var pData = setDynamicTemplateData(record, msg, "accomplishments");
-    plist.push (pData);
+    if (record[getFieldKey(dbEmails, "Body") ].length > 0)
+      msg.html = record[getFieldKey(dbEmails, "Body") ] ;
 
-    var pDatat = setDynamicTemplateData(record, msg, "tasks");
-    plist.push (pDatat);
-
-    var pDatar = setDynamicTemplateData(record, msg, "risks");
-    plist.push (pDatar);
+    var templateId = record[getFieldKey(dbEmails, "Email Template") ] ;
+    if (templateId.length > 0) {
+      getEmailTemplate(templateId, msg) ;
+      getEmailTemplateSections(templateId, msg) ;
+    }
 
      Promise.all(plist)
          .then(result => {
@@ -80,33 +74,20 @@ catch (e)  {
 Set a database row by its id
 ********************************************************************************************************************/
 
-function getEmailTemplate(templateId)
+function getEmailTemplate(templateId, msg)
 {
 		return new Promise ((resolve, reject) => {
 
         var proc = "getEmailTemplate" ;
         console.log (proc);
 
-  //      getDBOjectById(headers, "object_1", templateId )
-  //        .then ( result => {
-  //                  console.dir (result);
-  //                  resolve (result) ; })
-
-        for (var n = 0; n < field.length ; n++)
-        {
-          getDBOjectById(headers, "object_1", templateId )
+        getDBOjectById(headers, getObjectKey("Email Templates"), templateId )
             .then ( result => {
-              addr.push ( { "email": result["field_26"].email,
-                            "name" : result["field_194"]}) ;
-              resolve (result) ;
+
+              msg.template_id = result.record[getFieldKey(dbEmailTemplates, "Sendgrid Template")];
+              console.dir (msg) ;
+              resolve (msg) ;
             })
-        }
-
-        msg[component] = addr;
-
-        console.dir (msg) ;
-        resolve(msg) ;
-
    })
 
 }
@@ -115,11 +96,13 @@ function getEmailTemplate(templateId)
 Set a database row by its id
 ********************************************************************************************************************/
 
-function getEmailTemplateSections(templateId)
+function getEmailTemplateSections(templateId, msg)
 {
 		return new Promise ((resolve, reject) => {
 
         var proc = "getEmailTemplateSections" ;
+        var plist = [] ;
+
         console.log (proc);
 
         var apidata = {
@@ -139,6 +122,7 @@ function getEmailTemplateSections(templateId)
          OYPKnackAPICall (headers,  apidata)
           .then (result => {
 
+                msg.dynamic_template_data = {};
                 for (var n = 0; n < result.records.length ; n++) {
                    var record = result.records[n];
                    var sectionName = record[getFieldKey(dbEmailTemplateSection, "Email Template Sections Name")];
@@ -147,6 +131,7 @@ function getEmailTemplateSections(templateId)
                    var apiApplicationData = record[getFieldKey(dbEmailTemplateSection, "APIData")];
 
                    if (sectionName == "dynamic_template_data") {
+
                       var pData = setDynamicTemplateData(record, msg, apiMailPathSub, apiApplicationData );
                       plist.push (pData);
                    }
@@ -154,11 +139,18 @@ function getEmailTemplateSections(templateId)
           }) ;
 
 
-        }
 
-        msg[component] = addr;
-        console.dir (msg) ;
-        resolve(msg) ;
+
+        Promise.all(plist)
+            .then(result => {
+                console.log('Promise.all', result);
+                console.log(result) ;
+                resolve (msg) ;
+            })
+            .catch(err => {
+                console.error('Promise.all error', err);
+
+            });
 
    })
 
