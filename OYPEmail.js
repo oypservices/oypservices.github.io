@@ -138,9 +138,6 @@ function getEmailTemplateSections(templateId, msg)
                 }
           }) ;
 
-
-
-
         Promise.all(plist)
             .then(result => {
                 console.log('Promise.all', result);
