@@ -161,12 +161,11 @@ function getEmailTemplateSections(templateId, msg)
                         console.error('Promise.all error', err);
                         reject (msg) ;
 
-                    });
-
+                    });                
 
           }) ;
 
-          resolve (msg) ;
+
 
    })
 
