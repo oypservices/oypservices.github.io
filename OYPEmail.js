@@ -181,7 +181,7 @@ function setEmailAddress(msg, component, field)
         var proc = "setEmailAddress" ;
         console.log (proc);
         var addr = [];
-        if field.length = 0 then resolve (msg) ;
+        if (field.length == 0) resolve (msg) ;
 
         for (var n = 0; n < field.length ; n++)
         {
