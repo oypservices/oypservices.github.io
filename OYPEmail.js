@@ -135,7 +135,7 @@ function getEmailTemplateSections(templateId, msg)
                       var pData = setDynamicTemplateData(record, msg, apiMailPathSub, apiApplicationData );
                       plist.push (pData);
                    }
-                })
+                }
           }) ;
 
 
