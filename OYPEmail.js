@@ -138,8 +138,12 @@ function getEmailTemplateSections(templateId, msg)
                    var apiApplicationData = record[getFieldKey(dbEmailTemplateSections, "APIData")];
 
 
-                   var apiDataStr = apiApplicationData ; //JSON.stringify(apiApplicationData, replacer);
-                   var apiData = JSON.parse (apiDataStr);
+
+                   var apiData = JSON.parse (apiApplicationData);
+                   var apiDataStr = JSON.stringify(apiData, replacer);
+                   apiData = JSON.parse (apiDataStr);
+
+
 
                    if (apiMailPath == "dynamic_template_data") {
 
@@ -187,11 +191,6 @@ function setEmailAddress(msg, component, field)
               resolve (result) ;
             })
         }
-
-        msg[component] = addr;
-
-        console.dir (msg) ;
-        resolve(msg) ;
 
    })
 
