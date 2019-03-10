@@ -138,7 +138,7 @@ function getEmailTemplateSections(templateId, msg)
                    var apiApplicationData = record[getFieldKey(dbEmailTemplateSections, "APIData")];
 
 
-                   var apiDataStr = JSON.stringify(apiApplicationData, replacer);
+                   var apiDataStr = apiApplicationData ; //JSON.stringify(apiApplicationData, replacer);
                    var apiData = JSON.parse (apiDataStr);
 
                    if (apiMailPath == "dynamic_template_data") {
