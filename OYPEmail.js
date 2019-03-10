@@ -75,6 +75,7 @@ catch (e)  {
 		 }
 }
 
+
 /****************************************************************************************************************
 Set a database row by its id
 ********************************************************************************************************************/
@@ -103,6 +104,59 @@ function getEmailTemplate(templateId)
 
         msg[component] = addr;
 
+        console.dir (msg) ;
+        resolve(msg) ;
+
+   })
+
+}
+
+/****************************************************************************************************************
+Set a database row by its id
+********************************************************************************************************************/
+
+function getEmailTemplateSections(templateId)
+{
+		return new Promise ((resolve, reject) => {
+
+        var proc = "getEmailTemplateSections" ;
+        console.log (proc);
+
+        var apidata = {
+                "method": "get",
+                "format" : "raw" ,
+                "knackobj": getObjectKey("Email Template Sections"),
+                "appid": app_id,
+                "filters" : { "match": "and",
+                     "rules" : [ {
+                               "field":   getFieldKey(dbEmailTemplateSection, "Email Template"),
+                              "operator" : "contains",
+                              "value" : templateId
+                             }]
+                       }
+              };
+
+         OYPKnackAPICall (headers,  apidata)
+          .then (result => {
+
+                for (var n = 0; n < result.records.length ; n++) {
+                   var record = result.records[n];
+                   var sectionName = record[getFieldKey(dbEmailTemplateSection, "Email Template Sections Name")];
+                   var apiMailPath = record[getFieldKey(dbEmailTemplateSection, "Email Section")];
+                   var apiMailPathSub = record[getFieldKey(dbEmailTemplateSection, "JSON Path")];
+                   var apiApplicationData = record[getFieldKey(dbEmailTemplateSection, "APIData")];
+
+                   if (sectionName == "dynamic_template_data") {
+                      var pData = setDynamicTemplateData(record, msg, apiMailPathSub, apiApplicationData );
+                      plist.push (pData);
+                   }
+                })
+          }) ;
+
+
+        }
+
+        msg[component] = addr;
         console.dir (msg) ;
         resolve(msg) ;
 
@@ -148,36 +202,15 @@ function setEmailAddress(msg, component, field)
 Set a dynamic_template_data
 ********************************************************************************************************************/
 
-function setDynamicTemplateData(record, msg, component)
+function setDynamicTemplateData(record, msg, component, apiApplicationData)
 {
 		return new Promise ((resolve, reject) => {
-
 
       var proc = "setDynamicTemplateData" ;
       console.log (proc);
 
-      var apidata = {
-  						"method": "get",
-  						"format" : "raw" ,
-  						"knackobj": getObjectKey("Activities"),
-  						"appid": app_id,
-  						"filters" : { "match": "and",
-  								 "rules" : [ {
-  													 "field":   getFieldKey(dbActivities, "Complete Date") ,
-  													 "operator":"is during the previous",
-  													 "value": "week"
-  												 },
-                           {"field":   getFieldKey(dbActivities, "Project"),
-                            "operator" : "contains",
-                            "value" : record[getFieldKey(dbEmails, "Project") + "_raw" ][0].id
-                           }]
-  									 }
-  					};
-
+      var apidata = apiApplicationData;
       console.dir(apidata) ;
-
-
-
 
       OYPKnackAPICall (headers,  apidata)
       . then ( resultActivities => {
