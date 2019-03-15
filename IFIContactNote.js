@@ -405,6 +405,46 @@ function addNextVisitDate(nextContactVisit)
     }
 }
 
+
+// Use on the Knack Standard Theme
+function validateContactReview(event, view, data)
+{
+
+  try {
+
+      var proc = "validateContactReview";
+      var viewName = view.key ;
+      var objView = Knack.models[viewName].toJSON();
+      console.dir (event);
+      console.dir (view) ;
+      console.dir (data) ;
+
+      $("#" + viewName + " .kn-button").on("click", function() { 
+          var $div = "";
+          var bErrorFlag = false ;
+
+          if (1 == 2) {
+                msg = "A PA cannot review/approve a note he/she created. Please contact another PA to approve this note.";
+                var $div = addErrorMessage ($div, msg) ;
+                bErrorFlag = true ;
+              }
+
+
+
+          if (bErrorFlag) {
+              console.dir ($div);
+              $("#" + viewName + " > form").prepend ($div) ;
+              return false;
+          }
+          else
+              return true ;
+      }) ;
+
+    }
+catch (e) {
+  logerror (proc, e);
+}
+}
 // Use on the Knack Standard Theme
 function validateContactNote(event, view, data)
 {
@@ -453,7 +493,7 @@ function validateContactNote(event, view, data)
             {
                 diff = (contactDateEnd.getTime() - contactDateStart.getTime()) / 1000;
                 diff /= 60;
-                diff = Math.round(diff) ;
+              //  diff = Math.round(diff) ;
             }
 
 

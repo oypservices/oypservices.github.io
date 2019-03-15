@@ -83,7 +83,8 @@ var dbObjects = {
   "Account" : "object_6" ,
   "ClientTeamMemberRoles" : "object_39",
   "AlertRules" : "object_38",
-  "ClientEvents" : "object_40"
+  "ClientEvents" : "object_40",
+  "ClientContactReview" : "object_21"
 }
 
 

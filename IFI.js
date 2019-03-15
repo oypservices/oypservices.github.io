@@ -536,6 +536,10 @@ $(document).on('knack-view-render.any' , function(event, view, data) {
 
 
               break ;
+
+            case dbObjects.ClientContactReview:
+              validateContactReview(event, view, data) ;
+
             default:
               break ;
 
