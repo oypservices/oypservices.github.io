@@ -426,7 +426,9 @@ function validateContactReview(event, view, data)
           console.dir ($("div .field_449"));
           console.dir ($("div .field_449 span .5b2fec19b39eee7c66524e1a") );
 
-          if (1 == 2) {
+          var $createdBySpan = ($("div .field_449 span ." +  Knack.getUserAttributes() ));
+
+          if ($createdBySpan.length > 0) {
                 msg = "A PA cannot review/approve a note he/she created. Please contact another PA to approve this note.";
                 var $div = addErrorMessage ($div, msg) ;
                 bErrorFlag = true ;
