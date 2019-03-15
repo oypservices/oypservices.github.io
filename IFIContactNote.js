@@ -424,7 +424,7 @@ function validateContactReview(event, view, data)
           var bErrorFlag = false ;
 
           console.dir ($("div .field_449"));
-          console.dir ($("div .field_449 : has ( span .5b2fec19b39eee7c66524e1a)") );
+          console.dir ($("div .field_449"):has("span .5b2fec19b39eee7c66524e1a") );
 
           if (1 == 2) {
                 msg = "A PA cannot review/approve a note he/she created. Please contact another PA to approve this note.";
