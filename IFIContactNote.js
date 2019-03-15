@@ -420,7 +420,7 @@ function validateContactReview(event, view, data)
       console.dir (data) ;
 
       $("#" + viewName + " .kn-button").on("click", function() {
-          var $div = "";
+          var $div = initializeErrorMessage() ;
           var bErrorFlag = false ;
 
           console.dir ($("div .field_449"));
