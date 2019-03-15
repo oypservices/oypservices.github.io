@@ -430,7 +430,7 @@ function validateContactReview(event, view, data)
 
           if ($createdBySpan.length > 0) {
                 msg = "A PA cannot review/approve a note he/she created. Please contact another PA to approve this note.";
-                var $div = addErrorMessage ($div, msg) ;
+                $div = addErrorMessage ($div, msg) ;
                 bErrorFlag = true ;
               }
 
