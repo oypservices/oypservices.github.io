@@ -555,8 +555,8 @@ function initializeErrorMessage() {
 
 function addErrorMessage($div, msg)
 {
-  var $p = $("<p>");
-  $p.add( "<strong>" + msg + "</strong><br/><br/>" );
+  var $p = $("<p><strong>" + msg + "</strong><br/><br/></p>")
+//  $p.add( "<strong>" + msg + "</strong><br/><br/>" );
   $div.append ( $p) ;
   console.dir ($div);
   return $div ;
