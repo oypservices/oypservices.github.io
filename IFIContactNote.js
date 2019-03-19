@@ -211,7 +211,7 @@ function hideShowContactNoteFields(view, val, data) {
     	$(fldPrefix +  dbContactNotes.NoteType).show();
       $(fldPrefix +  dbContactNotes.ContactNoteStatus).show();
       $(fldPrefix +  dbContactNotes.ClientIRP).show();
-  //    $(fldPrefix +  dbContactNotes.IRPNA).show();
+      $(fldPrefix +  dbContactNotes.ContactDateStart).show();
       $(fldPrefix +  dbContactNotes.IRPGoals).show();
 
       $(fldPrefix +  dbContactNotes.ClientResponses).show();
