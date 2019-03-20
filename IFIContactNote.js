@@ -220,6 +220,7 @@ function hideShowContactNoteFields(view, val, data) {
     	$(fldPrefix +  dbContactNotes.PlanforNextVisit).show();
       $(fldPrefix +  dbContactNotes.CaseManagerSignature).show();
       $(fldPrefix +  dbGoals.Objective).show();
+      AddIRPNA (view) ;
     	return true;
         }
 
