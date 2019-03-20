@@ -231,7 +231,7 @@ function hideShowContactNoteFields(view, val, data) {
     	$(fldPrefix +  dbContactNotes.Client).show();
     	$(fldPrefix +  dbContactNotes.NoteType).show();
     	$(fldPrefix +  dbContactNotes.ContactDateStart).show();
-      $("#" + view.key + "-"  + dbContactNotes.ContactDateStart + "-time").attr('disabled', 'enabled') ;
+      $("#" + view.key + "-"  + dbContactNotes.ContactDateStart + "-time").removeAttr("disabled") ;
     	$(fldPrefix +  dbContactNotes.ContactDateEnd).show();
     	$(fldPrefix +  dbContactNotes.VisitLocation).show();
     	$(fldPrefix +  dbContactNotes.ReasonforContact).show();
@@ -247,7 +247,7 @@ function hideShowContactNoteFields(view, val, data) {
     	$(fldPrefix +  dbContactNotes.Client).show();
     	$(fldPrefix +  dbContactNotes.NoteType).show();
       $(fldPrefix +  dbContactNotes.ContactNoteStatus).show();
-      $("#" + view.key + "-"  + dbContactNotes.ContactDateStart + "-time").attr('disabled', 'enabled') ;
+      $("#" + view.key + "-"  + dbContactNotes.ContactDateStart + "-time").removeAttr("disabled") ;
     	$(fldPrefix +  dbContactNotes.MeetingStatus).show();
     	$(fldPrefix +  dbContactNotes.ContactDateStart).show();
     	$(fldPrefix +  dbContactNotes.ContactDateEnd).show();
