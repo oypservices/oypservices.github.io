@@ -318,7 +318,7 @@ function evaluateContactNotes (event, view, recordClient) {
 
         console.log (nextVisitDate) ;
 
-        if (nextVisitDate != "")  {
+        if (nextVisitDate != undefined && nextVisitDate != "")  {
             var nextContactVisit = {
               "field_14": clientId ,
               "field_16": nextVisitDate,
