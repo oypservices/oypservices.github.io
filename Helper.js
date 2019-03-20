@@ -187,6 +187,9 @@ function wait(ms){
 
 function convertDateTime (dateString, timeString) {
 
+  if ( dateString == "" )
+	   return "";
+		 
 	var dateParts = dateString.split("/");
 	var timeParts = timeString.split(":");
 	if (timeParts[1].includes('am')) {
