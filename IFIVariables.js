@@ -199,7 +199,9 @@ var dbContacts = {
 
 
 var dbContactNotes = {
-  "ContactNotedate":"field_232",
+  "ContactNotedate":"field_452",
+  "ContactDate" : "field_342" ,
+  "MonthlyReportDate" :"field_451" ,
   "Client":"field_14",
   "Client_raw":"field_14_raw",
   "NoteType":"field_236",

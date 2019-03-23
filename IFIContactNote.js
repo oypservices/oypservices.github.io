@@ -185,6 +185,8 @@ function hideShowContactNoteFields(view, val, data) {
     $(fldPrefix +  dbContactNotes.AddlPersonsPresent).hide();
     $(fldPrefix +  dbContactNotes.OtherComment).hide();
 
+
+    $(fldPrefix +  dbContactNotes.MonthlyReportDate).hide();
     $(fldPrefix +  dbContactNotes.ContactDateStart).hide();
     $(fldPrefix +  dbContactNotes.ReasonforContact).hide();
     $(fldPrefix +  dbContactNotes.MeetingStatus).hide();
@@ -211,10 +213,8 @@ function hideShowContactNoteFields(view, val, data) {
     	$(fldPrefix +  dbContactNotes.NoteType).show();
       $(fldPrefix +  dbContactNotes.ContactNoteStatus).show();
       $(fldPrefix +  dbContactNotes.ClientIRP).show();
-      $(fldPrefix +  dbContactNotes.ContactDateStart).show();
-      //$("#" + view.key + "-"  + dbContactNotes.ContactDateStart + "-time").text() = "12:00am"  ;
-  //    $("#" + view.key + "-"  + dbContactNotes.ContactDateStart + "-time").attr('disabled', 'disabled') ;
       $(fldPrefix +  dbContactNotes.IRPGoals).show();
+      $(fldPrefix +  dbContactNotes.MonthlyReportDate).show();
 
       $(fldPrefix +  dbContactNotes.ClientResponses).show();
     	$(fldPrefix +  dbContactNotes.PlanforNextVisit).show();
