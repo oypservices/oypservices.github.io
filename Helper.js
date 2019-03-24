@@ -189,7 +189,7 @@ function convertDateTime (dateString, timeString) {
 
   if ( dateString == "" )
 	   return "";
-		 
+
 	var dateParts = dateString.split("/");
 	var timeParts = timeString.split(":");
 	if (timeParts[1].includes('am')) {
@@ -199,7 +199,8 @@ function convertDateTime (dateString, timeString) {
 	}
 	else {
 		timeParts[1] = timeParts[1].replace('pm','');
-		timeParts[0] = parseInt(timeParts[0]) + 12;
+		if (parseInt(timeParts[0]) != 12)
+			 timeParts[0] = parseInt(timeParts[0]) + 12;
 
 	}
 
