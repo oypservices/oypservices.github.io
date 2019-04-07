@@ -323,7 +323,7 @@ try {
 		getRecordById (dbObjects.Clients, clientId) //get the client record
 			.then (resultClient => {
 								console.dir (resultClient);
-								var caseManager = resultClient[dbClients.resultClient][0] ;
+								var caseManager = resultClient[dbClients.CaseManager][0] ;
 								getRecordById (dbObjects.Accounts, casemanager.id )  //get the case manager account record
 						})
 			.then ( resultAccount => {
