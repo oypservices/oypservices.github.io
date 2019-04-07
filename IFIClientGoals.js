@@ -318,7 +318,10 @@ try {
     var clientId = objIRP[dbIRPs.Client + "_raw"][0].id;
     var clientName = objIRP[dbIRPs.Client + "_raw"][0].identifier;
 		var clientIRPName = objIRP[dbIRPs.ClientIRPName] ;
+		var irpDocumentStatus = objIRP[dbIRPs.irpDocumentStatus] ;
 
+		if (irpDocumentStatus != "Signatures Needed")
+			 return ;
 
 		getRecordById (dbObjects.Clients, clientId) //get the client record
 			.then (resultClient => {
@@ -330,8 +333,13 @@ try {
 						})
 			.then ( resultAccount => {
 
+						  if (resultAccount == undefined)
+								 return ;
+
 							console.dir (resultAccount);
 							var caseManagerEmail = resultAccount [dbAccounts.Email] ;
+							if (caseManagerEmail.email =- undefined)
+								 return ;
 
 
 							url = "https://www.oypapp.com/ifi-staff-portal.html#clients/edit-client2/{{clientId}}/new-page/{{clientId}}/view-client-irp/{{irpId}}/";
