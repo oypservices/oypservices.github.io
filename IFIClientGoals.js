@@ -338,7 +338,7 @@ try {
 
 							console.dir (resultAccount);
 							var caseManagerEmail = resultAccount [dbAccounts.Email] ;
-							if (caseManagerEmail.email =- undefined)
+							if (caseManagerEmail.email == undefined)
 								 return ;
 
 
