@@ -335,8 +335,8 @@ try {
 
 
 							url = "https://www.oypapp.com/ifi-staff-portal.html#clients/edit-client2/{{clientId}}/new-page/{{clientId}}/view-client-irp/{{irpId}}/";
-							url = url.replace(url, "{{clientId}}", clientId) ;
-							url = url.replace(url, "{{irpId}}", irpID) ;
+							url = url.replace("{{clientId}}", clientId) ;
+							url = url.replace("{{irpId}}", irpID) ;
 
 							var msg = {} ;
               msg.to = ['vanessa@oypservices.com', 'brian@oypservices.com' ];
