@@ -265,7 +265,8 @@ var dbAccounts = {
 var dbIRPs = {
   "Client" : "field_200",
   "IRPCreateDate" : "field_201",
-  "IRPStatus" : "field_220"
+  "IRPStatus" : "field_220",
+  "IRPDocumentStatus": "field_454"
 
 } ;
 
