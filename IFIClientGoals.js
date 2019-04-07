@@ -324,7 +324,9 @@ try {
 			.then (resultClient => {
 								console.dir (resultClient);
 								var caseManager = resultClient[dbClients.CaseManager][0] ;
-								getRecordById (dbObjects.Accounts, casemanager.id )  //get the case manager account record
+								if (caseManager != undefined)
+									 getRecordById (dbObjects.Accounts, caseManager.id )  //get the case manager account record
+							 
 						})
 			.then ( resultAccount => {
 
