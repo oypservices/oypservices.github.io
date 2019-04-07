@@ -318,7 +318,7 @@ try {
     var clientId = objIRP[dbIRPs.Client + "_raw"][0].id;
     var clientName = objIRP[dbIRPs.Client + "_raw"][0].identifier;
 		var clientIRPName = objIRP[dbIRPs.ClientIRPName] ;
-		var irpDocumentStatus = objIRP[dbIRPs.irpDocumentStatus] ;
+		var irpDocumentStatus = objIRP[dbIRPs.IRPDocumentStatus] ;
 
 		if (irpDocumentStatus != "Signatures Needed")
 			 return ;
