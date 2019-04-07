@@ -297,3 +297,54 @@ function copySingleInterventionRecord (newGoalId, recordINV ) {
 
  				})
 }
+
+/*******************************************************************************************************
+ logStatusChanges every time the client record is updated, if needed
+*******************************************************************************************************/
+
+
+
+
+function checkIRPSignatures (event, view, recordClient) {
+try {
+
+    console.log ("checkIRPSignatures");
+    var viewName = view["key"] ;
+    var objIRP = Knack.models[viewName].toJSON();
+
+    console.dir (objIRP);
+
+		var irpID = objIRP.id;
+    var clientId = objIRP[dbIRPs.Client + "_raw"][0].id;
+    var clientName = objIRP[dbIRPs.Client + "_raw"][0].identifier;
+		var clientIRPName = objIRP[dbIRPs.ClientIRPName] ;
+
+
+		getRecordById (dbObject.Clients, clientId) //get the client record
+			.then (resultClient => {
+								var caseManager = resultClient[dbClients.resultClient][0] ;
+								getRecordById (dbObject.Accounts, casemanager.id )  //get the case manager account record
+						})
+			.then ( resultAccount => {
+
+							var caseManagerEmail = resultAccount [dbAccounts.Email] ;
+
+							var msg = {} ;
+              msg.to = ['vanessa@oypservices.com', 'brian@oypservices.com' ];
+              msg.subject = clientName + ' - IRP Signatures Need for (Test) ' + clientName;
+              msg.html = "Client and Case Manager Signatures are needed for IRP -  " + clientIRPName ;
+							msg.html = msg.html + "<br/><br/> https://www.oypapp.com/ifi-staff-portal.html" ;
+							msg.html = msg.html + "<br/><br/> " + caseManagerEmail ;
+              msg.from = "info@ifi-md.org" ;
+              OYPAPISendMail(headers, msg) ;
+
+			})
+
+
+    }
+  catch (e)
+    {
+      logerror ("checkIRPSignatures", e);
+    }
+
+}

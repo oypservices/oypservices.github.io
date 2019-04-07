@@ -257,6 +257,7 @@ var dbClientTeamMembers = {
 
 var dbAccounts = {
   "Name" : "field_33",
+  "Email" : "field_34" ,
   "Contact" : "field_195",
   "Contact_raw" : "field_195_raw"
 } ;
@@ -264,6 +265,7 @@ var dbAccounts = {
 
 var dbIRPs = {
   "Client" : "field_200",
+  "ClientIRPName" : "field_199" ,
   "IRPCreateDate" : "field_201",
   "IRPStatus" : "field_220",
   "IRPDocumentStatus": "field_454",

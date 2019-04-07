@@ -215,6 +215,7 @@ $(document).on('knack-record-update.any' , function (event, view, record) {
 
    case dbObjects.ClientIRPs :
       updateIRPName (event, view, record) ;
+      checkIRPSignatures (event, view, record) ;
       getAlertRules (event, view, record) ;
       break ;
 
@@ -552,3 +553,31 @@ $(document).on('knack-view-render.any' , function(event, view, data) {
    }
 
 });
+
+
+
+/*********************************************************************************
+Get a contact based on the filter
+**********************************************************************************/
+
+function getRecordById (obj, id) {
+   	return new Promise ((resolve, reject) => {
+
+        var resource = 'knackobject';
+        //Get the template from the api table
+        var getapidata =
+        {
+          "method": "get",
+          "knackobj": obj,
+          "appid": app_id ,
+          "format" :"raw",
+          "id": id
+        }
+
+        console.dir (getapidata);
+
+        OYPServicesAPIPost( resource, headers, getapidata )
+          .then (result => { resolve ( result) ; } )
+          .catch (err => {reject (err) ; })
+      })
+}
