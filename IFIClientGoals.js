@@ -326,19 +326,25 @@ try {
 								var caseManager = resultClient[dbClients.CaseManager][0] ;
 								if (caseManager != undefined)
 									 return getRecordById (dbObjects.Accounts, caseManager.id )  //get the case manager account record
-							 
+
 						})
 			.then ( resultAccount => {
 
 							console.dir (resultAccount);
 							var caseManagerEmail = resultAccount [dbAccounts.Email] ;
 
+
+							url = "https://www.oypapp.com/ifi-staff-portal.html#clients/edit-client2/{{clientId}}/new-page/{{clientId}}/view-client-irp/{{irpId}}/";
+							url = url.replace(url, "{{clientId}}", clientId) ;
+							url = url.replace(url, "{{irpId}}", irpID) ;
+
 							var msg = {} ;
               msg.to = ['vanessa@oypservices.com', 'brian@oypservices.com' ];
               msg.subject = clientName + ' - IRP Signatures Need for (Test) ' + clientName;
-              msg.html = "Client and Case Manager Signatures are needed for IRP -  " + clientIRPName ;
-							msg.html = msg.html + "<br/><br/> https://www.oypapp.com/ifi-staff-portal.html" ;
-							msg.html = msg.html + "<br/><br/> " + caseManagerEmail ;
+              msg.html = "Client and Case Manager Signatures are needed for IRP -  " ;
+							msg.html = msg.html + "<a href='" + url + "'>" + clientIRPName + "</a>" ;
+			//				msg.html = msg.html + "<br/><br/> https://www.oypapp.com/ifi-staff-portal.html" ;
+							msg.html = msg.html + "<br/><br/> " + caseManagerEmail.email ;
               msg.from = "info@ifi-md.org" ;
 
               OYPAPISendMail(headers, msg) ;
