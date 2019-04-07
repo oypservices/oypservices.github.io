@@ -320,11 +320,11 @@ try {
 		var clientIRPName = objIRP[dbIRPs.ClientIRPName] ;
 
 
-		getRecordById (dbObject.Clients, clientId) //get the client record
+		getRecordById (dbObjects.Clients, clientId) //get the client record
 			.then (resultClient => {
 								console.dir (resultClient);
 								var caseManager = resultClient[dbClients.resultClient][0] ;
-								getRecordById (dbObject.Accounts, casemanager.id )  //get the case manager account record
+								getRecordById (dbObjects.Accounts, casemanager.id )  //get the case manager account record
 						})
 			.then ( resultAccount => {
 
@@ -338,7 +338,7 @@ try {
 							msg.html = msg.html + "<br/><br/> https://www.oypapp.com/ifi-staff-portal.html" ;
 							msg.html = msg.html + "<br/><br/> " + caseManagerEmail ;
               msg.from = "info@ifi-md.org" ;
-						 
+
               OYPAPISendMail(headers, msg) ;
 
 			})
