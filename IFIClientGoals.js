@@ -353,7 +353,8 @@ try {
 							msg.html = msg.html + "<a href='" + url + "'>" + clientIRPName + "</a>" ;
 			//				msg.html = msg.html + "<br/><br/> https://www.oypapp.com/ifi-staff-portal.html" ;
 							msg.html = msg.html + "<br/><br/> " + caseManagerEmail.email ;
-              msg.from = "info@ifi-md.org" ;
+              msg.from =  { "email" : "info@ifi-md.org" ,
+												  "name" : "IFI Staff Portal" };
 
               OYPAPISendMail(headers, msg) ;
 
