@@ -89,6 +89,10 @@ function copyIRPRecord (IRP) {
 
 		 delete (IRP.id) ;
 		 delete (IRP[dbIRPs.IRPCreateDate] ) ;
+		 delete (IRP[dbIRPS.CaseManagerSignature]) ;
+		 delete (IRP[dbIRPS.CaseManagerSignatureDate]) ;
+		 delete (IRP[dbIRPS.ClientSignature]) ;
+		 delete (IRP[dbIRPS.ClientSignatureDate]) ;
 
 		 IRP[dbIRPs.IRPCreateDate] = getToday();
 		 IRP[dbIRPs.IRPStatus] = "Update" ;

@@ -266,7 +266,11 @@ var dbIRPs = {
   "Client" : "field_200",
   "IRPCreateDate" : "field_201",
   "IRPStatus" : "field_220",
-  "IRPDocumentStatus": "field_454"
+  "IRPDocumentStatus": "field_454",
+  "CaseManagerSignature" : "field_225",
+  "CaseManagerSignatureDate" : "field_226",
+  "ClientSignature" : "field_221",
+  "ClientSignatureDate" : "field_222"
 
 } ;
 
