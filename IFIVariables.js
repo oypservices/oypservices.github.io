@@ -242,7 +242,6 @@ var dbContactNotes = {
 } ;
 
 
-
 var dbClientTeamMembers = {
   "Contact":"field_105",
   "Contact_raw":"field_105_raw",
@@ -251,9 +250,7 @@ var dbClientTeamMembers = {
   "AssignmentInactiveDate" :"field_354",
   "ClientTeamRole" : "field_367",
   "ClientTeamRole_raw" : "field_367__raw"
-
 };
-
 
 var dbAccounts = {
   "Name" : "field_33",
