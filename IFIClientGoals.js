@@ -322,11 +322,13 @@ try {
 
 		getRecordById (dbObject.Clients, clientId) //get the client record
 			.then (resultClient => {
+								console.dir (resultClient);
 								var caseManager = resultClient[dbClients.resultClient][0] ;
 								getRecordById (dbObject.Accounts, casemanager.id )  //get the case manager account record
 						})
 			.then ( resultAccount => {
 
+							console.dir (resultAccount);
 							var caseManagerEmail = resultAccount [dbAccounts.Email] ;
 
 							var msg = {} ;
@@ -336,6 +338,7 @@ try {
 							msg.html = msg.html + "<br/><br/> https://www.oypapp.com/ifi-staff-portal.html" ;
 							msg.html = msg.html + "<br/><br/> " + caseManagerEmail ;
               msg.from = "info@ifi-md.org" ;
+						 
               OYPAPISendMail(headers, msg) ;
 
 			})
