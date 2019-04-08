@@ -348,7 +348,7 @@ try {
 
 							var msg = {} ;
 							msg.to = [caseManagerEmail.email ];
-              msg.cc = ['vanessa@oypservices.com', 'brian@oypservices.com' ];
+              msg.cc = ['sneal@ifi-md.org','vanessa@oypservices.com', 'brian@oypservices.com' ];
               msg.subject = 'IRP Signatures Needed for ' + clientName;
               msg.html = "Client and Case Manager Signatures are needed for IRP -  " ;
 							msg.html = msg.html + "<a href='" + url + "'>" + clientIRPName + "</a>" ;
