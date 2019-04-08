@@ -347,12 +347,13 @@ try {
 							url = url.replace("{{irpId}}", irpID) ;
 
 							var msg = {} ;
-              msg.to = ['vanessa@oypservices.com', 'brian@oypservices.com' ];
-              msg.subject = clientName + ' - IRP Signatures Need for (Test) ' + clientName;
+							msg.to = [caseManagerEmail.email ];
+              msg.cc = ['vanessa@oypservices.com', 'brian@oypservices.com' ];
+              msg.subject = 'IRP Signatures Needed for ' + clientName;
               msg.html = "Client and Case Manager Signatures are needed for IRP -  " ;
 							msg.html = msg.html + "<a href='" + url + "'>" + clientIRPName + "</a>" ;
 			//				msg.html = msg.html + "<br/><br/> https://www.oypapp.com/ifi-staff-portal.html" ;
-							msg.html = msg.html + "<br/><br/> " + caseManagerEmail.email ;
+			//				msg.html = msg.html + "<br/><br/> " + caseManagerEmail.email ;
               msg.from =  { "email" : "info@ifi-md.org" ,
 												  "name" : "IFI Staff Portal" };
 
