@@ -63,7 +63,7 @@ $(document).on('knack-form-submit.any' , function (event, view, record) {
 //Event handler for created records
 *************************************************************************************************/
 
-$(document).on('knack-view-create.any' , function (event, view, record) {
+$(document).on('knack-record-create.any' , function (event, view, record) {
   console.dir (view) ;
 
   switch (view.source.object) {
