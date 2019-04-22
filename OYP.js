@@ -51,6 +51,7 @@ $(document).on('knack-form-submit.any' , function (event, view, record) {
       submitEmail (event, view, record)  ;
       break ;
 
+
     default:
       break ;
   }
@@ -74,6 +75,10 @@ $(document).on('knack-view-create.any' , function (event, view, record) {
    case getObjectKey("Orders") :
       addDefaultOrderLines (event, view, record) ;
       break ;
+
+    case getObjectKey("Projects") :
+       addDefaultJobPhases (event, view, record) ;
+       break ;
 
     default:
       break ;
