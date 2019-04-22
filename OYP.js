@@ -95,6 +95,9 @@ $(document).on('knack-view-render.any' , function(event, view, data) {
   try {
 	var view_name =  view.key ;
 
+  if (view.source == undefined)
+     return ;
+
 	console.log(view_name) ;
   switch (view.source.object) {
 			case dbContacts.key :
