@@ -18,10 +18,7 @@ try {
     var hrefAddOrderLinePage = $(".kn-back-link a").attr("href") ;
 
 
-    var orderId = objOrders.id;
-    console.log (orderId);
-    var productGroupId = objOrders[productGroupFieldKey][0].id ;
-    console.log (productGroupId) ;
+    console.dir (projectTypeKey) ;
 
     //line tems will be added manually.
     //if ( objOrders[dfltProductFieldKey] == "No" )
