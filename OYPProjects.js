@@ -10,13 +10,11 @@ try {
 
     var viewName = view["key"] ;
     var objProjects  = Knack.models[viewName].toJSON();
-    console.dir (projectTypeKey);
-    logObject (projectTypeKey) ;
+    console.dir (objProjects);
 
     var projectTypeKey = getFieldKey(dbProjects, "Product Type") + "_raw" ;
     var projectTypeSubKey = getFieldKey(dbProjects, "Product Sub Type") + "_raw" ;
     var hrefAddOrderLinePage = $(".kn-back-link a").attr("href") ;
-
 
     console.dir (projectTypeKey) ;
 
@@ -26,10 +24,10 @@ try {
 
     var filters = { "filters" : { "match": "and",
                  "rules" : [ {
-                           "field":   getFieldKey(dbProductGroups, "Product Type"),
+                           "field":   getFieldKey(dbProductGroups, "Project Type"),
                           "operator" : "contains",
                           "value" : projectTypeKey[0].id
-                         }]
+                        }]
                    } } ;
 
 
