@@ -12,8 +12,8 @@ try {
     var objProjects  = Knack.models[viewName].toJSON();
     console.dir (objProjects);
 
-    var projectTypeKey = getFieldKey(dbProjects, "Product Type") + "_raw" ;
-    var projectTypeSubKey = getFieldKey(dbProjects, "Product Sub Type") + "_raw" ;
+    var projectTypeKey = getFieldKey(dbProjects, "Project Type") + "_raw" ;
+    var projectTypeSubKey = getFieldKey(dbProjects, "Project Sub Type") + "_raw" ;
     var hrefAddOrderLinePage = $(".kn-back-link a").attr("href") ;
 
     console.dir (projectTypeKey) ;
