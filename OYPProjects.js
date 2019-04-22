@@ -49,7 +49,8 @@ try {
 
   		.then (resultProductGroups => {
               console.dir (resultProductGroups) ;
-              return createProjectPhases(orderId, resultProductGroups) ;    })
+  //            return createProjectPhases(orderId, resultProductGroups) ;
+              })
 
   	  .then ( result => {
   						window.location.href =  hrefAddOrderLinePage ;   } );
