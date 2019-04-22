@@ -171,6 +171,14 @@ var dbTables = {
             "key": "object_10"
         },
         {
+            "name": "Project Detail Items",
+            "key": "object_46"
+        },
+        {
+            "name": "Project Detail Item Costs",
+            "key": "object_45"
+        },
+        {
             "name": "Project Status Types",
             "key": "object_18"
         },
@@ -271,6 +279,298 @@ var dbTables = {
           "key": "object_41"
         }
     ]
+}
+
+var dbProjectItemDetails = {
+  "fields": [
+      {
+          "label": "Project Detail Item Name",
+          "key": "field_455",
+          "required": false,
+          "type": "concatenation"
+      },
+      {
+          "label": "Reference No.",
+          "key": "field_443",
+          "required": false,
+          "type": "concatenation"
+      },
+      {
+          "label": "Item Number",
+          "key": "field_442",
+          "required": false,
+          "type": "number"
+      },
+      {
+          "label": "Project",
+          "key": "field_414",
+          "required": false,
+          "type": "connection",
+          "relationship": {
+              "object": "object_10",
+              "has": "one",
+              "belongs_to": "many"
+          }
+      },
+      {
+          "label": "Project Detail Group Type",
+          "key": "field_437",
+          "required": false,
+          "type": "connection",
+          "relationship": {
+              "object": "object_31",
+              "has": "one",
+              "belongs_to": "many"
+          }
+      },
+      {
+          "label": "Included",
+          "key": "field_438",
+          "required": false,
+          "type": "boolean"
+      },
+      {
+          "label": "Product Group",
+          "key": "field_411",
+          "required": false,
+          "type": "connection",
+          "relationship": {
+              "object": "object_12",
+              "has": "one",
+              "belongs_to": "many"
+          }
+      },
+      {
+          "label": "Status",
+          "key": "field_416",
+          "required": false,
+          "type": "connection",
+          "relationship": {
+              "object": "object_31",
+              "has": "one",
+              "belongs_to": "many"
+          }
+      },
+      {
+          "label": "Line Items Total",
+          "key": "field_420",
+          "required": false,
+          "type": "sum"
+      },
+      {
+          "label": "Order Total",
+          "key": "field_422",
+          "required": false,
+          "type": "equation"
+      },
+      {
+          "label": "Auto Increment",
+          "key": "field_423",
+          "required": false,
+          "type": "auto_increment"
+      },
+      {
+          "label": "Site",
+          "key": "field_429",
+          "required": false,
+          "type": "connection",
+          "relationship": {
+              "belongs_to": "many",
+              "has": "one",
+              "object": "object_16"
+          }
+      },
+      {
+          "label": "Gross Floor Area",
+          "key": "field_439",
+          "required": false,
+          "type": "number"
+      },
+      {
+          "label": "Display Order",
+          "key": "field_451",
+          "required": false,
+          "type": "number"
+      }
+  ]
+}
+
+
+var dbProjectDetailItemCosts = {
+    "fields": [
+        {
+            "label": "Project Detail Item",
+            "key": "field_407",
+            "required": false,
+            "type": "connection",
+            "relationship": {
+                "belongs_to": "many",
+                "has": "one",
+                "object": "object_46"
+            }
+        },
+        {
+            "label": "Item",
+            "key": "field_402",
+            "required": false,
+            "type": "connection",
+            "relationship": {
+                "belongs_to": "many",
+                "has": "one",
+                "object": "object_35"
+            }
+        },
+        {
+            "label": "Description",
+            "key": "field_408",
+            "required": false,
+            "type": "short_text"
+        },
+        {
+            "label": "Units",
+            "key": "field_403",
+            "required": false,
+            "type": "number"
+        },
+        {
+            "label": "Price",
+            "key": "field_404",
+            "required": false,
+            "type": "currency"
+        },
+        {
+            "label": "Subtotal",
+            "key": "field_405",
+            "required": false,
+            "type": "currency"
+        },
+        {
+            "label": "Comments",
+            "key": "field_409",
+            "required": false,
+            "type": "paragraph_text"
+        },
+        {
+            "label": "Site",
+            "key": "field_406",
+            "required": false,
+            "type": "connection",
+            "relationship": {
+                "belongs_to": "many",
+                "has": "one",
+                "object": "object_16"
+            }
+        },
+        {
+            "label": "Included",
+            "key": "field_452",
+            "required": false,
+            "type": "boolean"
+        }
+    ]
+}
+
+var dbStandardLists = {
+  "fields": [
+    {
+        "label": "Auto Increment",
+        "key": "field_456",
+        "required": false,
+        "type": "auto_increment"
+    },
+    {
+        "label": "List Name",
+        "key": "field_266",
+        "required": false,
+        "type": "multiple_choice",
+        "choices": [
+            "Activity Category",
+            "Activity Status",
+            "Construction Phases",
+            "Construction Sub Phases",
+            "Email Status",
+            "Email Template Category",
+            "Meeting Purpose",
+            "Order Status",
+            "Order Type",
+            "Project Pipeline Status",
+            "Project Status",
+            "Project Sub Type",
+            "Project Type",
+            "Referral Source",
+            "Units of Measure"
+        ]
+    },
+    {
+        "label": "Display Code",
+        "key": "field_265",
+        "required": false,
+        "type": "short_text"
+    },
+    {
+        "label": "Display Name",
+        "key": "field_253",
+        "required": false,
+        "type": "short_text"
+    },
+    {
+        "label": "Sites",
+        "key": "field_254",
+        "required": false,
+        "type": "connection",
+        "relationship": {
+            "belongs_to": "many",
+            "has": "many",
+            "object": "object_16"
+        }
+    },
+    {
+        "label": "System Default",
+        "key": "field_255",
+        "required": false,
+        "type": "boolean"
+    },
+    {
+        "label": "Sort Order",
+        "key": "field_268",
+        "required": false,
+        "type": "number"
+    },
+    {
+        "label": "Sort Order Expression",
+        "key": "field_269",
+        "required": false,
+        "type": "concatenation"
+    },
+    {
+        "label": "Related Link",
+        "key": "field_339",
+        "required": false,
+        "type": "link"
+    },
+    {
+        "label": "Added By User",
+        "key": "field_385",
+        "required": false,
+        "type": "connection",
+        "relationship": {
+            "object": "object_4",
+            "has": "one",
+            "belongs_to": "many"
+        }
+    },
+    {
+        "label": "Master Standard Lists",
+        "key": "field_435",
+        "required": false,
+        "type": "connection",
+        "relationship": {
+            "object": "object_31",
+            "has": "many",
+            "belongs_to": "many"
+        }
+    }
+]
 }
 
 var dbEmails = {
@@ -998,16 +1298,182 @@ var dbActivities = {
     ]
 }
 
+
+
+var dbProducts = {
+    "fields": [
+        {
+            "label": "Auto Increment",
+            "key": "field_459",
+            "required": false,
+            "type": "auto_increment"
+        },
+        {
+            "label": "Product Display Name",
+            "key": "field_462",
+            "required": false,
+            "type": "concatenation"
+        },
+        {
+            "label": "Product Group",
+            "key": "field_460",
+            "required": false,
+            "type": "connection",
+            "relationship": {
+                "object": "object_12",
+                "has": "one",
+                "belongs_to": "many"
+            }
+        },
+        {
+            "label": "Product No..",
+            "key": "field_292",
+            "required": false,
+            "type": "short_text"
+        },
+        {
+            "label": "Products Name",
+            "key": "field_291",
+            "required": false,
+            "type": "short_text"
+        },
+        {
+            "label": "Supplier Contact",
+            "key": "field_301",
+            "required": false,
+            "type": "connection",
+            "relationship": {
+                "belongs_to": "many",
+                "has": "one",
+                "object": "object_1"
+            }
+        },
+        {
+            "label": "Image",
+            "key": "field_293",
+            "required": false,
+            "type": "image"
+        },
+        {
+            "label": "Description",
+            "key": "field_294",
+            "required": false,
+            "type": "paragraph_text"
+        },
+        {
+            "label": "Cost Basis",
+            "key": "field_299",
+            "required": false,
+            "type": "currency"
+        },
+        {
+            "label": "Price",
+            "key": "field_295",
+            "required": false,
+            "type": "currency"
+        },
+        {
+            "label": "Available",
+            "key": "field_296",
+            "required": false,
+            "type": "boolean"
+        },
+        {
+            "label": "Unit Types",
+            "key": "field_298",
+            "required": false,
+            "type": "multiple_choice",
+            "choices": [
+                "Each",
+                "Per Day",
+                "Per Hour",
+                "Per Month",
+                "Per User",
+                "Per Week",
+                "Per Year"
+            ]
+        },
+        {
+            "label": "Units of Measure",
+            "key": "field_454",
+            "required": false,
+            "type": "connection",
+            "relationship": {
+                "belongs_to": "many",
+                "has": "one",
+                "object": "object_31"
+            }
+        },
+        {
+            "label": "Show On Invoice",
+            "key": "field_300",
+            "required": false,
+            "type": "boolean"
+        },
+        {
+            "label": "Direct Bill",
+            "key": "field_302",
+            "required": false,
+            "type": "boolean"
+        },
+        {
+            "label": "Site",
+            "key": "field_315",
+            "required": false,
+            "type": "connection",
+            "relationship": {
+                "object": "object_16",
+                "has": "many",
+                "belongs_to": "many"
+            }
+        },
+        {
+            "label": "Image: URL",
+            "key": "field_461",
+            "required": false,
+            "type": "short_text"
+        }
+    ]
+}
+
 /*******************************************************************************************************
 Database Objects - Product Groups
 *******************************************************************************************************/
 var dbProductGroups = {
     "fields": [
         {
+            "label": "Number",
+            "key": "field_458",
+            "required": false,
+            "type": "auto_increment"
+        },
+        {
             "label": "Product Number",
             "key": "field_290",
             "required": false,
             "type": "short_text"
+        },
+        {
+            "label": "Project Type",
+            "key": "field_453",
+            "required": false,
+            "type": "connection",
+            "relationship": {
+                "object": "object_31",
+                "has": "many",
+                "belongs_to": "many"
+            }
+        },
+        {
+            "label": "Project Sub Type",
+            "key": "field_463",
+            "required": false,
+            "type": "connection",
+            "relationship": {
+                "object": "object_31",
+                "has": "many",
+                "belongs_to": "many"
+            }
         },
         {
             "label": "Product Name",
@@ -1037,10 +1503,10 @@ var dbProductGroups = {
             "required": false,
             "type": "multiple_choice",
             "choices": [
+                "Per Month",
                 "Fixed",
                 "Per Hour",
                 "Per Day",
-                "Per Month",
                 "Per Year"
             ]
         },
@@ -1057,25 +1523,14 @@ var dbProductGroups = {
             "type": "short_text"
         },
         {
-            "label": "Products",
-            "key": "field_297",
-            "required": false,
-            "type": "connection",
-            "relationship": {
-                "belongs_to": "many",
-                "has": "many",
-                "object": "object_35"
-            }
-        },
-        {
             "label": "Site",
             "key": "field_314",
             "required": false,
             "type": "connection",
             "relationship": {
-                "belongs_to": "many",
+                "object": "object_16",
                 "has": "many",
-                "object": "object_16"
+                "belongs_to": "many"
             }
         }
     ]
@@ -1300,123 +1755,209 @@ Database Objects - Projects
 var dbProjects = {
   "key" : "object_14",
   "name" : "projects",
-    "fields": [
-        {
-            "label": "Organization",
-            "key": "field_122",
-            "required": false,
-            "type": "connection",
-            "relationship": {
-                "belongs_to": "many",
-                "has": "one",
-                "object": "object_13"
-            }
-        },
-        {
-            "label": "Contacts",
-            "key": "field_121",
-            "required": false,
-            "type": "connection",
-            "relationship": {
-                "belongs_to": "many",
-                "has": "many",
-                "object": "object_1"
-            }
-        },
-        {
-            "label": "Name",
-            "key": "field_90",
-            "required": false,
-            "type": "short_text"
-        },
-        {
-            "label": "Pipeline Status",
-            "key": "field_124",
-            "required": false,
-            "type": "multiple_choice",
-            "choices": [
-                "Opportunity",
-                "Bid",
-                "Won",
-                "Active",
-                "Complete",
-                "Archive"
-            ]
-        },
-        {
-            "label": "Project Type",
-            "key": "field_117",
-            "required": false,
-            "type": "multiple_choice",
-            "choices": [
-                "First Choice",
-                "Second Choice",
-                "Third Choice"
-            ]
-        },
-        {
-            "label": "Description",
-            "key": "field_96",
-            "required": false,
-            "type": "paragraph_text"
-        },
-        {
-            "label": "Proposal Due Date",
-            "key": "field_97",
-            "required": false,
-            "type": "date_time"
-        },
-        {
-            "label": "Budget",
-            "key": "field_114",
-            "required": false,
-            "type": "currency"
-        },
-        {
-            "label": "Rating",
-            "key": "field_115",
-            "required": false,
-            "type": "rating"
-        },
-        {
-            "label": "Probability of Winning",
-            "key": "field_175",
-            "required": false,
-            "type": "multiple_choice",
-            "choices": [
-                "Unknown",
-                "High",
-                "Medium",
-                "Low"
-            ]
-        },
-        {
-            "label": "Forecasted Close Date",
-            "key": "field_136",
-            "required": false,
-            "type": "date_time"
-        },
-        {
-            "label": "User Responsible",
-            "key": "field_137",
-            "required": false,
-            "type": "connection",
-            "relationship": {
-                "object": "object_4",
-                "has": "one",
-                "belongs_to": "many"
-            }
-        },
-        {
-            "label": "Site",
-            "key": "field_149",
-            "required": false,
-            "type": "connection",
-            "relationship": {
-                "belongs_to": "many",
-                "has": "one",
-                "object": "object_16"
-            }
-        }
-    ]
+  "fields": [
+      {
+          "label": "Project Number",
+          "key": "field_328",
+          "required": false,
+          "type": "concatenation"
+      },
+      {
+          "label": "Project/Job Name",
+          "key": "field_90",
+          "required": false,
+          "type": "short_text"
+      },
+      {
+          "label": "Prospect(s) / Customer(s)",
+          "key": "field_322",
+          "required": false,
+          "type": "connection",
+          "relationship": {
+              "belongs_to": "many",
+              "has": "many",
+              "object": "object_1"
+          }
+      },
+      {
+          "label": "Description",
+          "key": "field_96",
+          "required": false,
+          "type": "paragraph_text"
+      },
+      {
+          "label": "Project Status",
+          "key": "field_124",
+          "required": false,
+          "type": "connection",
+          "relationship": {
+              "belongs_to": "many",
+              "has": "one",
+              "object": "object_18"
+          }
+      },
+      {
+          "label": "Project Type",
+          "key": "field_225",
+          "required": false,
+          "type": "connection",
+          "relationship": {
+              "object": "object_31",
+              "has": "one",
+              "belongs_to": "many"
+          }
+      },
+      {
+          "label": "Project Sub Type",
+          "key": "field_436",
+          "required": false,
+          "type": "connection",
+          "relationship": {
+              "object": "object_31",
+              "has": "one",
+              "belongs_to": "many"
+          }
+      },
+      {
+          "label": "This Is A Sub Project",
+          "key": "field_219",
+          "required": false,
+          "type": "boolean"
+      },
+      {
+          "label": "Proposal Due Date",
+          "key": "field_97",
+          "required": false,
+          "type": "date_time"
+      },
+      {
+          "label": "Budget",
+          "key": "field_114",
+          "required": false,
+          "type": "currency"
+      },
+      {
+          "label": "Rating",
+          "key": "field_115",
+          "required": false,
+          "type": "rating"
+      },
+      {
+          "label": "Probability of Winning",
+          "key": "field_175",
+          "required": false,
+          "type": "multiple_choice",
+          "choices": [
+              "Unknown",
+              "High",
+              "Medium",
+              "Low"
+          ]
+      },
+      {
+          "label": "Forecasted Close Date",
+          "key": "field_136",
+          "required": false,
+          "type": "date_time"
+      },
+      {
+          "label": "User Responsible",
+          "key": "field_137",
+          "required": false,
+          "type": "connection",
+          "relationship": {
+              "belongs_to": "many",
+              "has": "many",
+              "object": "object_4"
+          }
+      },
+      {
+          "label": "Site",
+          "key": "field_149",
+          "required": false,
+          "type": "connection",
+          "relationship": {
+              "object": "object_16",
+              "has": "one",
+              "belongs_to": "many"
+          }
+      },
+      {
+          "label": "Number of Child Projects",
+          "key": "field_241",
+          "required": false,
+          "type": "count"
+      },
+      {
+          "label": "Number of Parent Projects",
+          "key": "field_242",
+          "required": false,
+          "type": "count"
+      },
+      {
+          "label": "Number of Contacts",
+          "key": "field_243",
+          "required": false,
+          "type": "count"
+      },
+      {
+          "label": "Project Start Date",
+          "key": "field_307",
+          "required": false,
+          "type": "date_time"
+      },
+      {
+          "label": "Project End Date",
+          "key": "field_308",
+          "required": false,
+          "type": "date_time"
+      },
+      {
+          "label": "Client is in the Business Of",
+          "key": "field_311",
+          "required": false,
+          "type": "paragraph_text"
+      },
+      {
+          "label": "Services to be Provided",
+          "key": "field_312",
+          "required": false,
+          "type": "paragraph_text"
+      },
+      {
+          "label": "Item Number",
+          "key": "field_327",
+          "required": false,
+          "type": "number"
+      },
+      {
+          "label": "Pending Task Counts",
+          "key": "field_333",
+          "required": false,
+          "type": "count"
+      },
+      {
+          "label": "Is Project Inactive",
+          "key": "field_334",
+          "required": false,
+          "type": "boolean"
+      },
+      {
+          "label": "Project Detail Count",
+          "key": "field_441",
+          "required": false,
+          "type": "count"
+      },
+      {
+          "label": "Account Added By",
+          "key": "field_450",
+          "required": false,
+          "type": "connection",
+          "relationship": {
+              "belongs_to": "many",
+              "has": "one",
+              "object": "object_4"
+          }
+      }
+  ]
 } ;
