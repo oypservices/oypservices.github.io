@@ -168,7 +168,7 @@ function createProjectTakeoffItems(projectDetailItemId, resultProducts)  {
                         "field_407" : [projectDetailItemId],
                         "field_402" : [productRec.id] ,
                         "field_452" : "No"
-         }
+         };
 
 
          var apidata = {
