@@ -22,7 +22,7 @@ try {
     //if ( objOrders[dfltProductFieldKey] == "No" )
     //    window.location.href =  hrefAddOrderLinePage ;
 
-    var filters = { "filters" : { "match": "and",
+    var filters =  { "match": "and",
                  "rules" : [ {
                            "field":   getFieldKey(dbProductGroups, "Project Type"),
                           "operator" : "contains",
@@ -31,12 +31,6 @@ try {
                    } } ;
 
 
-   filters = { "filters" : [ {
-                        "field":   getFieldKey(dbProductGroups, "Project Type"),
-                       "operator" : "contains",
-                       "value" :  projectTypeKey[0].id
-                     }]
-                 } ;
 
 
 
