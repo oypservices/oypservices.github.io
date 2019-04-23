@@ -51,8 +51,8 @@ try {
               return createProjectPhases(projectId, resultProductGroups  ) ;
               })
 
-  	  .then ( result => {
-  						window.location.href =  hrefAddOrderLinePage ;   } );
+//  	  .then ( result => {
+//  						window.location.href =  hrefAddOrderLinePage ;   } );
 
 }
 catch (e)  {
