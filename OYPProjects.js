@@ -26,9 +26,17 @@ try {
                  "rules" : [ {
                            "field":   getFieldKey(dbProductGroups, "Project Type"),
                           "operator" : "contains",
-                          "value" : [ projectTypeKey[0].id ]
+                          "value" :  projectTypeKey[0].id
                         }]
                    } } ;
+
+
+   filters = { "filters" : [ {
+                        "field":   getFieldKey(dbProductGroups, "Project Type"),
+                       "operator" : "contains",
+                       "value" :  projectTypeKey[0].id
+                     }]
+                 } ;
 
 
 
