@@ -99,7 +99,8 @@ function createProjectPhases(projectId, resultProductGroups)  {
          plist.push (p);
          p.then ( record => {
            var projectDetailItemId = record.id  ;//record[getFieldKey(dbProjectDetailItems, "Project Detail id")]
-           var productGroupId = record[getFieldKey(dbProjectItemDetails, "Project Group")][0].id ;
+           var productGroupKey = getFieldKey(dbProjectItemDetails, "Project Group") + "_raw" ;
+           var productGroupId = record[productGroupKey][0].id ;
            var pT = addDefaultJobTakeoffs(projectDetailItemId, productGroupId) ;
            plist.push (pT) ;
          })
