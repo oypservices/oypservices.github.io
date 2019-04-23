@@ -98,8 +98,9 @@ function createProjectPhases(projectId, resultProductGroups)  {
          var p = 	OYPKnackAPICall (headers,  apidata)	;     //write the line item
          plist.push (p);
          p.then ( record => {
-           var projectDetailItemId = record.id  ;//record[getFieldKey(dbProjectDetailItems, "Project Detail id")] ;
-           var pT = addDefaultJobTakeoffs(projectDetailItemId, prodGroupRec) ;
+           var projectDetailItemId = record.id  ;//record[getFieldKey(dbProjectDetailItems, "Project Detail id")]
+            var productGroupId = record[getFieldKey(dbProjectDetailItems, "Project Group")][0].id ;
+           var pT = addDefaultJobTakeoffs(projectDetailItemId, productGroupId) ;
            plist.push (pT) ;
          })
 
@@ -122,7 +123,7 @@ function createProjectPhases(projectId, resultProductGroups)  {
 Default Project Takeoff Records
 *********************************************************************************************************************/
 
-function addDefaultJobTakeoffs (projectDetailItemId, prodGroupRec)  {
+function addDefaultJobTakeoffs (projectDetailItemId, productGroupId)  {
  	return new Promise ((resolve, reject) => {
 
     logMsg("addDefaultJobTakeoffs") ;
@@ -131,7 +132,7 @@ function addDefaultJobTakeoffs (projectDetailItemId, prodGroupRec)  {
                  "rules" : [ {
                            "field":   getFieldKey(dbProducts, "Product Group"),
                           "operator" : "contains",
-                          "value" :  prodGroupRec.id
+                          "value" :  productGroupId
                         }]
                    } ;
 
