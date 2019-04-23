@@ -97,10 +97,10 @@ function createProjectPhases(projectId, resultProductGroups)  {
 
          var p = 	OYPKnackAPICall (headers,  apidata)	;     //write the line item
          plist.push (p);
-         p.then (
-           var pT = createProjectTakeoffDefaults(p.id, prodGroupRec) ;
+         p.then ( record => {
+           var pT = createProjectTakeoffDefaults(record.id, prodGroupRec) ;
            plist.push (pT) ;
-         )
+         })
 
      }
 
