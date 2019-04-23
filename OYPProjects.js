@@ -98,7 +98,8 @@ function createProjectPhases(projectId, resultProductGroups)  {
          var p = 	OYPKnackAPICall (headers,  apidata)	;     //write the line item
          plist.push (p);
          p.then ( record => {
-           var pT = createProjectTakeoffDefaults(record.id, prodGroupRec) ;
+           var projectDetailItemId = record.id  ;//record[getFieldKey(dbProjectDetailItems, "Project Detail id")] ;
+           var pT = addDefaultJobTakeoffs(projectDetailItemId, prodGroupRec) ;
            plist.push (pT) ;
          })
 
