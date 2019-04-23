@@ -84,7 +84,8 @@ function createProjectPhases(projectId, resultProductGroups)  {
          var record = {
                         "field_414" : projectId,
                         "field_465" : prodGroupRec.id ,
-                        "field_442" : n + 1
+                        "field_442" : n + 1,
+                        "field_438" : "No"
          }
 
 
