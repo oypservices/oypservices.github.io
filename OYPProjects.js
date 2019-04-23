@@ -70,12 +70,12 @@ function createProjectPhases(projectId, resultProductGroups)  {
 
 
     //already in raw format so raw not needed
-    var productsFieldKey = getFieldKey(dbProductGroups, "Products") ;
+  //  var productsFieldKey = getFieldKey(dbProductGroups, "Products") ;
 
     var plist = [];
 
-    console.log (productsFieldKey) ;
-    console.dir (products)
+//    console.log (productsFieldKey) ;
+//    console.dir (products)
 
 
      for (var n= 0 ; n < resultProductGroups.records.length ; n++ )
