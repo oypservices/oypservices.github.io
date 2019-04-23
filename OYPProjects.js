@@ -165,7 +165,7 @@ function createProjectTakeoffItems(projectDetailItemId, resultProducts)  {
          var productRec = resultProducts.records[n] ;
          var record = {
 
-                        "field_401" : projectDetailItemId,
+                        "field_407" : [projectDetailItemId],
                         "field_402" : [productRec.id] ,
                         "field_452" : "No"
          }
