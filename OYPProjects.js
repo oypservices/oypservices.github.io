@@ -28,7 +28,7 @@ try {
                           "operator" : "contains",
                           "value" :  projectTypeKey[0].id
                         }]
-                   } } ;
+                   } ;
 
 
 
