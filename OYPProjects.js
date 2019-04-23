@@ -13,10 +13,10 @@ try {
     console.dir (objProjects);
     var projectId = objProjects.id ;
 
-    var projectTypeKey = objProjects [ getFieldKey(dbProjects, "Project Type") + "_raw" ];
+    var projectTypeKey =  getFieldKey(dbProjects, "Project Type") + "_raw" ;
     var projectType = objProjects [ projectTypeKey];
 
-    var projectSubTypeKey =  objProjects [getFieldKey(dbProjects, "Project Sub Type") + "_raw" ] ;
+    var projectSubTypeKey =  getFieldKey(dbProjects, "Project Sub Type") + "_raw"  ;
     var projectSubType = objProjects [ projectSubTypeKey];
 
     var hrefAddOrderLinePage = $(".kn-back-link a").attr("href") ;
