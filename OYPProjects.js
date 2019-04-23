@@ -26,7 +26,7 @@ try {
                  "rules" : [ {
                            "field":   getFieldKey(dbProductGroups, "Project Type"),
                           "operator" : "contains",
-                          "value" : projectTypeKey[0].id
+                          "value" : [ projectTypeKey[0].id ]
                         }]
                    } } ;
 
@@ -40,6 +40,7 @@ try {
 						"filters" : filters
 					};
 
+    console.dir (apidata) ;
 		OYPKnackAPICall (headers,  apidata)
 
   		.then (resultProductGroups => {
