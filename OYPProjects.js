@@ -88,7 +88,6 @@ function createProjectPhases(projectId, resultProductGroups)  {
                         "field_438" : "No"
          }
 
-
          var apidata = {
     								 "method": "post",
     								 "knackobj": getObjectKey("Project Detail Items"),
@@ -102,8 +101,6 @@ function createProjectPhases(projectId, resultProductGroups)  {
            var pT = createProjectTakeoffDefaults(p.id, prodGroupRec) ;
            plist.push (pT) ;
          )
-
-
 
      }
 
@@ -119,8 +116,6 @@ function createProjectPhases(projectId, resultProductGroups)  {
 
 	})
 }
-
-
 
 /********************************************************************************************************************
 Default Project Takeoff Records
@@ -154,9 +149,6 @@ function addDefaultJobTakeoffs (projectDetailItemId, prodGroupRec)  {
               console.dir (resultProducts) ;
               resolve ( createProjectTakeoffItems(projectDetailItemId, resultProducts  )  );
               })
-
-
-
   })
 }
 
