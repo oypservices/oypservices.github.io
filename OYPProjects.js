@@ -98,6 +98,12 @@ function createProjectPhases(projectId, resultProductGroups)  {
 
          var p = 	OYPKnackAPICall (headers,  apidata)	;     //write the line item
          plist.push (p);
+         p.then (
+           var pT = createProjectTakeoffDefaults(p.id, prodGroupRec) ;
+           plist.push (pT) ;
+         )
+
+
 
      }
 
@@ -108,6 +114,89 @@ function createProjectPhases(projectId, resultProductGroups)  {
           })
           .catch(err => {
               console.error('createProjectPhases Promise.all error', err);
+            //	resolve ('copyGoalRecords successful');
+          });
+
+	})
+}
+
+
+
+/********************************************************************************************************************
+Default Project Takeoff Records
+*********************************************************************************************************************/
+
+function addDefaultJobTakeoffs (projectDetailItemId, prodGroupRec)  {
+ 	return new Promise ((resolve, reject) => {
+
+    logMsg("addDefaultJobTakeoffs") ;
+
+    var filters =  { "match": "and",
+                 "rules" : [ {
+                           "field":   getFieldKey(dbProducts, "Product Group"),
+                          "operator" : "contains",
+                          "value" :  prodGroupRec.id
+                        }]
+                   } ;
+
+		var apidata = {
+						"method": "get",
+						"format" : "raw" ,
+						"knackobj": getObjectKey("Products"),
+						"appid": app_id,
+						"filters" : filters
+					};
+
+    console.dir (apidata) ;
+		OYPKnackAPICall (headers,  apidata)
+
+  		.then (resultProducts => {
+              console.dir (resultProducts) ;
+              resolve ( createProjectTakeoffItems(projectDetailItemId, resultProducts  )  );
+              })
+
+
+
+  })
+}
+
+
+function createProjectTakeoffItems(projectDetailItemId, resultProducts)  {
+
+ 	return new Promise ((resolve, reject) => {
+
+    var plist = [];
+
+     for (var n= 0 ; n < resultProducts.records.length ; n++ )
+     {
+         var productRec = resultProducts.records[n] ;
+         var record = {
+
+                        "field_401" : projectDetailItemId,
+                        "field_402" : [productRec.id] ,
+                        "field_452" : "No"
+         }
+
+
+         var apidata = {
+    								 "method": "post",
+    								 "knackobj": getObjectKey("Project Detail Item Costs"),
+    								 "appid": app_id,
+    								 "record": record
+    				};
+
+         var p = 	OYPKnackAPICall (headers,  apidata)	;     //write the line item
+         plist.push (p);
+
+     }
+
+     Promise.all(plist)
+          .then(result => {
+              console.log('Promise.all', result);
+              resolve ('createProjectTakeoffs successful');
+          })
+          .catch(err => {
+              console.error('createProjectTakeoffs Promise.all error', err);
             //	resolve ('copyGoalRecords successful');
           });
 
