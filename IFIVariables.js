@@ -138,7 +138,8 @@ var dbClients = {
 "BeaconStartDate":"field_277",
 "BeaconEndDate":"field_278",
 "AgeGroup" : "field_289",
-"IntakeDocumentCount" : "field_374"
+"IntakeDocumentCount" : "field_374",
+"BeaconCollaborationSummary" : "field_456"
 }
 
 var dbClientStatusHistory = {
