@@ -22,6 +22,7 @@ try {
     var clientStatusNote = objClient[dbClients.ClientStatusNote] ;
     var beaconStartDate = objClient[dbClients.BeaconStartDate] ;
     var beaconEndDate = objClient[dbClients.BeaconEndDate] ;
+    var beaconCollaborationSummary = objClient[dbClients.BeaconCollaborationSummary] ;
 
     var curClientStatus  = {
       "field_336": clientId ,
@@ -30,6 +31,7 @@ try {
       "field_332": clientStatusNote,
       "field_333": beaconStartDate ,
       "field_334":beaconEndDate  ,
+      "field_455":beaconCollaborationSummary  ,
       "field_335":Knack.getUserAttributes().id
     } ;
     console.dir (curClientStatus);
