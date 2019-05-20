@@ -623,7 +623,7 @@ function checkFinalizeDate(view, data)
         targetDate = convertDateTime ( recOverridExpireDate, "12:00") ;
       else {
         var fldContactDateStart = $(fldPrefix +  dbContactNotes.ContactDateStart).val() ;
-        targetDate = convertDateTime ( fldContactDateStart, "12:00") ;
+        targetDate = convertDateTime ( fldContactDateStart, "11:59pm") ;
         targetDate.setDate(targetDate.getDate() + 2) ;
       }
 
