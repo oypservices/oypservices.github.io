@@ -620,7 +620,7 @@ function checkFinalizeDate(view, data)
     {
       if ( recOverridExpireDate != undefined && recOverridExpireDate != "")
        // recOverride date is a PA exception.  Validate the timefram against this date instead of contact start date
-        targetDate = convertDateTime ( recOverridExpireDate, "12:00") ;
+        targetDate = convertDateTime ( recOverridExpireDate, "11:59") ;
       else {
         var fldContactDateStart = $(fldPrefix +  dbContactNotes.ContactDateStart).val() ;
         targetDate = convertDateTime ( fldContactDateStart, "11:59") ;
