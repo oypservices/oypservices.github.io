@@ -1,28 +1,130 @@
+/*******************************************************************************************************
+ logClientDetailChange every time the client record is updated, if needed
+*******************************************************************************************************/
+
+function logClientDetailChange (event, view, recordClient) {
+try {
+
+  var viewName = view["key"] ;
+  var objClient = Knack.models[viewName].toJSON();
+
+  console.dir (objClient);
+
+  var clientId = objClient.id ;
+  var clientName = objClient[dbClients.ClientName];
+  var UpdatedBy = Knack.getUserAttributes().id
+  var FieldsUpdated = "" ;
+  var ClientStatus = objectClient[dbClient.ClientStatus_raw]
+  var Address = objeclient[dbClients.Address] ;
+  var MA# = objeclient[dbClients.MA#] ;
+  var ID = objeclient[dbClients.ID] ;
+  var Gender = objeclient[dbClients.Gender] ;
+  var ReferredByTitle = objeclient[dbClients.ReferredByTitle] ;
+  var ReferredBy = objeclient[dbClients.ReferredBy] ;
+  var ReferralReason = objeclient[dbClients.ReferralReason] ;
+  var ReferrerPhone = objeclient[dbClients.ReferrerPhone] ;
+  var DOB = objeclient[dbClients.DOB] ;
+  var ClientPhone = objeclient[dbClients.ClientPhone] ;
+  var GuardianName = objeclient[dbClients.GuardianName] ;
+  var GuardianPhoneNumber = objeclient[dbClients.GuardianPhoneNumber] ;
+  var AXISI = objeclient[dbClients.AXISI] ;
+  var AXISII = objeclient[dbClients.AXISII] ;
+  var AXISIII = objeclient[dbClients.AXISII] ;
+  var AXISIV = objeclient[dbClients.AXISIV] ;
+  var AXISVGAF = objeclient[dbClients.AXISVGAF] ;
+  var Medications = objeclient[dbClients.Medications] ;
+  var MaritalStatus = objeclient[dbClients.MaritalStatus] ;
+  var EmploymentStatus = objeclient[dbClients.EmploymentStatus] ;
+  var IncomeSource = objeclient[dbClients.IncomeSource] ;
 
 
-$(document).on('knack-records-render.view_11', function(event, scene, records) {
-  $(document).on('knack-record-update.any', function(event, view, updatedRecord) {
 
-    console.dir (records) ;
-    console.dir (updatedRecord) ;
+  var curClientStatus  = {
+    "field_486": clientId ,
+    "field_487":UpdatedBy ,
+    "field_488":UpdatedDateTime ,
+    "field_490":FieldsUpdated ,
+    "field_458":ClientName ,
+    "field_459":ClientStatus ,
+    "field_460":BeaconCollaborationSummary ,
+    "field_461":Address ,
+    "field_462":MA# ,
+    "field_463":ID ,
+    "field_464":Gender ,
+    "field_465":ReferredByTitle ,
+    "field_466":ReferredBy ,
+    "field_467":ReferralReason ,
+    "field_468":ReferrerPhone ,
+    "field_469":DOB ,
+    "field_472":ClientPhone ,
+    "field_473":GuardianName ,
+    "field_474":GuardianPhoneNumber ,
+    "field_475":AXISI ,
+    "field_476":AXISII ,
+    "field_477":AXISIII ,
+    "field_478":AXISIV ,
+    "field_479":AXISVGAF ,
+    "field_482":Medications ,
+    "field_483":MaritalStatus ,
+    "field_484":EmploymentStatus ,
+    "field_485":IncomeSource
+  } ;
+  console.dir (curClientStatus);
 
-    // Filter the initially loaded records for the one with the same ID as the updated one
-    var recordBeforeUpdate = records.filter(recordFromRenderEvent => {
-      return recordFromRenderEvent.id === updatedRecord.id;
-    })[0];
+  //get the last statud history record for the clientId
+  var resource = 'knackobject';
+  var getapidata =  {
+    "method": "get",
+    "knackobj": dbObjects.ClientlHistory,
+    "appid": app_id ,
+    "page":"1",
+    "rows_per_page":"1",
+    "sort_field": dbClientHistory.UpdatedDateTime,
+    "sort_order":"desc",
+    "filters": [ {
+        "field":dbClientHistory.Client ,
+        "operator":"is",
+        "value": clientId
+      }
+    ]
+  }
 
-//    if (updatedRecord.field_yy !== recordBeforeUpdate.field_yy) {
-      // Do something, such as:
-//      alert('Field_yy has been changed!')
-//    }
-      console.dir (recordBeforeUpdate) ;
+  console.log ("logStatusChange");
+  console.dir (getapidata);
 
-  });
-});
+  OYPServicesAPIPost( resource, headers, getapidata )
+    .then (resultCSH=> {
 
+         console.dir (resultCSH);
 
+          if (resultCSH.records.length == 0 )
+          {
+            console.log ("No Client History" + resultCSH.records.length);
+             //insertClientHistory (curClientStatus) ;
+          }
+          else {
 
+            for (var i = 0; i < resultCSH.records[0].length; i++) {
 
+                if (resultCSH.records[0][i] != curClientStatus[i])
+                   {
+                     console.log ("before: " + resultCSH.records[0][i];
+                     console.log ("after:" + curClientStatus[i]) ;
+                     bChange = true ;
+                  }
+            }
+
+          //  if (bChanged)
+          //     insertClientHistory (curClientStatus) ;
+
+    } )
+  }
+catch (e)
+  {
+    logerror ("logStatusChange", e);
+  }
+
+}
 
 /*******************************************************************************************************
  logStatusChanges every time the client record is updated, if needed

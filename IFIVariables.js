@@ -84,7 +84,8 @@ var dbObjects = {
   "ClientTeamMemberRoles" : "object_39",
   "AlertRules" : "object_38",
   "ClientEvents" : "object_40",
-  "ClientContactReview" : "object_21"
+  "ClientContactReview" : "object_21",
+  "ClientHistory": "object_43"
 }
 
 
@@ -139,7 +140,56 @@ var dbClients = {
 "BeaconEndDate":"field_278",
 "AgeGroup" : "field_289",
 "IntakeDocumentCount" : "field_374",
-"BeaconCollaborationSummary" : "field_456"
+"BeaconCollaborationSummary" : "field_456",
+"Address" : "field_3",
+"MA#" : "field_6",
+"ID" : "field_243",
+"Gender" : "field_7",
+"DOB" : "field_167",
+"ClientPhone" : "field_121",
+"GuardianPhoneNumber" : "field_420",
+"AXISI":"field_126",
+"AXISII":"field_127",
+"AXISIII":"field_130",
+"AXISIV":"field_129",
+"AXISVGAF":"field_131",
+"Medications":"field_415",
+"MaritalStatus":"field_416",
+"EmploymentStatus":"field_417",
+"IncomeSource":"field_418"
+
+
+}
+
+var dbClientHistory = {
+  "Client":"field_486",
+"UpdatedBy":"field_487",
+"UpdatedDateTime":"field_488",
+"FieldsUpdated":"field_490",
+"ClientName":"field_458",
+"ClientStatus":"field_459",
+"BeaconCollaborationSummary":"field_460",
+"Address":"field_461",
+"MA#":"field_462",
+"ID":"field_463",
+"Gender":"field_464",
+"ReferredByTitle":"field_465",
+"ReferredBy":"field_466",
+"ReferralReason":"field_467",
+"ReferrerPhone":"field_468",
+"DOB":"field_469",
+"ClientPhone":"field_472",
+"GuardianName":"field_473",
+"GuardianPhoneNumber":"field_474",
+"AXISI":"field_475",
+"AXISII":"field_476",
+"AXISIII":"field_477",
+"AXISIV":"field_478",
+"AXISVGAF":"field_479",
+"Medications":"field_482",
+"MaritalStatus":"field_483",
+"EmploymentStatus":"field_484",
+"IncomeSource":"field_485"
 }
 
 var dbClientStatusHistory = {
