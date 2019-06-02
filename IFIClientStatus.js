@@ -1,10 +1,32 @@
 
+
+$(document).on('knack-records-render.view_11', function(event, scene, records) {
+  $(document).on('knack-record-update.any', function(event, view, updatedRecord) {
+
+    console.dir (records) ;
+    console.dir (updatedRecord) ;
+
+    // Filter the initially loaded records for the one with the same ID as the updated one
+    var recordBeforeUpdate = records.filter(recordFromRenderEvent => {
+      return recordFromRenderEvent.id === updatedRecord.id;
+    })[0];
+
+//    if (updatedRecord.field_yy !== recordBeforeUpdate.field_yy) {
+      // Do something, such as:
+//      alert('Field_yy has been changed!')
+//    }
+      console.dir (recordBeforeUpdate) ;
+
+  });
+});
+
+
+
+
+
 /*******************************************************************************************************
  logStatusChanges every time the client record is updated, if needed
 *******************************************************************************************************/
-
-
-
 
 function logStatusChange (event, view, recordClient) {
 try {
@@ -87,8 +109,6 @@ try {
               "value": teamMember.Name
             }
            ]
-
-
 
              var msg = {} ;
              msg.to = ['vanessa@oypservices.com', 'brian@oypservices.com' ];
