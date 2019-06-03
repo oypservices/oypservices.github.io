@@ -96,12 +96,14 @@ try {
           if (resultCSH.records.length == 0 )
           {
             console.log ("No Client History" + resultCSH.records.length);
-             //insertClientHistory (curClientStatus) ;
+            insertClientHistory (curClientStatus) ;
           }
           else {
 
           var bEqual = (resultCSH.records[0] === curClientStatus) ;
           console.log ("Are they equal", bEqual) ;
+
+          var updatedFields = "" ;
 
           for (var i = 0; i < arrClientHistory.length; i++) {
                 var key = arrClientHistory[i].key ;
@@ -110,12 +112,18 @@ try {
                    {
                      console.log ("before: " + resultCSH.records[0][key]);
                      console.log ("after:" + curClientStatus[key]) ;
+                     if (bchange)
+                        updatedFields = updatedFields + ", " label ;
+                     else
+                        updatedFields = label ;
+
                      bChange = true ;
                   }
             }
 
-          //  if (bChanged)
-          //     insertClientHistory (curClientStatus) ;
+            if (bChange)
+               curClientStatus ["field_487"] = updatedFields ;
+               insertClientHistory (curClientStatus) ;
         }
     } )
   }
@@ -265,6 +273,42 @@ function resetClientStatusNote (clientId)
     }
 
 }
+
+
+
+
+/**************************************************************************************
+ Insert a status history record
+***************************************************************************************/
+
+function insertClientHistory (curClientStatus)
+{
+    try {
+
+        var proc = "insertClientHistory" ;
+        console.log (proc);
+
+        console.dir (curClientStatus);
+        var resource = 'knackobject';
+        var postapidata = {
+              "method": "post",
+              "knackobj": dbObjects.ClientHistory ,
+              "appid": app_id,
+              "record":  curClientStatus
+      };
+      console.dir (postapidata);
+       OYPServicesAPIPost( resource, headers, postapidata )
+           .then (resultDocAdded=> {
+                               console.dir (resultDocAdded) ;
+                               console.log('Client Status History Added!!!');
+                             }) ;
+        }
+   catch (e) {
+      logerror (proc, e);
+    }
+}
+
+
 
 
 

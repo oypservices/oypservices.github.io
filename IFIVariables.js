@@ -162,8 +162,29 @@ var dbClients = {
 }
 
 var arrClientHistory = [
-{"key":"field_458" ,"label":"ClientName" } ,
-{"key":"field_459" ,"label":"ClientStatus" }
+{"key":"field_458" ,"label":"Client Name" } ,
+{ "key" : "field_461", "label" : "Address"},
+{ "key" : "field_462", "label" : "MA"},
+{ "key" : "field_463", "label" : "ID"},
+{ "key" : "field_464", "label" : "Gender"},
+{ "key" : "field_465", "label" : "Referred By Title"},
+{ "key" : "field_466", "label" : "Referred By"},
+{ "key" : "field_467", "label" : "Referral Reason"},
+{ "key" : "field_468", "label" : "Referrer Phone"},
+{ "key" : "field_469", "label" : "DOB"},
+{ "key" : "field_472", "label" : "Client Phone"},
+{ "key" : "field_473", "label" : "Guardian Name"},
+{ "key" : "field_474", "label" : "Guardian Phone Number"},
+{ "key" : "field_475", "label" : "AXIS I"},
+{ "key" : "field_476", "label" : "AXIS II"},
+{ "key" : "field_477", "label" : "AXIS III"},
+{ "key" : "field_478", "label" : "AXIS IV"},
+{ "key" : "field_479", "label" : "AXIS V GAF"},
+{ "key" : "field_482", "label" : "Medications"},
+{ "key" : "field_483", "label" : "Marital Status"},
+{ "key" : "field_484", "label" : "Employment Status"},
+{ "key" : "field_485", "label" : "Income Source"}
+
 ] ;
 
 var dbClientHistory = {
