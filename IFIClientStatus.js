@@ -103,12 +103,13 @@ try {
           var bEqual = (resultCSH.records[0] === curClientStatus) ;
           console.log ("Are they equal", bEqual) ;
 
-          for (var i = 0; i < json_data.length; i++) {
-
-                if (resultCSH.records[0][i] != curClientStatus[i])
+          for (var i = 0; i < arrClientHistory.length; i++) {
+                var key = arrClientHistory[i].key ;
+                var label = arrClientHistory[i].label
+                if (resultCSH.records[0][key] != curClientStatus[key])
                    {
-                     console.log ("before: " + resultCSH.records[0][i]);
-                     console.log ("after:" + curClientStatus[i]) ;
+                     console.log ("before: " + resultCSH.records[0][key]);
+                     console.log ("after:" + curClientStatus[key]) ;
                      bChange = true ;
                   }
             }
