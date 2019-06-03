@@ -113,7 +113,7 @@ try {
                      console.log ("before: " + resultCSH.records[0][key]);
                      console.log ("after:" + curClientStatus[key]) ;
                      if (bchange)
-                        updatedFields = updatedFields + ", " label ;
+                        updatedFields = updatedFields + ", " + label ;
                      else
                         updatedFields = label ;
 
