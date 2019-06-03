@@ -26,10 +26,10 @@ try {
   var ClientPhone = objClient[dbClients.ClientPhone+ "_raw"] ;
   var GuardianName = objClient[dbClients.GuardianName+ "_raw"] ;
   var GuardianPhoneNumber = objClient[dbClients.GuardianPhoneNumber+ "_raw"] ;
-  var AXISI = objClient[dbClients.AXISI] ;
-  var AXISII = objClient[dbClients.AXISII] ;
+  var AXISI = objClient[dbClients.AXISI+ "_raw"] ;
+  var AXISII = objClient[dbClients.AXISII+ "_raw"] ;
   var AXISIII = objClient[dbClients.AXISII] ;
-  var AXISIV = objClient[dbClients.AXISIV] ;
+  var AXISIV = objClient[dbClients.AXISIV+ "_raw"] ;
   var AXISVGAF = objClient[dbClients.AXISVGAF] ;
   var Medications = objClient[dbClients.Medications] ;
   var MaritalStatus = objClient[dbClients.MaritalStatus] ;
