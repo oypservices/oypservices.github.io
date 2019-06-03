@@ -16,7 +16,7 @@ try {
   var FieldsUpdated = "" ;
   var ClientStatus = objectClient[dbClient.ClientStatus_raw]
   var Address = objeclient[dbClients.Address] ;
-  var MA# = objeclient[dbClients.MA] ;
+  var MA = objeclient[dbClients.MA] ;
   var ID = objeclient[dbClients.ID] ;
   var Gender = objeclient[dbClients.Gender] ;
   var ReferredByTitle = objeclient[dbClients.ReferredByTitle] ;
