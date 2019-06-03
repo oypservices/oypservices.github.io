@@ -162,8 +162,8 @@ var dbClients = {
 }
 
 var arrClientHistory = [
-{"key":"field_458": "label":"ClientName" } ,
-{"key":"field_459": "label":"ClientStatus" }
+{"key":"field_458" ,"label":"ClientName" } ,
+{"key":"field_459" ,"label":"ClientStatus" }
 ] ;
 
 var dbClientHistory = {
