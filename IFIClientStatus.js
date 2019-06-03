@@ -11,20 +11,20 @@ try {
   console.dir (objClient);
 
   var clientId = objClient.id ;
-  var clientName = objClient[dbClients.ClientName];
+  var clientName = objClient[dbClients.ClientName + "_raw"];
   var UpdatedBy = Knack.getUserAttributes().id
   var FieldsUpdated = "" ;
-  var Address = objClient[dbClients.Address] ;
+  var Address = objClient[dbClients.Address + "_raw"] ;
   var MA = objClient[dbClients.MA] ;
   var ID = objClient[dbClients.ID] ;
   var Gender = objClient[dbClients.Gender] ;
   var ReferredByTitle = objClient[dbClients.ReferredByTitle] ;
-  var ReferredBy = objClient[dbClients.ReferredBy] ;
+  var ReferredBy = objClient[dbClients.ReferredBy+ "_raw"] ;
   var ReferralReason = objClient[dbClients.ReferralReason] ;
   var ReferrerPhone = objClient[dbClients.ReferrerPhone] ;
   var DOB = objClient[dbClients.DOB] ;
   var ClientPhone = objClient[dbClients.ClientPhone] ;
-  var GuardianName = objClient[dbClients.GuardianName] ;
+  var GuardianName = objClient[dbClients.GuardianName+ "_raw"] ;
   var GuardianPhoneNumber = objClient[dbClients.GuardianPhoneNumber] ;
   var AXISI = objClient[dbClients.AXISI] ;
   var AXISII = objClient[dbClients.AXISII] ;
