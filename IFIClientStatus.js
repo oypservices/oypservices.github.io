@@ -100,7 +100,10 @@ try {
           }
           else {
 
-            for (var i = 0; i < resultCSH.records[0].length; i++) {
+          var bEqual = (resultCSH.records[0] === curClientStatus) ;
+          console.log ("Are they equal", bEqual) ;
+
+          for (var i = 0; i < json_data.length; i++) {
 
                 if (resultCSH.records[0][i] != curClientStatus[i])
                    {
