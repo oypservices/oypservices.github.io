@@ -21,11 +21,11 @@ try {
   var ReferredByTitle = objClient[dbClients.ReferredByTitle] ;
   var ReferredBy = objClient[dbClients.ReferredBy+ "_raw"] ;
   var ReferralReason = objClient[dbClients.ReferralReason] ;
-  var ReferrerPhone = objClient[dbClients.ReferrerPhone] ;
+  var ReferrerPhone = objClient[dbClients.ReferrerPhone+ "_raw"] ;
   var DOB = objClient[dbClients.DOB] ;
-  var ClientPhone = objClient[dbClients.ClientPhone] ;
+  var ClientPhone = objClient[dbClients.ClientPhone+ "_raw"] ;
   var GuardianName = objClient[dbClients.GuardianName+ "_raw"] ;
-  var GuardianPhoneNumber = objClient[dbClients.GuardianPhoneNumber] ;
+  var GuardianPhoneNumber = objClient[dbClients.GuardianPhoneNumber+ "_raw"] ;
   var AXISI = objClient[dbClients.AXISI] ;
   var AXISII = objClient[dbClients.AXISII] ;
   var AXISIII = objClient[dbClients.AXISII] ;
@@ -123,7 +123,7 @@ try {
             }
 
             if (bChange)
-               curClientStatus ["field_487"] = updatedFields ;
+               curClientStatus ["field_490"] = updatedFields ;
                insertClientHistory (curClientStatus) ;
         }
     } )
