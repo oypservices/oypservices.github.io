@@ -41,11 +41,8 @@ try {
   var curClientStatus  = {
     "field_486": clientId ,
     "field_487":UpdatedBy ,
-    "field_488":UpdatedDateTime ,
     "field_490":FieldsUpdated ,
-    "field_458":ClientName ,
-    "field_459":ClientStatus ,
-    "field_460":BeaconCollaborationSummary ,
+    "field_458":clientName ,
     "field_461":Address ,
     "field_462":MA,
     "field_463":ID ,
