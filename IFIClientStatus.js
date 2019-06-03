@@ -116,7 +116,7 @@ try {
 
           //  if (bChanged)
           //     insertClientHistory (curClientStatus) ;
-
+        }
     } )
   }
 catch (e)
