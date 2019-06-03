@@ -108,7 +108,7 @@ try {
 
                 if (resultCSH.records[0][i] != curClientStatus[i])
                    {
-                     console.log ("before: " + resultCSH.records[0][i];
+                     console.log ("before: " + resultCSH.records[0][i]);
                      console.log ("after:" + curClientStatus[i]) ;
                      bChange = true ;
                   }
