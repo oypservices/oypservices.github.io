@@ -116,7 +116,9 @@ try {
                    srckey = srckey + "_raw" ;
 
 
-                if (record[srckey] != curClientStatus[key]) 
+                if (record[srckey] === curClientStatus[key])
+                    console.log ("equal") ;
+                else
                    {
                      console.dir ("before: " + record[srckey]);
                      console.dir ("after:" + curClientStatus[key]) ;
