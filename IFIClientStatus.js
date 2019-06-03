@@ -16,7 +16,7 @@ try {
   var FieldsUpdated = "" ;
   var ClientStatus = objectClient[dbClient.ClientStatus_raw]
   var Address = objeclient[dbClients.Address] ;
-  var MA# = objeclient[dbClients.MA#] ;
+  var MA# = objeclient[dbClients.MA] ;
   var ID = objeclient[dbClients.ID] ;
   var Gender = objeclient[dbClients.Gender] ;
   var ReferredByTitle = objeclient[dbClients.ReferredByTitle] ;
@@ -48,7 +48,7 @@ try {
     "field_459":ClientStatus ,
     "field_460":BeaconCollaborationSummary ,
     "field_461":Address ,
-    "field_462":MA# ,
+    "field_462":MA,
     "field_463":ID ,
     "field_464":Gender ,
     "field_465":ReferredByTitle ,
