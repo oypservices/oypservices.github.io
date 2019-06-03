@@ -77,6 +77,7 @@ try {
     "rows_per_page":"1",
     "sort_field": dbClientHistory.UpdatedDateTime,
     "sort_order":"desc",
+    "format" : "raw",
     "filters": [ {
         "field":dbClientHistory.Client ,
         "operator":"is",
