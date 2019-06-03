@@ -110,10 +110,11 @@ try {
           for (var i = 0; i < arrClientHistory.length; i++) {
                 var key = arrClientHistory[i].key ;
                 var label = arrClientHistory[i].label
-                if (resultCSH.records[0][key] != curClientStatus[key])
+                var record = resultCSH.records[0] ;
+                if (record[key] != curClientStatus[key])
                    {
-                     console.log ("before: " + resultCSH.records[0][key]);
-                     console.log ("after:" + curClientStatus[key]) ;
+                     console.dir ("before: " + record[key]);
+                     console.dir ("after:" + curClientStatus[key]) ;
                      if (bChange)
                         updatedFields = updatedFields + ", " + label ;
                      else
