@@ -105,6 +105,7 @@ try {
 
           var updatedFields = "" ;
 
+          var bChange  = false ;
           for (var i = 0; i < arrClientHistory.length; i++) {
                 var key = arrClientHistory[i].key ;
                 var label = arrClientHistory[i].label
@@ -112,7 +113,7 @@ try {
                    {
                      console.log ("before: " + resultCSH.records[0][key]);
                      console.log ("after:" + curClientStatus[key]) ;
-                     if (bchange)
+                     if (bChange)
                         updatedFields = updatedFields + ", " + label ;
                      else
                         updatedFields = label ;
