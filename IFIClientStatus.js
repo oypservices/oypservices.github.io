@@ -71,7 +71,7 @@ try {
   var resource = 'knackobject';
   var getapidata =  {
     "method": "get",
-    "knackobj": dbObjects.ClientlHistory,
+    "knackobj": dbObjects.ClientHistory,
     "appid": app_id ,
     "page":"1",
     "rows_per_page":"1",
