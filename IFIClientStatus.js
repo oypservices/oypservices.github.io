@@ -77,7 +77,6 @@ try {
     "rows_per_page":"1",
     "sort_field": dbClientHistory.UpdatedDateTime,
     "sort_order":"desc",
-    "format" : "raw",
     "filters": [ {
         "field":dbClientHistory.Client ,
         "operator":"is",
@@ -111,9 +110,15 @@ try {
                 var key = arrClientHistory[i].key ;
                 var label = arrClientHistory[i].label
                 var record = resultCSH.records[0] ;
-                if (record[key] != curClientStatus[key])
+                var srckey = key ;
+
+                if (record[key + "_raw"] != undefined)
+                   srckey = srckey + "_raw" ;
+
+
+                if (record[srckey] != curClientStatus[key]) 
                    {
-                     console.dir ("before: " + record[key]);
+                     console.dir ("before: " + record[srckey]);
                      console.dir ("after:" + curClientStatus[key]) ;
                      if (bChange)
                         updatedFields = updatedFields + ", " + label ;
