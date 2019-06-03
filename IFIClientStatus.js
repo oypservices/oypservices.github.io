@@ -14,7 +14,6 @@ try {
   var clientName = objClient[dbClients.ClientName];
   var UpdatedBy = Knack.getUserAttributes().id
   var FieldsUpdated = "" ;
-  var ClientStatus = objectClient[dbClient.ClientStatus_raw]
   var Address = objeclient[dbClients.Address] ;
   var MA = objeclient[dbClients.MA] ;
   var ID = objeclient[dbClients.ID] ;
